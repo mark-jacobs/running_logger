@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   has_many :races, dependent: :destroy
+  has_many :training_plans, dependent: :destroy
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

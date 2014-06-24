@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619162724) do
+ActiveRecord::Schema.define(version: 20140624151635) do
 
   create_table "races", force: true do |t|
     t.date     "race_date"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20140619162724) do
   end
 
   add_index "races", ["user_id"], name: "index_races_on_user_id"
+
+  create_table "training_plans", force: true do |t|
+    t.datetime "plan_date"
+    t.float    "plan_miles"
+    t.string   "plan_workout"
+    t.boolean  "plan_q"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

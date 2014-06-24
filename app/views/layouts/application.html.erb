@@ -21,6 +21,7 @@
       <%= link_to "Profile", user_path(current_user) %>
       <%= link_to "Races", user_races_path(current_user) %>
       <%= link_to "Sign out", signout_path, method: "delete" %>
+      <%= link_to "Training plan", user_training_plans_path(current_user) %>
     <% end %>
 
     <% if !signed_in? %>

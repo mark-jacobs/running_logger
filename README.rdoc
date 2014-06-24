@@ -6,7 +6,7 @@ Models
 
 User: name, email, passworddigest
 TrainingPlan: date, miles, workout, Q
-TrainingLog: date, miles, workout, calories, Q
+TrainingLog: date, miles, workout, calories, Q, notes
 
 
 
