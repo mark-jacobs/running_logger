@@ -3,7 +3,9 @@
       <%= x.distance %> 
       <%= x.race_date %>
       <%= x.position %>
-      <%= x.finish_time %>
+      <% if !x.finish_time.nil? %>
+        <%= x.finish_time.strftime("%H:%M:%S") %>
+      <% end %>  
       <%= link_to "View", user_race_path(current_user, x.id) %>
       <%= link_to "Delete", user_race_path(current_user, x.id), method: :delete, data: { confirm: "Are you sure?" }  %>
       <%= link_to "Edit", edit_user_race_path(current_user, x.id) %>

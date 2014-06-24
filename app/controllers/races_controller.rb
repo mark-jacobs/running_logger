@@ -1,5 +1,5 @@
 class RacesController < ApplicationController
-  
+  before_action :signed_in_user
   def new
     @user = current_user
     @race = @user.races.build
@@ -47,7 +47,7 @@ class RacesController < ApplicationController
     @user = current_user
     @race = @user.races.find(params[:id])
     if @race.update(race_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "Race updated"
       redirect_to user_races_path(current_user)
     else
       render 'edit'
@@ -58,5 +58,9 @@ class RacesController < ApplicationController
   
     def race_params
      params.require(:race).permit(:race_name, :race_date, :distance, :finish_time, :position)
+    end
+
+    def signed_in_user
+      redirect_to signin_url, notice: "Please sign in" unless signed_in?
     end
 end
