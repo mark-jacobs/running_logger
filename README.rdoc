@@ -1,6 +1,6 @@
 == README
 
-Running log app.
+Running log app - Training log and race diary functionality will be added.
 
 Models
 
@@ -19,18 +19,3 @@ enter plan, enter log, enter race
 show upcoming races on training log.
 
 
-
-
-<%= form_for(@race) do |f| %>
-
-  <%= f.label :race_name %>
-  <%= f.text_field :race_name %>
-
-  <%= f.label :race_date %>
-  <%= f.date_field :race_date %>
-
-  <%= f.label :distance %>
-  <%= f.text_field :distance %>
-
-  <%= f.submit "Add race" %>
-<% end %>
