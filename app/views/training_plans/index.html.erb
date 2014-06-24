@@ -1,0 +1,12 @@
+<h1>Training Plan</h1>
+<%= @user.name %>
+<% @training_plans.each do |x| %>
+  <ol>
+    <li>
+      <%= x.plan_date %>
+      <%= x.plan_workout %>
+      <%= x.plan_miles %>
+      <%= "Quality" if  x.plan_q  %>
+    </li>
+  </ol>
+<% end %>

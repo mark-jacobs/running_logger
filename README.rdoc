@@ -4,13 +4,13 @@ Running log app - Training log and race diary functionality will be added.
 
 Models
 
-User: name, email, passworddigest
-TrainingPlan: date, miles, workout, Q
-TrainingLog: date, miles, workout, calories, Q, notes
+User: name, email, passworddigestl
+TrainingPlan: plan_date:datetime, plan_miles:double, plan_workout:string, plan_q:boolean
+TrainingLog: log_date, log_miles, log_workout, log_calories, log_Q:boolean, notes:text
 
 
 
-Race: date race_name distanc e, time, position, 
+Race: date race_name distance, time, position, 
 
 
 view training log, view training plan, view stats, weekly, monthly, yearly. graphs?
