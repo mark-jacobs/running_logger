@@ -1,0 +1,36 @@
+== README
+
+Running log app.
+
+Models
+
+User: name, email, passworddigest
+TrainingPlan: date, miles, workout, Q
+TrainingLog: date, miles, workout, calories, Q
+
+
+
+Race: date race_name distanc e, time, position, 
+
+
+view training log, view training plan, view stats, weekly, monthly, yearly. graphs?
+enter plan, enter log, enter race
+
+show upcoming races on training log.
+
+
+
+
+<%= form_for(@race) do |f| %>
+
+  <%= f.label :race_name %>
+  <%= f.text_field :race_name %>
+
+  <%= f.label :race_date %>
+  <%= f.date_field :race_date %>
+
+  <%= f.label :distance %>
+  <%= f.text_field :distance %>
+
+  <%= f.submit "Add race" %>
+<% end %>

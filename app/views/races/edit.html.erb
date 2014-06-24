@@ -1,0 +1,20 @@
+<h1>Edit race</h1>
+
+<%= form_for [@user,@race] do |f| %>
+  <%= f.label :race_name %>
+  <%= f.text_field :race_name %>
+
+  <%= f.label :race_date %>
+  <%= f.date_field :race_date %>
+
+  <%= f.label :distance %>
+  <%= f.text_field :distance %>
+
+  <%= f.label :finish_time %>
+  <%= f.time_select :finish_time, include_seconds: true,  :value=> "01:01:01.001" %>
+
+  <%= f.label :position %>
+  <%= f.text_field :position %>
+
+  <%= f.submit "Submit" %>
+<% end %>

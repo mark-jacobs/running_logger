@@ -1,0 +1,17 @@
+<h1>Add race - test</h1>
+<%= @user.name %>
+
+
+<%= form_for [@user,@race] do |f| %>
+  <%= f.label :race_name %>
+  <%= f.text_field :race_name %>
+
+  <%= f.label :race_date %>
+  <%= f.date_field :race_date %>
+
+  <%= f.label :distance %>
+  <%= f.text_field :distance %>
+
+  <%= f.submit "Add race" %>
+<% end %>
+

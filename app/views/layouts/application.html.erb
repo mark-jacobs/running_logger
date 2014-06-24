@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RunningLogger</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<%= yield %>
+
+</body>
+<footer>
+  <p>
+    <%= link_to "Home", root_path %>
+
+    <% if signed_in? %>
+      <%= link_to "Profile", user_path(current_user) %>
+      <%= link_to "Races", user_races_path(current_user) %>
+      <%= link_to "Sign out", signout_path, method: "delete" %>
+    <% end %>
+
+    <% if !signed_in? %>
+      <%= link_to "Sign in", signin_path %>
+      <%= link_to "Sign up", signup_path %>
+    <% end %>
+  </p>
+</footer>
+</html>

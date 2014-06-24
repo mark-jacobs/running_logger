@@ -1,0 +1,15 @@
+<h1>Race</h1>
+<p>
+<%= @user.name %>
+</p>
+<p>
+    <%= @race.race_name %> 
+    <%= @race.distance %> 
+    <%= @race.race_date %>
+    <%= @race.position %>
+    <%= @race.finish_time %>
+    <%= link_to "Delete", user_race_path(current_user, @race.id), method: :delete  %>
+</p>
+<p>
+
+
