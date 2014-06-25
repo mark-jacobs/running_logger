@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625082943) do
+ActiveRecord::Schema.define(version: 20140625115425) do
 
   create_table "races", force: true do |t|
     t.date     "race_date"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20140625082943) do
     t.datetime "updated_at"
   end
 
+  add_index "training_logs", ["log_date"], name: "index_training_logs_on_log_date", unique: true
+
   create_table "training_plans", force: true do |t|
     t.datetime "plan_date"
     t.float    "plan_miles"
@@ -47,6 +49,8 @@ ActiveRecord::Schema.define(version: 20140625082943) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "training_plans", ["plan_date"], name: "index_training_plans_on_plan_date", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"
