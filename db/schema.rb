@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625115425) do
+ActiveRecord::Schema.define(version: 20140625123003) do
+
+  create_table "notes", force: true do |t|
+    t.datetime "date"
+    t.string   "note_item"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notes", ["date"], name: "index_notes_on_date", unique: true
 
   create_table "races", force: true do |t|
     t.date     "race_date"

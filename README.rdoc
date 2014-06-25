@@ -42,6 +42,8 @@ Next:
 
 *might be good if you can enter the dates of the race, and it calculate the phases for you according to the method in the book for < 24 week training cycles. Will need to be able to include or skip phase I training as necessary.
 
+*Error messages when entering fields incorrectly.
+
 Completed:
 *Edit and delete actions for training plans and training logs
 *Make dates unique for training plans and logs
