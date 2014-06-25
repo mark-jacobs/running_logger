@@ -11,7 +11,7 @@ class TrainingLogsController < ApplicationController
     @user = current_user
     @training_log = @user.training_logs.build(training_log_params)
     if @training_log.save
-      redirect_to user_training_plans_path(current_user)
+      redirect_to user_training_logs_path(current_user)
     else
       render 'new'
     end
@@ -21,6 +21,29 @@ class TrainingLogsController < ApplicationController
     @user = current_user
     @training_logs = @user.training_logs
   end
+
+  def edit
+    @user = current_user
+    @training_log = @user.training_logs.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @training_log = @user.training_logs.build(training_log_params)
+    if @training_log.save
+      redirect_to user_training_logs_path(current_user)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @user = current_user
+    @training_log = @user.training_logs.find(params[:id])
+    @training_log.destroy
+    redirect_to user_training_logs_path
+  end
+
 
   private
 

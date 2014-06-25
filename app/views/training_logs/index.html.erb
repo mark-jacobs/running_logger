@@ -13,7 +13,9 @@
       <%= x.log_q  %>
       <%= x.log_miles %>
       <%= x.log_calories %>
-      <%= x.notes %>      
+      <%= x.notes %>
+      <%= link_to "Edit", edit_user_training_log_path(current_user, x.id) %> 
+      <%= link_to "Delete", user_training_log_path(current_user, x.id), method: :delete, data: { confirm: "Are you sure?" } %> 
     </li>
   </ol>
   <% end %>

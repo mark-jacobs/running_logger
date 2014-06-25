@@ -1,0 +1,25 @@
+<h1>Edit log session</h1>
+<%= @user.name %>
+<p>
+<%= form_for [@user, @training_log] do |f| %>
+  <%= f.label "Date" %>
+  <%= f.date_field :log_date %>
+
+  <%= f.label "Workout" %>
+  <%= f.text_field :log_workout %>
+
+  <%= f.label "Quality session" %>
+  <%= f.check_box :log_q %>
+
+  <%= f.label "Miles" %>
+  <%= f.text_field :log_miles %>
+
+  <%= f.label "Calorie estimate" %>
+  <%= f.text_field :log_calories %>
+
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+
+  <%= f.submit "Submit" %>
+<% end %>
+</p>
