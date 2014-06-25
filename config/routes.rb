@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users, only:[:create, :new, :edit, :update, :show] do
     resources :races
     resources :training_plans
-end
+    resources :training_logs
+  end
 
   resources :sessions, only:[:new, :create, :destroy]
 
