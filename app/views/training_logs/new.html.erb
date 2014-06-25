@@ -16,9 +16,9 @@
   <%= f.label "Calorie estimate" %>
   <%= f.text_field :log_calories %>
 
-  <%= f.label "Notes" %>
-  <%= f.text_area :notes%>
+  <%= f.label "Time" %>
+  <%= f.time_select :log_time, include_seconds: true,  :value=> "01:01:01.001" %>
 
-  <%= f.submit "Add to plan" %>
+  <%= f.submit "Add to log" %>
 
 <% end %>

@@ -5,6 +5,7 @@ class TrainingLogsController < ApplicationController
   def new
     @user = current_user
     @training_log = @user.training_logs.build
+    @training_log.log_time = "00:00:00.000"
   end
 
   def create 
@@ -25,6 +26,9 @@ class TrainingLogsController < ApplicationController
   def edit
     @user = current_user
     @training_log = @user.training_logs.find(params[:id])
+    if @training_log.log_time.nil?
+      @training_log.log_time = "00:00:00.000"
+    end
   end
 
   def update
@@ -49,7 +53,7 @@ class TrainingLogsController < ApplicationController
 
     def training_log_params
       params.require(:training_log).permit(:log_date, :log_miles, :log_workout, :log_q, 
-                      :log_calories, :log_notes)
+                      :log_calories, :log_notes, :log_time)
     end
 
     def signed_in_user

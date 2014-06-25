@@ -20,8 +20,6 @@ show upcoming races on training log.
 
 ******************************************************Next:
 
-*Add workout time to log
-
 *Get bootstrap going 
 
 *think about layout of the pages, make partials where possible etc. 
@@ -68,4 +66,6 @@ show upcoming races on training log.
 *Create actions for notes controller.
 
 *Remove notes stuff from training log as now in notes model.
+
+*Add workout time to log, add input and display fields.
 
