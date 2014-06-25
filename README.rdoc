@@ -20,9 +20,9 @@ show upcoming races on training log.
 
 ******************************************************Next:
 
-*Create actions for notes controller.
+*Add workout time to log
 
-*Add time to log
+*Remove notes stuff from training log as now in notes model.
 
 *Get bootstrap going 
 
@@ -60,4 +60,6 @@ show upcoming races on training log.
 *Fix unique indexes to handle multiple users.
 
 *Fix validations to handle multiple users.
+
+*Create actions for notes controller.
 

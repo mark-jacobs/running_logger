@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625123507) do
+ActiveRecord::Schema.define(version: 20140625142747) do
 
   create_table "notes", force: true do |t|
     t.datetime "date"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20140625123507) do
     t.string   "log_workout"
     t.integer  "log_calories"
     t.boolean  "log_q"
-    t.text     "notes"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
