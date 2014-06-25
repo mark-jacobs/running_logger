@@ -18,9 +18,11 @@ enter plan, enter log, enter race
 
 show upcoming races on training log.
 
-******************************************************Next:
+******************************************************Next**************
 
-*Get bootstrap going 
+*Install Rspec and start testing.
+
+*Create a proper header.
 
 *think about layout of the pages, make partials where possible etc. 
 
@@ -30,6 +32,8 @@ show upcoming races on training log.
 *may need to look at a table creating gem for this and get bootstrap going first?
 
 *indicate race days on the table.
+
+*Once table sorted rethink the routes and resources needed.
 
 *Display stats on profile page, possibilities below:
   *Miles - Week, 4Week, Year to date, previous years, All time
@@ -52,7 +56,7 @@ show upcoming races on training log.
 
 *Error messages when entering fields incorrectly.
 
-******************************************************Completed:
+******************************************************Completed**********
 *Edit and delete actions for training plans and training logs
 
 *Make dates unique for training plans and logs
@@ -69,3 +73,4 @@ show upcoming races on training log.
 
 *Add workout time to log, add input and display fields.
 
+*Get bootstrap going.
