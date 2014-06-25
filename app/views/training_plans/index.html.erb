@@ -1,5 +1,8 @@
 <h1>Training Plan</h1>
 <%= @user.name %>
+<p>
+  <%= link_to "Add planned session", new_user_training_plan_path %>
+</p>  
 <% @training_plans.each do |x| %>
   <ol>
     <li>
