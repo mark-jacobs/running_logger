@@ -19,6 +19,7 @@ enter plan, enter log, enter race
 show upcoming races on training log.
 
 ******************************************************Next:
+*Add time to log!!!
 
 *Fix unique indexes to handle multiple users.
 
