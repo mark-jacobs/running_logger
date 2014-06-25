@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625142747) do
+ActiveRecord::Schema.define(version: 20140625144515) do
 
   create_table "notes", force: true do |t|
     t.datetime "date"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140625142747) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.time     "log_time"
   end
 
   add_index "training_logs", ["log_date", "user_id"], name: "index_training_logs_on_log_date_and_user_id", unique: true
