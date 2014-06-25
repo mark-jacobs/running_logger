@@ -10,7 +10,7 @@ class TrainingPlansController < ApplicationController
   def create
     @user = current_user
     if @training_plan = @user.training_plans.create(training_plan_params)
-      redirect_to root_url
+      redirect_to user_training_plans_path
     else
       render 'new'
     end
