@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625123003) do
+ActiveRecord::Schema.define(version: 20140625123507) do
 
   create_table "notes", force: true do |t|
     t.datetime "date"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140625123003) do
     t.datetime "updated_at"
   end
 
-  add_index "notes", ["date"], name: "index_notes_on_date", unique: true
+  add_index "notes", ["date", "user_id"], name: "index_notes_on_date_and_user_id", unique: true
 
   create_table "races", force: true do |t|
     t.date     "race_date"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20140625123003) do
     t.datetime "updated_at"
   end
 
-  add_index "training_logs", ["log_date"], name: "index_training_logs_on_log_date", unique: true
+  add_index "training_logs", ["log_date", "user_id"], name: "index_training_logs_on_log_date_and_user_id", unique: true
 
   create_table "training_plans", force: true do |t|
     t.datetime "plan_date"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140625123003) do
     t.datetime "updated_at"
   end
 
-  add_index "training_plans", ["plan_date"], name: "index_training_plans_on_plan_date", unique: true
+  add_index "training_plans", ["plan_date", "user_id"], name: "index_training_plans_on_plan_date_and_user_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"

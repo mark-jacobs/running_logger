@@ -18,7 +18,11 @@ enter plan, enter log, enter race
 
 show upcoming races on training log.
 
-Next:
+******************************************************Next:
+
+*Fix unique indexes to handle multiple users.
+
+*Fix validations to handle multiple users.
 
 *Make indexes or a view to show both plan and log together, make partials for the plan and log.
 
@@ -36,7 +40,7 @@ Next:
 
 *Import from csv?
 
-*Seperate notes into a seperate model so that they can be independent of logs and plans and have notes on days with no log/plan session.
+*Create actions for notes controller.
 
 *Need to think about set up periodisation phases so that can set phase I, II, III, IV etc. (May need to be able to change this for other periodisation methods/ philosophies)... 
 
@@ -44,7 +48,10 @@ Next:
 
 *Error messages when entering fields incorrectly.
 
-Completed:
+******************************************************Completed:
 *Edit and delete actions for training plans and training logs
+
 *Make dates unique for training plans and logs
+
+*Seperate notes into a seperate model so that they can be independent of logs and plans and have notes on days with no log/plan session.
 
