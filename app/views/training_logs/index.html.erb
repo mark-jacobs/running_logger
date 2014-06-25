@@ -1,0 +1,20 @@
+<h1>Training log</h1>
+<%= @user.name %>
+<p>
+  <%= link_to "Add session to log", new_user_training_log_path %>
+</p>
+
+<p>
+  <% @training_logs.each do |x| %>
+  <ol>
+    <li>
+      <%= x.log_date %>
+      <%= x.log_workout %>
+      <%= x.log_q  %>
+      <%= x.log_miles %>
+      <%= x.log_calories %>
+      <%= x.notes %>      
+    </li>
+  </ol>
+  <% end %>
+</p>
