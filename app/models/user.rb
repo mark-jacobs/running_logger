@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :races, dependent: :destroy
   has_many :training_plans, dependent: :destroy
   has_many :training_logs, dependent: :destroy
+  has_many :notes, dependent: :destroy
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

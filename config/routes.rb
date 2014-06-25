@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :races
     resources :training_plans
     resources :training_logs
-    resources :notes, only:[:create, :new, :edit, :update, :destroy]
+    resources :notes, only:[:create, :new, :edit, :update, :index, :destroy]
   end
 
   resources :sessions, only:[:new, :create, :destroy]

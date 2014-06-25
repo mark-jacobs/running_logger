@@ -19,11 +19,14 @@ enter plan, enter log, enter race
 show upcoming races on training log.
 
 ******************************************************Next:
-*Add time to log!!!
 
-*Fix unique indexes to handle multiple users.
+*Create actions for notes controller.
 
-*Fix validations to handle multiple users.
+*Add time to log
+
+*Get bootstrap going 
+
+*think about layout of the pages, make partials where possible etc. 
 
 *Make indexes or a view to show both plan and log together, make partials for the plan and log.
 
@@ -35,13 +38,11 @@ show upcoming races on training log.
 
 *Work on races part so that default distances can be selected, but also new ones can be added.
 
-*Get bootstrap going and think about layout of the pages, make partials where possible etc. 
+*Add to races so records for main distances are displayed.
 
 *Find a graphing gem for displaying stats.
 
 *Import from csv?
-
-*Create actions for notes controller.
 
 *Need to think about set up periodisation phases so that can set phase I, II, III, IV etc. (May need to be able to change this for other periodisation methods/ philosophies)... 
 
@@ -55,4 +56,8 @@ show upcoming races on training log.
 *Make dates unique for training plans and logs
 
 *Seperate notes into a seperate model so that they can be independent of logs and plans and have notes on days with no log/plan session.
+
+*Fix unique indexes to handle multiple users.
+
+*Fix validations to handle multiple users.
 

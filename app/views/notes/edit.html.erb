@@ -1,0 +1,12 @@
+<h1>Edit note</h1>
+<%= @user.name %>
+
+<%= form_for [@user, @note] do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+
+  <%= f.label "Note" %>
+  <%= f.text_field :note_item %>
+
+  <%= f.submit "Submit" %>
+<% end %>
