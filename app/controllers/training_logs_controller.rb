@@ -29,8 +29,8 @@ class TrainingLogsController < ApplicationController
 
   def update
     @user = current_user
-    @training_log = @user.training_logs.build(training_log_params)
-    if @training_log.save
+    @training_log = @user.training_logs.find(params[:id])
+    if @training_log.update(training_log_params)
       redirect_to user_training_logs_path(current_user)
     else
       render 'edit'

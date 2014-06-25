@@ -10,6 +10,8 @@
       <%= x.plan_workout %>
       <%= "Q" if x.plan_q   %>
       <%= x.plan_miles %>
+      <%= link_to "Edit", edit_user_training_plan_path(current_user, x.id) %> 
+      <%= link_to "Delete", user_training_plan_path(current_user, x.id), method: :delete, data: { confirm: "Are you sure?" } %> 
     </li>
   </ol>
 <% end %>

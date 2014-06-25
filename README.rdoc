@@ -26,8 +26,9 @@ Next:
 
 *Make indexes show both plan and log together, make partials for the plan and log.
 
-*Look at creating a table to display plan/log by month (or poss. 4 week period would be better)
+*Look at creating a table to display plan/log by 4 week period, links to move period by a week.
 *may need to look at a table creating gem for this and get bootstrap going first?
+*indicate race days on the table.
 
 *Display some stats on profile page.
 
@@ -39,3 +40,6 @@ Next:
 
 *Import from csv?
 
+*Seperate notes into a seperate model so that it can be independent of logs and plans and have notes on days with no log/plan session.
+
+*Need to think about set up periodisation phases so that can set phase I, II, III, IV etc. (May need to be able to change this for other periodisation methods/ philosophies)... Also might be good if you can enter the dates of the race, and it calculate the phases for you according to the method in the book for < 24 week training cycles. Will need to be able to include or skip phase I training as necessary.

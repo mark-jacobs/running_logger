@@ -21,6 +21,28 @@ class TrainingPlansController < ApplicationController
     @training_plans = @user.training_plans
   end
 
+  def edit
+    @user = current_user
+    @training_plan = @user.training_plans.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @training_plan = @user.training_plans.find(params[:id])
+    if @training_plan.update(training_plan_params)
+      redirect_to user_training_plans_path(current_user)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @user = current_user
+    @training_plan = @user.training_plans.find(params[:id])
+    @training_plan.destroy
+    redirect_to user_training_plans_path
+  end
+
   private
 
     def training_plan_params
