@@ -1,8 +1,20 @@
 <h1>Test</h1>
 <h1><%= @period %></h1>
-<%= link_to "Back", "/log/#{@user[:id]}/#{@period - 1}" %><%= link_to "Forward", "/log/#{@user[:id]}/#{@period + 1}" %>
-<% 28.times do |x| %>
-  <p><%= (@start  + x.day).strftime("%A %d/%m/%y") %></p>
-<% end %>
+
+<div id="container" style="width:90%; margin: 0 auto;">
+  <div id="nav_icons" style="width:90%; text-align:center; ">
+    <%= link_to "Back", "/log/#{@user[:id]}/#{@period - 1}" %><%= link_to "Forward", "/log/#{@user[:id]}/#{@period + 1}" %>
+  </div>
+
+  <% 28.times do |x| %>
+  <div id="log_row">
+    <p>
+      <div id="log"><%= (@start  + x.day).strftime("%^a ") %></div>
+      <div id="log1"><%= (@start  + x.day).strftime("%d/%m/%y") %></div>
+      <div id="notes"><%= @note_array[x-1].note_item if !@note_array[x-1].nil? %></div><br>
+    </p>  
+  </div>
+  <% end %>
+</div>
 
 

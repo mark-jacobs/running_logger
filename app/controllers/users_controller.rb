@@ -37,11 +37,12 @@ class UsersController < ApplicationController
   def log
     @user = User.find(params[:id])
     @period = params[:period].to_i
+    @start = startperiod(@period)
+    @end = endperiod(@period)
     @training_logs = @user.training_logs.all
     @training_plans = @user.training_plans.all
     @races = @user.races.all
-    @notes = @user.notes.all
-    @start = startperiod(@period)
+    @note_array = create_note_array(@user.notes.where("date >= ? AND date <= ?", @start, @end), @period)
   end
 
   private 
