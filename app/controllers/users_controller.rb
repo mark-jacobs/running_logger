@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:show, :edit, :update, :log]
   before_action :correct_user, only: [:show, :edit, :update, :log]
+
+  include UsersHelper
   def new
     @user = User.new
   end
@@ -34,10 +36,12 @@ class UsersController < ApplicationController
 
   def log
     @user = User.find(params[:id])
+    @period = params[:period].to_i
     @training_logs = @user.training_logs.all
     @training_plans = @user.training_plans.all
     @races = @user.races.all
     @notes = @user.notes.all
+    @start = startperiod(@period)
   end
 
   private 

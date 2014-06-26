@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'welcome/index'
   root 'welcome#index'
-  match '/log/:id',         to:     'users#log',          via: 'get'         
+  match '/log/:id/:period',         to:     'users#log',          via: 'get'         
   match '/signup',      to:     'users#new',          via: 'get'
   match '/signin',      to:     'sessions#new',       via: 'get'
   match '/signout',     to:     'sessions#destroy',   via: 'delete'
