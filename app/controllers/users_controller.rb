@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :signed_in_user, only: [:show, :edit, :update, :log]
+  before_action :correct_user, only: [:show, :edit, :update, :log]
   def new
     @user = User.new
   end
@@ -30,6 +30,14 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def log
+    @user = User.find(params[:id])
+    @training_logs = @user.training_logs.all
+    @training_plans = @user.training_plans.all
+    @races = @user.races.all
+    @notes = @user.notes.all
   end
 
   private 

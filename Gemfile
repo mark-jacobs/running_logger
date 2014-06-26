@@ -32,6 +32,7 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'factory_girl'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
