@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :training_plans
     resources :training_logs
     resources :notes, only:[:create, :new, :edit, :update, :index, :destroy]
+    resources :logs, only:[:create, :new, :edit, :update, :destroy]
   end
 
   resources :sessions, only:[:new, :create, :destroy]
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'welcome/index'
   root 'welcome#index'
-  match '/log/:id/:period',         to:     'users#log',          via: 'get'         
+  match 'users/:id/log/:period',     to:     'logs#log',           via: 'get'       
   match '/signup',      to:     'users#new',          via: 'get'
   match '/signin',      to:     'sessions#new',       via: 'get'
   match '/signout',     to:     'sessions#destroy',   via: 'delete'

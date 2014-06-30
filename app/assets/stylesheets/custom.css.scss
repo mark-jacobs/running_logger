@@ -15,10 +15,55 @@
   float: left;
 }
 
+
+#log3 {
+  width: 15%;
+  margin: 0px;
+  float: left;
+}
+
+#log4 {
+  width: 8%;
+  margin: 0px;
+  float: left;  
+}
+
+#log5 {
+  width: 4%;
+  margin: 0px;
+  float: left;  
+}
+
+#log6 {
+  width: 6%;
+  margin: 0px;
+  float: left;
+}
+
+#log7 {
+  width: 6%;
+  margin: 0px;
+  float: left;
+}
+
+
+
 #notes {
-  width: 10%;
-  float: right;  
+  width: 15%;
+  float: right; 
 }
 #log_row {
   overflow: auto;
+  background-color: #f9f9f9;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #c1c1c1;
+}
+
+#plan1 {
+  background-color: #f1f1f1;
+}
+#log_box {
+  width: 100%;
+  float: left;
 }

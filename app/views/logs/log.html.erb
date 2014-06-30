@@ -1,0 +1,47 @@
+<h1>New log view here!</h1>
+
+
+<h1>Test</h1>
+<h1><%= @period %></h1>
+
+<div id="container" style="width:90%; margin: 0 auto;">
+  <div id="nav_icons" style="width:90%; text-align:center; ">
+    <%= link_to "Back ", "/users/#{@user[:id]}/log/#{@period - 1}" %><%= link_to " Forward", "/users/#{@user[:id]}/log/#{@period + 1}" %>
+  </div>
+
+  <div id = "log_box">
+    <div id="log_row">
+      <p>
+        <div id="log">DAY</div>
+        <div id="log1">DATE</div>
+        <div id="log3">WORKOUT</div>
+        <div id="log5">Q</div>
+        <div id="log4">MILES</div>
+        <div id="log3">WORKOUT</div>
+        <div id="log5">Q</div>
+        <div id="log4">MILES</div>
+        <div id="log6">TIME</div>
+        <div id="log7">CALORIES</div>
+        <div id ="notes">NOTES</div>
+        <br>
+      </p>
+    </div>
+    <% 7.times do |x| %>
+    <div id="log_row">
+      <p>
+        <div id="log"><%= (@start  + x.day).strftime("%^a ") %></div>
+        <div id="log1"><%= (@start + x.day).strftime("%d/%m/%y") %></div>
+        <div id="log3"><%= @logs[x].plan_workout unless @logs[x].nil? %>&nbsp</div>
+        <div id="log5"><%= "Q" unless @logs[x].nil? || !@logs[x].plan_q  %>&nbsp</div>
+        <div id="log4"><%= @logs[x].plan_miles unless @logs[x].nil? %>&nbsp</div>
+        <div id="log3"><%= @logs[x].log_workout unless @logs[x].nil? %>&nbsp</div>
+        <div id="log5"><%= @logs[x].log_q unless @logs[x].nil? %>&nbsp</div>
+        <div id="log4"><%= @logs[x].log_miles unless @logs[x].nil? %>&nbsp</div>
+        <div id="log6"><%= @logs[x].log_time unless @logs[x].nil? %>&nbsp</div>
+        <div id="log7"><%= @logs[x].log_calories unless @logs[x].nil? %>&nbsp</div>
+        <div id="notes"><%= @logs[x].notes unless @logs[x].nil? %>&nbsp</div>
+    </div>
+    <% end %>
+  </div>
+</div>
+

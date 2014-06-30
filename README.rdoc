@@ -20,7 +20,14 @@ show upcoming races on training log.
 
 ******************************************************Next**************
 
-*Build a table that shows a 4 week period, with weekly stats.
+*Redesign models so that the plan log an notes are part of a single model, with a date as part of that.
+  *redesign controllers and views to use the new model, remove the old code after the refactoring and get the new view to work.
+  *redesign the input screen for the new model.
+  *redesign the view so more obvious which part is the plan and which the log.
+
+*Redesign the races functionality so radio boxes are used for the race distances when entering.
+
+*Redesign the table view so that it actually uses a table.
 
 *Think about tests needed, write a few to complete here.
 
@@ -41,6 +48,8 @@ show upcoming races on training log.
   *Miles - Week, 4Week, Year to date, previous years, All time
   *Average miles per week, for the current year, previous year, current month
   *Pace - Average pace, weekly, monthly yearly.
+
+*design weekly stats section
 
 *Add proposed and actual weekly miles to the plan/log table view.
 

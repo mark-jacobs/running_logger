@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625144515) do
+ActiveRecord::Schema.define(version: 20140626222343) do
+
+  create_table "logs", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "log_date"
+    t.string   "plan_workout"
+    t.boolean  "plan_q"
+    t.float    "plan_miles"
+    t.string   "log_workout"
+    t.boolean  "log_q"
+    t.float    "log_miles"
+    t.time     "log_time"
+    t.integer  "log_calories"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notes", force: true do |t|
     t.datetime "date"
