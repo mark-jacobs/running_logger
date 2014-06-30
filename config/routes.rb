@@ -3,9 +3,6 @@ Rails.application.routes.draw do
 
   resources :users, only:[:create, :new, :edit, :update, :show, :log] do
     resources :races
-    resources :training_plans
-    resources :training_logs
-    resources :notes, only:[:create, :new, :edit, :update, :index, :destroy]
     resources :logs, only:[:create, :new, :edit, :update, :destroy]
   end
 

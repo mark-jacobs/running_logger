@@ -20,9 +20,7 @@
     <% if signed_in? %>
       <%= link_to "Profile", user_path(current_user) %>
       <%= link_to "Races", user_races_path(current_user) %>
-      <%= link_to "Training plan", user_training_plans_path(current_user) %>
-      <%= link_to "Training log", user_training_logs_path(current_user) %>
-      <%= link_to "Notes", user_notes_path(current_user) %>
+      <%= link_to "Log", "/users/#{current_user.id}/log/0" %>
       <%= link_to "Sign out", signout_path, method: "delete" %>
     <% end %>
 

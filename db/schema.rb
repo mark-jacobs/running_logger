@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626222343) do
+ActiveRecord::Schema.define(version: 20140630114707) do
 
   create_table "logs", force: true do |t|
     t.integer  "user_id"
@@ -29,16 +29,6 @@ ActiveRecord::Schema.define(version: 20140626222343) do
     t.datetime "updated_at"
   end
 
-  create_table "notes", force: true do |t|
-    t.datetime "date"
-    t.string   "note_item"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "notes", ["date", "user_id"], name: "index_notes_on_date_and_user_id", unique: true
-
   create_table "races", force: true do |t|
     t.date     "race_date"
     t.string   "race_name"
@@ -51,32 +41,6 @@ ActiveRecord::Schema.define(version: 20140626222343) do
   end
 
   add_index "races", ["user_id"], name: "index_races_on_user_id"
-
-  create_table "training_logs", force: true do |t|
-    t.datetime "log_date"
-    t.float    "log_miles"
-    t.string   "log_workout"
-    t.integer  "log_calories"
-    t.boolean  "log_q"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.time     "log_time"
-  end
-
-  add_index "training_logs", ["log_date", "user_id"], name: "index_training_logs_on_log_date_and_user_id", unique: true
-
-  create_table "training_plans", force: true do |t|
-    t.datetime "plan_date"
-    t.float    "plan_miles"
-    t.string   "plan_workout"
-    t.boolean  "plan_q"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "training_plans", ["plan_date", "user_id"], name: "index_training_plans_on_plan_date_and_user_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"

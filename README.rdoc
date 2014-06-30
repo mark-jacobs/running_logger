@@ -19,9 +19,8 @@ enter plan, enter log, enter race
 show upcoming races on training log.
 
 ******************************************************Next**************
+*Set days to be links to entry form.
 
-*Redesign models so that the plan log an notes are part of a single model, with a date as part of that.
-  *redesign controllers and views to use the new model, remove the old code after the refactoring and get the new view to work.
   *redesign the input screen for the new model.
   *redesign the view so more obvious which part is the plan and which the log.
 
@@ -37,7 +36,6 @@ show upcoming races on training log.
 
 *get Rspec working correctly
 
-*Look at creating a table to display plan/log by 4 week period, links to move period by a week.
 *may need to look at a table creating gem for this and get bootstrap going first?
 
 *indicate race days on the table.
@@ -49,7 +47,7 @@ show upcoming races on training log.
   *Average miles per week, for the current year, previous year, current month
   *Pace - Average pace, weekly, monthly yearly.
 
-*design weekly stats section
+*design weekly stats section on the log, list miles, calories and time per week.
 
 *Add proposed and actual weekly miles to the plan/log table view.
 
@@ -89,3 +87,6 @@ show upcoming races on training log.
 *Install FactoryGirl
 
 *Make indexes or a view to show both plan and log together.
+
+*Redesign models so that the plan log an notes are part of a single model, with a date as part of that.
+  *redesign controllers and views to use the new model, remove the old code after the refactoring and get the new view to work.
