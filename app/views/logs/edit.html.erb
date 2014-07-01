@@ -1,8 +1,9 @@
-<h1>Plan/Log entry</h1>
 
-<%= form_for [@user,@logs] do |f| %>
+<h1>some header</h1>
+<%= form_for [@user, @log] do |f| %>
+  <h1><%= @period %></h1>
   <%= hidden_field_tag :period, @period %>
-  
+
   <%= f.label "Date" %>
   <%= f.date_field :log_date %>
 
@@ -25,7 +26,7 @@
   <%= f.text_field :log_miles %>
 
   <%= f.label "Workout time" %>
-  <%= f.time_select :log_time, include_seconds: true,  :value=> "01:01:01.001" %>
+  <%= f.time_select :log_time, include_seconds: true %>
 
   <%= f.label "Calories" %>
   <%= f.text_field :log_calories %>
@@ -34,5 +35,4 @@
   <%= f.text_field :notes %>
 
   <%= f.submit "Submit" %>
-
-<% end %>
+<% end %> 

@@ -17,22 +17,6 @@
 
 </body>
 <footer>
-<div id="container1">
-  <p>
-    <%= link_to "Home", root_path %>
 
-    <% if signed_in? %>
-      <%= link_to "Profile", user_path(current_user) %>
-      <%= link_to "Races", user_races_path(current_user) %>
-      <%= link_to "Log", "/users/#{current_user.id}/log/0" %>
-      <%= link_to "Sign out", signout_path, method: "delete" %>
-    <% end %>
-
-    <% if !signed_in? %>
-      <%= link_to "Sign in", signin_path %>
-      <%= link_to "Sign up", signup_path %>
-    <% end %>
-  </p>
-</div>
 </footer>
 </html>

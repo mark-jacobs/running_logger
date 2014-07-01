@@ -26,11 +26,9 @@ show upcoming races on training log.
 
 *Redesign the races functionality so radio boxes are used for the race distances when entering.
 
-*Redesign the table view so that it actually uses a table.
 
 *Think about tests needed, write a few to complete here.
 
-*Create a proper header.
 
 *think about layout of the pages, make partials where possible etc. 
 
@@ -65,6 +63,8 @@ show upcoming races on training log.
 
 *Error messages when entering fields incorrectly.
 
+*Deal with timezones properly when entering times.
+
 ******************************************************Completed**********
 *Edit and delete actions for training plans and training logs
 
@@ -90,3 +90,12 @@ show upcoming races on training log.
 
 *Redesign models so that the plan log an notes are part of a single model, with a date as part of that.
   *redesign controllers and views to use the new model, remove the old code after the refactoring and get the new view to work.
+*Create a proper header.
+
+
+
+
+
+
+
+

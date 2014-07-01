@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'welcome/index'
   root 'welcome#index'
-  match 'users/:id/log/:period',     to:     'logs#log',           via: 'get'       
-  match '/signup',      to:     'users#new',          via: 'get'
-  match '/signin',      to:     'sessions#new',       via: 'get'
-  match '/signout',     to:     'sessions#destroy',   via: 'delete'
+  match 'users/:user_id/log/:period',     to:     'logs#log',           via: 'get'       
+  match '/signup',                        to:     'users#new',          via: 'get'
+  match '/signin',                        to:     'sessions#new',       via: 'get'
+  match '/signout',                       to:     'sessions#destroy',   via: 'delete'
+  match '/newlog/:user_id/:period/:day',  to:     'logs#new',           via: 'get'
+  match '/editlog/:user_id/:period/:day', to:     'logs#edit',          via: 'get' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

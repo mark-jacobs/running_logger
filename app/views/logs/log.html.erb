@@ -1,9 +1,11 @@
 
 <div id="container1">
+  <h2>Weekly log</h2>
   <div id="nav_icons" style="width:100%; text-align:center; ">
-    <%= link_to "Back ", "/users/#{@user[:id]}/log/#{@period - 1}" %><%= link_to " Forward", "/users/#{@user[:id]}/log/#{@period + 1}" %>
+    <%= link_to "<<", "/users/#{@user[:id]}/log/#{@period - 1}", class: "btn btn-large btn-custom"%>
+    <%= link_to ">>", "/users/#{@user[:id]}/log/#{@period + 1}", class: "btn btn-large btn-custom" %>
   </div>
-
+  
   <div id = "log_box">
     <div id="log_row">
       <p>
@@ -24,9 +26,21 @@
     <% 7.times do |x| %>
     <div id="log_row">
       <p>
-        <div id="log"><%= (@start  + x.day).strftime("%^a ") %></div>
+        <div id="log">
+        <% if @logs[x].nil? %>
+          <%= link_to (@start  + x.day).strftime("%^a "), 
+                           "/newlog/#{@user[:id]}/#{@period}/#{x + 1}" %>
+        <% else %>
+          <%= link_to (@start  + x.day).strftime("%^a "), 
+                           "/editlog/#{@user[:id]}/#{@period}/#{x + 1}" %>
+        <% end %>
+        </div>
         <div id="log1"><%= (@start + x.day).strftime("%d/%m/%y") %></div>
-        <div id="log3"><%= @logs[x].plan_workout unless @logs[x].nil? %>&nbsp</div>
+        <div id="log3"><%=  if @logs[x].nil? 
+                              "Off"  
+                            else  
+                              @logs[x].plan_workout
+                            end %>&nbsp</div>
         <div id="log5"><%= "Q"  unless @logs[x].nil? || !@logs[x].plan_q  %>&nbsp</div>
         <div id="log4"><%= @logs[x].plan_miles unless @logs[x].nil? %>&nbsp</div>
         <div id="log3"><%= @logs[x].log_workout unless @logs[x].nil? %>&nbsp</div>
@@ -38,5 +52,25 @@
     </div>
     <% end %>
   </div>
+
+  <div id="stats_box">
+    <h2>Weekly stats</h2>
+ 
+      <% @planned_miles = 0 %>
+      <% 7.times do |x| %>
+        <% @planned_miles += @logs[x].plan_miles unless @logs[x].nil? || @logs[x].plan_miles.nil? %>
+      <% end %>
+
+      <% @logged_miles = 0 %>
+      <% 7.times do |x| %>
+        <% @logged_miles += @logs[x].log_miles unless @logs[x].nil? || @logs[x].log_miles.nil? %>
+      <% end %>
+      <p>
+        Planned miles: <%= @planned_miles %>
+      </p>
+      <p>
+        Logged miles: <%= @logged_miles %>
+      </p>
+
 </div>
 
