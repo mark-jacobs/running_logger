@@ -29,10 +29,12 @@
         <div id="log">
         <% if @logs[x].nil? %>
           <%= link_to (@start  + x.day).strftime("%^a "), 
-                           "/newlog/#{@user[:id]}/#{@period}/#{x + 1}" %>
+                           "/newlog/#{@user[:id]}/#{@period}/#{x + 1}",
+                           class: "btn btn-xs btn-custom2" %>
         <% else %>
           <%= link_to (@start  + x.day).strftime("%^a "), 
-                           "/editlog/#{@user[:id]}/#{@period}/#{x + 1}" %>
+                           "/editlog/#{@user[:id]}/#{@period}/#{x + 1}",
+                           class: "btn btn-xs btn-custom2" %>
         <% end %>
         </div>
         <div id="log1"><%= (@start + x.day).strftime("%d/%m/%y") %></div>

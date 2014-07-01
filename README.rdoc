@@ -19,7 +19,6 @@ enter plan, enter log, enter race
 show upcoming races on training log.
 
 ******************************************************Next**************
-*Set days to be links to entry form.
 
   *redesign the input screen for the new model.
   *redesign the view so more obvious which part is the plan and which the log.
@@ -91,6 +90,8 @@ show upcoming races on training log.
 *Redesign models so that the plan log an notes are part of a single model, with a date as part of that.
   *redesign controllers and views to use the new model, remove the old code after the refactoring and get the new view to work.
 *Create a proper header.
+
+*Set days to be links to entry form.
 
 
 
