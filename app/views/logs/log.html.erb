@@ -1,12 +1,16 @@
 
 <div id="container1">
   <h2>Weekly log</h2>
-  <div id="nav_icons" style="width:100%; text-align:center; ">
+  <div id="nav_icons" style="width:100%; text-align:center; padding-bottom: 1%;">
     <%= link_to "<<", "/users/#{@user[:id]}/log/#{@period - 1}", class: "btn btn-large btn-custom"%>
     <%= link_to ">>", "/users/#{@user[:id]}/log/#{@period + 1}", class: "btn btn-large btn-custom" %>
   </div>
   
   <div id = "log_box">
+    <div id="log_row">
+      <div id="plan_head">PLAN</div>
+      <div id="log_head">LOG</div>
+    </div>
     <div id="log_row">
       <p>
         <div id="log">DAY</div>
@@ -55,24 +59,23 @@
     <% end %>
   </div>
 
-  <div id="stats_box">
-    <h2>Weekly stats</h2>
- 
+  <div id="log-row">
       <% @planned_miles = 0 %>
+      <% @logged_miles = 0 %>
+      <% @logged_calories = 0 %>
       <% 7.times do |x| %>
         <% @planned_miles += @logs[x].plan_miles unless @logs[x].nil? || @logs[x].plan_miles.nil? %>
-      <% end %>
-
-      <% @logged_miles = 0 %>
-      <% 7.times do |x| %>
         <% @logged_miles += @logs[x].log_miles unless @logs[x].nil? || @logs[x].log_miles.nil? %>
+        <% @logged_calories += @logs[x].log_calories unless @logs[x].nil? || @logs[x].log_calories.nil? %>
       <% end %>
-      <p>
-        Planned miles: <%= @planned_miles %>
-      </p>
-      <p>
-        Logged miles: <%= @logged_miles %>
-      </p>
 
+      <div id="plan_head">
+        Planned miles: <%= @planned_miles.round(2) %>
+      </div>
+      <div id="log_head">
+        Logged miles: <%= @logged_miles.round(2) %>,
+        logged calories: <%= @logged_calories %>
+      </div> 
+  </div>
 </div>
 

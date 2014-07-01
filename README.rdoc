@@ -64,6 +64,8 @@ show upcoming races on training log.
 
 *Deal with timezones properly when entering times.
 
+*When time fixed add total time to weekly stats.
+
 ******************************************************Completed**********
 *Edit and delete actions for training plans and training logs
 

@@ -39,10 +39,28 @@
   width:90%; 
   margin: 0 auto;
   text-align: center;
+
 }
 
 /* Log sheet stuff */
 
+#log_head {
+  padding: 1%;
+  width: 59.8%;
+  text-align: center;
+  float: right;
+  background-color: #282828;
+  color: #ffffff;
+}
+
+#plan_head {
+  padding: 1%;
+  width: 39.8%;
+  text-align: center;
+  float: left;
+  background-color: #282828;
+  color: #ffffff;
+}
 
 #log {
   width: 4%;
