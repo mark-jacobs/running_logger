@@ -20,24 +20,17 @@ show upcoming races on training log.
 
 ******************************************************Next**************
 
-  *redesign the input screen for the new model.
-  *redesign the view so more obvious which part is the plan and which the log.
+*redesign the input screen for the new model.
 
 *Redesign the races functionality so radio boxes are used for the race distances when entering.
 
-
 *Think about tests needed, write a few to complete here.
-
 
 *think about layout of the pages, make partials where possible etc. 
 
 *get Rspec working correctly
 
-*may need to look at a table creating gem for this and get bootstrap going first?
-
 *indicate race days on the table.
-
-*Once table sorted rethink the routes and resources needed.
 
 *Display stats on profile page, possibilities below:
   *Miles - Week, 4Week, Year to date, previous years, All time
@@ -94,6 +87,8 @@ show upcoming races on training log.
 *Create a proper header.
 
 *Set days to be links to entry form.
+
+*redesign the view so more obvious which part is the plan and which the log.
 
 
 

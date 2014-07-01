@@ -1,38 +1,49 @@
-<h1>Plan/Log entry</h1>
+<div id="container1">
 
 <%= form_for [@user,@logs] do |f| %>
   <%= hidden_field_tag :period, @period %>
+  <div id="date1">
+    <%= f.label "Date" %>
+    <%= f.date_field :log_date %>
+  </div>
+
+     <div id="entry_1">
+      <div id="entry_head_l">PLAN</div><div id="entry_head_r">LOG</div>
+      <div id="left_panel">
+     
+      <p><%= f.label "Workout plan" %></p>
+      <p><%= f.text_field :plan_workout %></p>
+      
+      <p><%= f.label "Quality session" %></p>
+      <p><%= f.check_box :plan_q %></p>
+      <p><%= f.label "Plan miles" %></p>
+      <p><%= f.text_field :plan_miles %></p>
+      <p><%= f.label "Notes" %></p>
+      <p><%= f.text_field :notes %></p>
+
+    </div>
+
+
+    <div id="right_panel">
+    <p><%= f.label "Workout log" %></p>
+    <p><%= f.text_field :log_workout %></p>
+    
+    <p><%= f.label "Quality session" %></p>
+    <p><%= f.check_box :log_q %></p>
+    <p><%= f.label "Log miles" %></p>
+    <p><%= f.text_field :log_miles %></p>
+    <p><%= f.label "Workout time" %></p>
+    <p><%= f.time_select :log_time, include_seconds: true,  :value=> "01:01:01.001" %></p>
+
+    <p><%= f.label "Calories" %></p>
+    <p><%= f.text_field :log_calories %></p>
   
-  <%= f.label "Date" %>
-  <%= f.date_field :log_date %>
+    
 
-  <%= f.label "Workout plan" %>
-  <%= f.text_field :plan_workout %>
-
-  <%= f.label "Quality session" %>
-  <%= f.check_box :plan_q %>
-
-  <%= f.label "Plan miles" %>
-  <%= f.text_field :plan_miles %><br>
-
-  <%= f.label "Workout log" %>
-  <%= f.text_field :log_workout %>
-
-  <%= f.label "Quality session" %>
-  <%= f.check_box :log_q %>
-
-  <%= f.label "Log miles" %>
-  <%= f.text_field :log_miles %>
-
-  <%= f.label "Workout time" %>
-  <%= f.time_select :log_time, include_seconds: true,  :value=> "01:01:01.001" %>
-
-  <%= f.label "Calories" %>
-  <%= f.text_field :log_calories %>
-
-  <%= f.label "Notes" %>
-  <%= f.text_field :notes %>
-
-  <%= f.submit "Submit" %>
+    </div>
+  </div>
+    <div id="container1">
+      <%= f.submit "Submit", class: "btn btn-lg btn-custom" %>
+    </div>
 
 <% end %>
