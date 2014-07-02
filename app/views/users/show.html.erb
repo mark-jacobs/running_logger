@@ -2,8 +2,20 @@
   <div id="prof_head"><h2><%= @user.name %></h2><p><%= @user.email %></p></div>
   
   <div id="container2">
+    <% @logs_8_week.each do |x| %>
+      <%= x %>
+    <% end %>
+    <h2>Weekly miles</h2>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-    <%= column_chart @user.logs.group(:id).sum(:plan_miles) %>
+    <%= column_chart({"7 weeks ago" => @logs_8_week[7],
+                      "6 weeks ago" => @logs_8_week[6],
+                      "5 weeks ago" => @logs_8_week[5],
+                      "4 weeks ago" => @logs_8_week[4],
+                      "3 weeks ago" => @logs_8_week[3],
+                      "2 weeks ago" => @logs_8_week[2],
+                      "Last week" => @logs_8_week[1],
+                      "This week" => @logs_8_week[0],
+                      }) %>
   </div>
 </div>
 
