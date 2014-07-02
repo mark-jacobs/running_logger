@@ -20,6 +20,8 @@ show upcoming races on training log.
 
 ******************************************************Next**************
 
+Redesign races, currently editing the race will add a time of 0 and complete it.
+
 *redesign the input screen for the new model.
 
 *Redesign the races functionality so radio boxes are used for the race distances when entering.
@@ -56,6 +58,7 @@ show upcoming races on training log.
 *Deal with timezones properly when entering times.
 
 *When time fixed add total time to weekly stats.
+
 
 ******************************************************Completed**********
 *Edit and delete actions for training plans and training logs

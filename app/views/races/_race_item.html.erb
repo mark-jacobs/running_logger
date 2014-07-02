@@ -1,15 +1,15 @@
 <div id="race_bar">
   <div id="race_text" style="width:100%;"> 
-    <div id="race_title" style ="width:80%;">
+    <div id="race_title" style ="width:70%;">
       <h3><%= x.race_name %></h3>
 
-      <%= x.distance %> 
+      <p><%= x.distance %> </p>
       <%= x.race_date.strftime("%d/%m/%y") %>
       <%= x.position %>
       <% unless x.finish_time.nil? || x.finish_time.strftime("%H:%M:%S") == "00:00:00" %>
         <%= x.finish_time.strftime("%H:%M:%S") %>
       <% end %>  
-    </div>
+  </div>
     <div style="text-align: right;">
       <%= link_to "Edit", edit_user_race_path(current_user, x.id), class: "btn btn-md btn-custom" %>
       <%= link_to "Delete", user_race_path(current_user, x.id), method: :delete, data: { confirm: "Are you sure?" },

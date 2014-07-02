@@ -1,17 +1,46 @@
-<h1>Add race - test</h1>
-<%= @user.name %>
 
-
+<div id="container1">
 <%= form_for [@user,@race] do |f| %>
-  <%= f.label :race_name %>
-  <%= f.text_field :race_name %>
+  <p><%= f.label :race_name %></p>
+  <p><%= f.text_field :race_name %></p>
 
-  <%= f.label :race_date %>
-  <%= f.date_field :race_date %>
+  <p><%= f.label :race_date %></p>
+  <p><%= f.date_field :race_date %></p>
+     
+  <p>
+    <%= f.label(:distance_400m, "400m") %>
+    <%= f.radio_button(:distance, "400m") %>
+    <%= f.label(:distance_800m, "800m") %>
+    <%= f.radio_button(:distance, "800m") %>
+    <%= f.label(:distance_1km, "1000m") %>
+    <%= f.radio_button(:distance, "1000m") %>
+    <%= f.label(:distance_1500m, "1500m") %>
+    <%= f.radio_button(:distance, "1500m") %>
+  </p>
+  <p>
+    <%= f.label(:distance_3000m, "3000m") %>
+    <%= f.radio_button(:distance, "3000m") %>
+    <%= f.label(:distance_5km, "5km") %>
+    <%= f.radio_button(:distance, "5km") %>
+    <%= f.label(:distance_5M, "5M") %>
+    <%= f.radio_button(:distance, "5M") %>    
+    <%= f.label(:distance_10km, "10km") %>
+    <%= f.radio_button(:distance, "10km") %>    
+  </p>
+  <p>
 
-  <%= f.label :distance %>
-  <%= f.text_field :distance %>
+    <%= f.label(:distance_10M, "10M") %>
+    <%= f.radio_button(:distance, "10M") %>
+    <%= f.label(:distance_1_2Marathon, "1/2 Marathon") %>
+    <%= f.radio_button(:distance, "1/2 Marathon") %>
+    <%= f.label(:distance_Marathon, "Marathon") %>
+    <%= f.radio_button(:distance, "Marathon") %>
+    <%= f.label(:distance_other, "Other") %>
+    <%= f.radio_button(:distance, "Other") %> 
+  </p>
 
-  <%= f.submit "Add race" %>
+
+
+  <p><%= f.submit "Add race", class: "btn btn-lg btn-custom" %></p>
 <% end %>
 
