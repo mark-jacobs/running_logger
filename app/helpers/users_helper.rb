@@ -20,11 +20,11 @@ module UsersHelper
     @logs_array
   end
 
-  def create_weekly_miles_array
-    @logs = @user.logs.all
+  def create_weekly_miles_array 
     @log_array = []
     @miles_array = []
     7.downto(0) do |x|
+      @logs = @user.logs.where("log_date >= ? AND log_date <= ?", (startperiod(x*-1) - 1.day) , endperiod(x*-1))
       @miles_total = 0
       @log_array[x] = create_logs_array(@logs, (x*-1))
       @log_array[x].each do |y|
@@ -33,5 +33,19 @@ module UsersHelper
       @miles_array[x] = @miles_total
     end
     @miles_array
+  end
+
+  def logs_for_year#(year)
+    @logs = @user.logs.where("log_date >= ? AND log_date <= ?", "2014-01-01 00:00:00" , "2014-12-31 23:59:59")
+    return @logs
+  end
+
+  def yearly_miles#(year)
+    @logs = logs_for_year
+    @years_miles = 0
+    @logs.each do |x|
+      @years_miles += x.log_miles unless x.log_miles.nil?
+    end
+    @years_miles
   end
 end

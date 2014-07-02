@@ -1,7 +1,7 @@
 <div id="container1">
   <div id="prof_head"><h2><%= @user.name %></h2><p><%= @user.email %></p></div>
   <%= link_to "Edit profile", edit_user_path %>
-  
+  <%= @miles_for_year %>
   <div id="container2">
     <h2>Weekly miles</h2>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>

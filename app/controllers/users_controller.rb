@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @logs_8_week = create_weekly_miles_array
+    @miles_for_year = yearly_miles
   end
+
   
   def create
     @user = User.new(user_params)
