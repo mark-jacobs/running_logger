@@ -1,7 +1,6 @@
 
 <h1>some header</h1>
 <%= form_for [@user, @log] do |f| %>
-  <h1><%= @period %></h1>
   <%= hidden_field_tag :period, @period %>
 
   <%= f.label "Date" %>

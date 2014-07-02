@@ -45,7 +45,7 @@ show upcoming races on training log.
 
 *Add to races so records for main distances are displayed.
 
-*Find a graphing gem for displaying stats.
+*Find a graphing gem for displaying stats. - Chartkick seems nice and easy to use.x
 
 *Import from csv?
 

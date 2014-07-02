@@ -39,7 +39,12 @@
   width:90%; 
   margin: 0 auto;
   text-align: center;
+}
 
+#container2 {
+  width:100%; 
+  margin: 0 auto;
+  text-align: center;
 }
 
 #entry_1 {
@@ -99,6 +104,14 @@
   width: 39.8%;
   text-align: center;
   float: left;
+  background-color: #282828;
+  color: #ffffff;
+}
+
+#prof_head {
+  padding: 1%;
+  width: 100%;
+  text-align: center;
   background-color: #282828;
   color: #ffffff;
 }
