@@ -45,11 +45,9 @@ show upcoming races on training log.
 
 *Add to races so records for main distances are displayed.
 
-*Find a graphing gem for displaying stats. - Chartkick seems nice and easy to use.x
-
 *Import from csv?
 
-*Need to think about set up periodisation phases so that can set phase I, II, III, IV etc. (May need to be able to change this for other periodisation methods/ philosophies)... 
+*Need to think about set up periodisation phases so that can set phase I, II, III, IV etc. (May need to be able to change this for other periodisation methods/ philosophies)... Maybe set by race date, so can set goal race, then put starting period and then calculate phases from that.
 
 *might be good if you can enter the dates of the race, and it calculate the phases for you according to the method in the book for < 24 week training cycles. Will need to be able to include or skip phase I training as necessary.
 
@@ -90,6 +88,7 @@ show upcoming races on training log.
 
 *redesign the view so more obvious which part is the plan and which the log.
 
+*Find a graphing gem for displaying stats. - Chartkick seems nice and easy to use.x
 
 
 

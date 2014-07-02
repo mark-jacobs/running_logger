@@ -1,12 +1,20 @@
-    <li>
-      <%= x.race_name %> 
+<div id="race_bar">
+  <div id="race_text" style="width:100%;"> 
+    <div id="race_title" style ="width:80%;">
+      <h3><%= x.race_name %></h3>
+
       <%= x.distance %> 
-      <%= x.race_date %>
+      <%= x.race_date.strftime("%d/%m/%y") %>
       <%= x.position %>
-      <% if !x.finish_time.nil? %>
+      <% unless x.finish_time.nil? || x.finish_time.strftime("%H:%M:%S") == "00:00:00" %>
         <%= x.finish_time.strftime("%H:%M:%S") %>
       <% end %>  
-      <%= link_to "View", user_race_path(current_user, x.id) %>
-      <%= link_to "Delete", user_race_path(current_user, x.id), method: :delete, data: { confirm: "Are you sure?" }  %>
-      <%= link_to "Edit", edit_user_race_path(current_user, x.id) %>
-    </li>
+    </div>
+    <div style="text-align: right;">
+      <%= link_to "Edit", edit_user_race_path(current_user, x.id), class: "btn btn-md btn-custom" %>
+      <%= link_to "Delete", user_race_path(current_user, x.id), method: :delete, data: { confirm: "Are you sure?" },
+                                                                   class: "btn btn-md btn-custom" %>
+    </div> 
+  </div>
+</div>
+    

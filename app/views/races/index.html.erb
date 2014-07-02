@@ -1,27 +1,28 @@
-<h1>Races index</h1>
-<p>
-<%= @user.name %>
-</p>
-<p>
-<%= link_to "Add race", new_user_race_path %>
-</p>
+<div id="container1">
+  <div id="prof_head" style="margin-bottom: 1%;">
+    <h2>Races</h2>
+  </div>
+
+  <div id="nav_icons" style="width:100%; text-align:center; margin-top: 1%;">
+    <%= link_to "Add race", new_user_race_path, class: "btn btn-large btn-custom" %>
+  </div>
+
 
 <h2>Upcoming races</h2>
 <% @races.each do |x| %>
-<ol>
-  <% if x.finish_time.nil? %>
+
+  <% if x.finish_time.nil? || x.finish_time.strftime("%H:%M:%S") == "00:00:00" %>
     <%= render 'race_item', x: x %>
   <% end %>
-</ol>
+
 <% end %>
 
 <h2>Results</h2>
 <% @races.each do |x| %>
-  <ol>
     <% @var1 = x %>
-    <% if !x.finish_time.nil?  %>
+    <% if !x.finish_time.nil? && x.finish_time.strftime("%H:%M:%S") != "00:00:00" %>
       <%= render 'race_item', x: x %>
     <% end %>
-  </ol>
-
 <% end %>
+
+</div>

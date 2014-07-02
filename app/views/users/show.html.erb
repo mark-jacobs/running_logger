@@ -22,7 +22,7 @@
     <div id="entry_head_l"><p>Weekly average last year: <%= (@miles_for_last_year / 52).round(2) %></p></div>
     <div id="entry_head_r"><p>Weekly average this year TD: <%= (@miles_for_year / Time.now.strftime("%W").to_f).round(2) %></p></div>
   </div>
-
+  <clear>
   <div id="container2">
     <div id="prof_head">
       <% race =  @user.races.where("race_date >= ?", Time.now.beginning_of_day).first %>

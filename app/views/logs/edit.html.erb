@@ -1,37 +1,49 @@
+<div id="container1">
 
-<h1>some header</h1>
-<%= form_for [@user, @log] do |f| %>
+<%= form_for [@user,@log] do |f| %>
   <%= hidden_field_tag :period, @period %>
+  <div id="date1">
+    <p><%= f.label "Date" %></p>
+    <p><%= f.date_field :log_date %></p>
+    <p><%= f.label "Notes" %></p>
+    <p><%= f.text_field :notes %></p>
+  </div>
 
-  <%= f.label "Date" %>
-  <%= f.date_field :log_date %>
+     <div id="entry_1">
+      <div id="entry_head_l">PLAN</div><div id="entry_head_r">LOG</div>
+      <div id="left_panel">
+     
+      <p><%= f.label "Workout plan" %></p>
+      <p><%= f.text_field :plan_workout %></p>
+      
+      <p><%= f.label "Quality session" %></p>
+      <p><%= f.check_box :plan_q %></p>
+      <p><%= f.label "Plan miles" %></p>
+      <p><%= f.text_field :plan_miles %></p>
 
-  <%= f.label "Workout plan" %>
-  <%= f.text_field :plan_workout %>
+    </div>
 
-  <%= f.label "Quality session" %>
-  <%= f.check_box :plan_q %>
 
-  <%= f.label "Plan miles" %>
-  <%= f.text_field :plan_miles %><br>
+    <div id="right_panel">
+    <p><%= f.label "Workout log" %></p>
+    <p><%= f.text_field :log_workout %></p>
+    
+    <p><%= f.label "Quality session" %></p>
+    <p><%= f.check_box :log_q %></p>
+    <p><%= f.label "Log miles" %></p>
+    <p><%= f.text_field :log_miles %></p>
+    <p><%= f.label "Workout time" %></p>
+    <p><%= f.time_select :log_time, include_seconds: true,  :value=> "01:01:01.001" %></p>
 
-  <%= f.label "Workout log" %>
-  <%= f.text_field :log_workout %>
+    <p><%= f.label "Calories" %></p>
+    <p><%= f.text_field :log_calories %></p>
+  
+    
 
-  <%= f.label "Quality session" %>
-  <%= f.check_box :log_q %>
+    </div>
+  </div>
+    <div id="container1">
+      <%= f.submit "Submit", class: "btn btn-lg btn-custom" %>
+    </div>
 
-  <%= f.label "Log miles" %>
-  <%= f.text_field :log_miles %>
-
-  <%= f.label "Workout time" %>
-  <%= f.time_select :log_time, include_seconds: true %>
-
-  <%= f.label "Calories" %>
-  <%= f.text_field :log_calories %>
-
-  <%= f.label "Notes" %>
-  <%= f.text_field :notes %>
-
-  <%= f.submit "Submit" %>
-<% end %> 
+<% end %>

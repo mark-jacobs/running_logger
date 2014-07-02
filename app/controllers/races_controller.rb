@@ -41,13 +41,15 @@ class RacesController < ApplicationController
     @user = current_user
     @race = @user.races.find(params[:id])
     if @race.finish_time.nil?
-      @race.finish_time = "00:00:00.000"
+      @race.finish_time = "00:00:00"
     end
   end
 
   def update
     @user = current_user
     @race = @user.races.find(params[:id])
+
+    race_params[:finish_time] = "Flower"
     if @race.update(race_params)
       flash[:success] = "Race updated"
       redirect_to user_races_path(current_user)
