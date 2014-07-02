@@ -1,5 +1,8 @@
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<div id="container1">
+<div id="prof_head">
+  <h2>Update your profile</h2>
+</div>
 
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages' %>
@@ -18,3 +21,4 @@
 
   <%= f.submit "Save changes" %>
 <% end %>
+</div>

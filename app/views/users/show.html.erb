@@ -1,6 +1,7 @@
 <div id="container1">
-  <div id="prof_head"><h2><%= @user.name %></h2><p><%= @user.email %></p></div>
-  <%= link_to "Edit profile", edit_user_path %>
+  <div id="prof_head" style = "margin-bottom: 1%;"><h2><%= @user.name %></h2></div>
+    <%= link_to "Edit profile", edit_user_path, class: "btn btn-md btn-custom" %>
+   
   <div id="container2">
     <h2>Weekly miles</h2>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
