@@ -35,13 +35,14 @@ module UsersHelper
     @miles_array
   end
 
-  def logs_for_year#(year)
-    @logs = @user.logs.where("log_date >= ? AND log_date <= ?", "2014-01-01 00:00:00" , "2014-12-31 23:59:59")
+  def logs_for_year(year)
+    @logs = @user.logs.where("log_date >= ? AND log_date <= ?", "#{Time.now.year - year}-01-01 00:00:00" , 
+      "#{Time.now.year - year}-12-31 23:59:59")
     return @logs
   end
 
-  def yearly_miles#(year)
-    @logs = logs_for_year
+  def yearly_miles(year)
+    @logs = logs_for_year(year)
     @years_miles = 0
     @logs.each do |x|
       @years_miles += x.log_miles unless x.log_miles.nil?
