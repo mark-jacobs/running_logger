@@ -1,7 +1,9 @@
 
 <div id="container1">
-  <h2>Weekly log</h2>
-  <div id="nav_icons" style="width:100%; text-align:center; padding-bottom: 1%;">
+  <div id="prof_head">
+    <h2>Weekly log</h2>
+  </div>
+  <div id="nav_icons" style="width:100%; text-align:center; padding-top: 10%; padding-bottom: 1%;">
     <%= link_to "<<", "/users/#{@user[:id]}/log/#{@period - 1}", class: "btn btn-large btn-custom"%>
     <%= link_to ">>", "/users/#{@user[:id]}/log/#{@period + 1}", class: "btn btn-large btn-custom" %>
   </div>
