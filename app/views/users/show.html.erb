@@ -25,7 +25,8 @@
 
   <div id="container2">
     <div id="prof_head">
-      <h2>Next race:</h1>
+      <% race =  @user.races.where("race_date >= ?", Time.now.beginning_of_day).first %>
+      <h2>Next race: <%= race.race_name%>, <%= race.race_date.strftime("%d/%m/%y") %></h1>
     </div>
 </div>
 
