@@ -13,8 +13,7 @@ class UsersController < ApplicationController
     @miles_for_year = yearly_miles(0)
     @miles_for_last_year = yearly_miles(1)
   end
-
-  
+    
   def create
     @user = User.new(user_params)
     if @user.save

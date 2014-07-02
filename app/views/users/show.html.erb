@@ -1,7 +1,6 @@
 <div id="container1">
   <div id="prof_head"><h2><%= @user.name %></h2><p><%= @user.email %></p></div>
   <%= link_to "Edit profile", edit_user_path %>
-  <%= @miles_for_year %>
   <div id="container2">
     <h2>Weekly miles</h2>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
@@ -15,5 +14,18 @@
                       "This week" => @logs_8_week[0],
                       }) %>
   </div>
+  <div id="container2">
+    <div id="entry_head_l"><p>Miles last year: <%= @miles_for_last_year %></p></div>
+    <div id="entry_head_r"><p>Miles for this year: <%= @miles_for_year %></p></div>
+  </div>
+  <div id ="container2">
+    <div id="entry_head_l"><p>Weekly average last year: <%= (@miles_for_last_year / 52).round(2) %></p></div>
+    <div id="entry_head_r"><p>Weekly average this year TD: <%= (@miles_for_year / Time.now.strftime("%W").to_f).round(2) %></p></div>
+  </div>
+
+  <div id="container2">
+    <div id="prof_head">
+      <h2>Next race:</h1>
+    </div>
 </div>
 
