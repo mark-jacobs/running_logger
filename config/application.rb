@@ -11,8 +11,6 @@ module RunningLogger
   class Application < Rails::Application
     
 
-         config.autoload_paths += Dir["#{config.root}/lib/**/"]
-         config.autoload_paths += Dir["#{config.root}/app/managers/**/"]
          config.autoload_paths += Dir[Rails.root.join('lib')]
          config.autoload_paths += Dir[Rails.root.join("app/managers/**/")]
 

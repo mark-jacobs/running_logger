@@ -3,6 +3,7 @@ class RacesController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
   before_action :set_user
+  before_action :get_race, only: [:destroy, :show, :edit, :update]
 
 
   def new
@@ -22,12 +23,7 @@ class RacesController < ApplicationController
     @races = @user.races.all.order(race_date: :asc)
   end
 
-  def show
-    @race = @user.races.find(params[:id])
-  end
-
   def destroy
-    @race = @user.races.find(params[:id])
     if @race.destroy
       redirect_to user_races_path
     else
@@ -36,16 +32,12 @@ class RacesController < ApplicationController
   end
 
   def edit
-    @race = @user.races.find(params[:id])
     if @race.finish_time.nil?
       @race.finish_time = "00:00:00"
     end
   end
 
   def update
-    @race = @user.races.find(params[:id])
-
-    race_params[:finish_time] = "Flower"
     if @race.update(race_params)
       flash[:success] = "Race updated"
       redirect_to user_races_path(current_user)
@@ -72,4 +64,9 @@ class RacesController < ApplicationController
     def set_user
       @user = current_user
     end
+
+    def get_race
+      @race = @user.races.find(params[:id])
+    end
+
 end
