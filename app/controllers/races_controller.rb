@@ -20,7 +20,9 @@ class RacesController < ApplicationController
   end
 
   def index
-    @races = @user.races.all.order(race_date: :asc)
+    @upcoming_races = RacesManager.build_upcoming_race_index(@user)
+    @completed_races = RacesManager.build_completed_race_index(@user)
+    #@races = @user.races.all.order(race_date: :asc)
   end
 
   def destroy
@@ -65,7 +67,7 @@ class RacesController < ApplicationController
       @user = current_user
     end
 
-    def get_race
+    def get_race  
       @race = @user.races.find(params[:id])
     end
 

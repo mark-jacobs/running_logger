@@ -7,22 +7,13 @@
     <%= link_to "Add race", new_user_race_path, class: "btn btn-large btn-custom" %>
   </div>
 
-
-<h2>Upcoming races <%= @x %></h2>
-<% @races.each do |x| %>
-
-  <% if x.finish_time.nil? || x.finish_time.strftime("%H:%M:%S") == "00:00:00" %>
-    <%= render 'race_item', x: x %>
-  <% end %>
-
-<% end %>
-
-<h2>Results</h2>
-<% @races.each do |x| %>
-    <% @var1 = x %>
-    <% if !x.finish_time.nil? && x.finish_time.strftime("%H:%M:%S") != "00:00:00" %>
+  <h2>Upcoming races <%= @x %></h2>
+    <% @upcoming_races.each do |x| %>
       <%= render 'race_item', x: x %>
     <% end %>
-<% end %>
 
+  <h2>Results</h2>
+    <% @completed_races.each do |x| %>
+      <%= render 'race_item', x: x %>
+    <% end %>
 </div>
