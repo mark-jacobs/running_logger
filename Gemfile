@@ -33,11 +33,11 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'factory_girl'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'capybara'
+  gem 'factory_girl_rails', "~> 4.0"
 end
 
 group :production do
