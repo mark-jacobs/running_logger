@@ -3,10 +3,10 @@ class LogsController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
   before_action :set_user, only: [:new, :create]
+  before_action :set_period, only: [:new, :log, :edit]
 
   def new
     @logs = @user.logs.build(log_date: (startperiod(params[:period].to_i)) + (params[:day].to_i - 1).days)
-    @period = params[:period]
   end
 
   def create
@@ -21,14 +21,12 @@ class LogsController < ApplicationController
   
   def log
     @user = User.find(params[:user_id])
-    @period = params[:period].to_i
     @start = LogsManager.startperiod(@period)
     @logs = LogsManager.create_logs_array(@user, @period)
   end
 
   def edit
     @user = User.find(params[:user_id])
-    @period = params[:period]
     @date = startperiod(params[:period].to_i).beginning_of_day + (params[:day].to_i - 1).days
     @log = @user.logs.where("log_date >= ? AND log_date <= ?", @date.beginning_of_day , @date.end_of_day).first
     
@@ -63,5 +61,9 @@ class LogsController < ApplicationController
 
     def set_user
       @user = current_user
+    end
+
+    def set_period
+      @period = params[:period].to_i
     end
 end
