@@ -5,7 +5,6 @@ class LogsController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
   def new
-    @user = current_user
     @logs = @user.logs.build(log_date: (startperiod(params[:period].to_i)) + (params[:day].to_i - 1).days)
     @period = params[:period]
   end
@@ -24,7 +23,6 @@ class LogsController < ApplicationController
     @user = User.find(params[:user_id])
     @period = params[:period].to_i
     @start = LogsManager.startperiod(@period)
-    @end = LogsManager.endperiod(@period)
     @logs = LogsManager.create_logs_array(@user, @period)
   end
 
