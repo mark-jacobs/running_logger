@@ -2,6 +2,7 @@ class LogsController < ApplicationController
   include LogsHelper
   before_action :signed_in_user
   before_action :correct_user
+  before_action :set_user, only: [:new, :create]
 
   def new
     @user = current_user
@@ -10,7 +11,6 @@ class LogsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @logs = @user.logs.build(logs_params)
     if @logs.save
       flash[:sucess] = "Log created"
@@ -23,9 +23,9 @@ class LogsController < ApplicationController
   def log
     @user = User.find(params[:user_id])
     @period = params[:period].to_i
-    @start = startperiod(@period)
-    @end = endperiod(@period)
-    @logs = create_logs_array(@user.logs.where("log_date >= ? AND log_date <= ?", (@start - 1.day), @end), @period)
+    @start = LogsManager.startperiod(@period)
+    @end = LogsManager.endperiod(@period)
+    @logs = LogsManager.create_logs_array(@user, @period)
   end
 
   def edit
@@ -61,5 +61,9 @@ class LogsController < ApplicationController
     def correct_user
       @user = User.find(params[:user_id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def set_user
+      @user = current_user
     end
 end

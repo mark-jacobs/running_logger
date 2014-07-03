@@ -22,7 +22,6 @@ class RacesController < ApplicationController
   def index
     @upcoming_races = RacesManager.build_upcoming_race_index(@user)
     @completed_races = RacesManager.build_completed_race_index(@user)
-    #@races = @user.races.all.order(race_date: :asc)
   end
 
   def destroy
