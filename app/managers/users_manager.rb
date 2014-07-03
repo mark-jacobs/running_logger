@@ -1,0 +1,2 @@
+class UsersManager < CommonManager
+end

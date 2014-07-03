@@ -1,12 +1,7 @@
-class LogsManager
-  def self.startperiod(number)
-    @startperiod = Time.now - (Time.now.wday - 1).day  + number.week
-  end
+class LogsManager < CommonManager
 
-  def self.endperiod(number)
-    startperiod(number) + 1.week
-  end
 
+  # Gets the data for the log view.
   def self.create_logs_array(user, period)
     @logs_array = []
     @logs = user.logs.where("log_date >= ? AND log_date <= ?", (startperiod(period) - 1.day), endperiod(period))
@@ -21,4 +16,3 @@ class LogsManager
   end
 end
 
-#(@user.logs.where("log_date >= ? AND log_date <= ?", (@start - 1.day), @end), @period)
