@@ -53,8 +53,6 @@
 
 #race_bar {
   width:100%;
-  padding: 1%;
-  margin: 1%;
   text-align: left;
   background-color: #E9E9E2;
 }
@@ -186,6 +184,13 @@
   borderwidth: 2px;
   border-color: #fff;
   padding-bottom: 10px;
+}
+#log_row2 {
+  overflow: auto;
+  border-bottom-style: solid;
+  borderwidth: 2px;
+  border-color: #fff;
+  padding-bottom: 0.5%;
 }
 
 #plan1 {
