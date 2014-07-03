@@ -1,10 +1,11 @@
-class RacesController < ApplicationController
+
+class RacesController < ApplicationController 
   before_action :signed_in_user
   before_action :correct_user
   before_action :set_user
 
+
   def new
-    @user = current_user
     @race = @user.races.build
   end
 
@@ -56,7 +57,7 @@ class RacesController < ApplicationController
   private
   
     def race_params
-     params.require(:race).permit(:race_name, :race_date, :distance, :finish_time, :position)
+      params.require(:race).permit(:race_name, :race_date, :distance, :finish_time, :position)
     end
 
     def signed_in_user

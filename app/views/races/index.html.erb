@@ -8,7 +8,7 @@
   </div>
 
 
-<h2>Upcoming races</h2>
+<h2>Upcoming races <%= @x %></h2>
 <% @races.each do |x| %>
 
   <% if x.finish_time.nil? || x.finish_time.strftime("%H:%M:%S") == "00:00:00" %>
