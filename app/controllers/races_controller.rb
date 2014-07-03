@@ -1,6 +1,7 @@
 class RacesController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
+  before_action :set_user
 
   def new
     @user = current_user
@@ -8,7 +9,6 @@ class RacesController < ApplicationController
   end
 
   def create
-    @user = current_user
     @race = @user.races.build(race_params)
     if @race.save
       redirect_to user_races_path
@@ -18,17 +18,14 @@ class RacesController < ApplicationController
   end
 
   def index
-    @user = current_user
     @races = @user.races.all.order(race_date: :asc)
   end
 
   def show
-    @user = current_user
     @race = @user.races.find(params[:id])
   end
 
   def destroy
-    @user = current_user
     @race = @user.races.find(params[:id])
     if @race.destroy
       redirect_to user_races_path
@@ -38,7 +35,6 @@ class RacesController < ApplicationController
   end
 
   def edit
-    @user = current_user
     @race = @user.races.find(params[:id])
     if @race.finish_time.nil?
       @race.finish_time = "00:00:00"
@@ -46,7 +42,6 @@ class RacesController < ApplicationController
   end
 
   def update
-    @user = current_user
     @race = @user.races.find(params[:id])
 
     race_params[:finish_time] = "Flower"
@@ -71,5 +66,9 @@ class RacesController < ApplicationController
     def correct_user
       @user = User.find(params[:user_id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def set_user
+      @user = current_user
     end
 end
