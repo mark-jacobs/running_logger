@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only:[:create, :new, :edit, :update, :show] do
     resources :races, only:[:create, :edit, :update, :new, :index, :destroy]
-    resources :logs, only:[:create, :new, :edit, :update]
+    resources :logs, only:[:create, :new, :edit, :update, :destroy]
   end
 
   resources :sessions, only:[:new, :create, :destroy]

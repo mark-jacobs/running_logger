@@ -29,7 +29,14 @@ class LogsController < ApplicationController
     @user = User.find(params[:user_id])
     @date = LogsManager.startperiod(params[:period].to_i).beginning_of_day + (params[:day].to_i - 1).days
     @log = @user.logs.where("log_date >= ? AND log_date <= ?", @date.beginning_of_day , @date.end_of_day).first
-    
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @log = @user.logs.find(params[:id])
+    @log.destroy
+    #will need to redirect back to correct period.
+    redirect_to  "/users/#{current_user.id}/log/0"
   end
 
   def update
@@ -40,7 +47,6 @@ class LogsController < ApplicationController
     else
       render 'edit'
     end
-
   end
 
   private 
