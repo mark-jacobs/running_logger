@@ -1,6 +1,5 @@
 class LogsManager < CommonManager
 
-
   # Gets the data for the log view.
   def self.create_logs_array(user, period)
     @logs_array = []
