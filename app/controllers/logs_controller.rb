@@ -5,7 +5,8 @@ class LogsController < ApplicationController
   before_action :set_period, only: [:new, :log, :edit]
 
   def new
-    @logs = @user.logs.build(log_date: (LogsManager.startperiod(params[:period].to_i)) + (params[:day].to_i - 1).days)
+    @logs = @user.logs.build(log_time: "00:00:00", log_date: (LogsManager.startperiod(params[:period].to_i)) + (params[:day].to_i - 1).days)
+
   end
 
   def create

@@ -1,6 +1,6 @@
 class LogsManager < CommonManager
 
-  # Gets the data for the log view.
+    # Gets the data for the log view.
   def self.create_logs_array(user, period)
     @logs_array = []
     @logs = user.logs.where("log_date >= ? AND log_date <= ?", (startperiod(period) - 1.day), endperiod(period))
