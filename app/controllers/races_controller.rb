@@ -48,7 +48,7 @@ class RacesController < ApplicationController
   end
 
   def pb
-    @test = 'some races'
+    @results = RacesManager.get_pb_races(current_user)
   end
 
   private

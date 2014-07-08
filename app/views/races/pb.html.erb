@@ -1,2 +1,6 @@
 <h1>Test PB view</h1>
-<%= @test %>
+
+<% @results.each do |result| %>
+  <p><%= result.distance %> <%= result.race_name %> <%= result.finish_time %> <%= result.race_date %>
+<% end %>
+

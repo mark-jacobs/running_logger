@@ -11,7 +11,13 @@ class RacesManager
 
   # Returns a hash of the users pb performances for common race distances.
   def self.get_pb_races(a_user)
-    
-  end
+    @pb_races = []
+    @race_distances = a_user.races.select(:distance).where.not(finish_time: Time.new("2000-01-01 00:00:00")).distinct
 
+    @race_distances.each do |eachdistance|
+      @race = a_user.races.order('distance, finish_time ASC').where.not(finish_time: Time.new("2000-01-01 00:00:00")).find_by(distance: eachdistance.distance)
+      @pb_races << @race
+    end
+    @pb_races
+  end
 end
