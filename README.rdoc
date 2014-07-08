@@ -32,11 +32,9 @@ show upcoming races on training log.
 
 ******************************************************Next**************
 
-Redesign races, currently editing the race will add a time of 0 and complete it.
 
-*redesign the input screen for the new model.
 
-*Redesign the races functionality so radio boxes are used for the race distances when entering.
+
 
 *Think about tests needed, write a few to complete here.
 
@@ -46,10 +44,6 @@ Redesign races, currently editing the race will add a time of 0 and complete it.
 
 *indicate race days on the table.
 
-*Display stats on profile page, possibilities below:
-  *Miles - Week, 4Week, Year to date, previous years, All time
-  *Average miles per week, for the current year, previous year, current month
-  *Pace - Average pace, weekly, monthly yearly.
 
 *design weekly stats section on the log, list miles, calories and time per week.
 
@@ -104,6 +98,8 @@ Redesign races, currently editing the race will add a time of 0 and complete it.
 *redesign the view so more obvious which part is the plan and which the log.
 
 *Find a graphing gem for displaying stats. - Chartkick seems nice and easy to use.x
+
+*Redesign the races functionality so radio boxes are used for the race distances when entering.
 
 
 
