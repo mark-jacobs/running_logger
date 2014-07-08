@@ -44,7 +44,6 @@ show upcoming races on training log.
 
 *indicate race days on the table.
 
-
 *design weekly stats section on the log, list miles, calories and time per week.
 
 *Add proposed and actual weekly miles to the plan/log table view.

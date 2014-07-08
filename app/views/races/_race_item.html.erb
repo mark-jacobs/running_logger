@@ -1,4 +1,5 @@
-<div id="race_bar">
+
+<div id="race_bar" style="cursor: pointer;" onclick="window.location='<%= edit_user_race_path(current_user, x.id) %>';">
   <div id="race_text" style="width:100%;"> 
     <div id="race_title">
       <h3><%= x.race_name %></h3>
@@ -9,12 +10,8 @@
       <% unless x.finish_time.nil? || x.finish_time.strftime("%H:%M:%S") == "00:00:00" %>
         <%= x.finish_time.strftime("%H:%M:%S") %>
       <% end %>  
-  </div>
-    <div style="text-align: right;">
-      <%= link_to "Edit", edit_user_race_path(current_user, x.id), class: "btn btn-md btn-custom" %>
-      <%= link_to "Delete", user_race_path(current_user, x.id), method: :delete, data: { confirm: "Are you sure?" },
-                                                                   class: "btn btn-md btn-custom" %>
     </div> 
   </div>
 </div>
+
     

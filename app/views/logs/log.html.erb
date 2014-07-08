@@ -31,18 +31,15 @@
     </div>
 
     <% 7.times do |x| %>
-    <div id="log_row">
+    <div id="log_row" style="cursor: pointer;" onclick="window.location='<%=  if @logs[x].nil?
+                                                                                "/newlog/#{@user[:id]}/#{@period}/#{x + 1}" 
+                                                                              else 
+                                                                                "/editlog/#{@user[:id]}/#{@period}/#{x + 1}"
+                                                                              end %>';">
       <p>
         <div id="log">
-        <% if @logs[x].nil? %>
-          <%= link_to (@start  + x.day).strftime("%^a "), 
-                           "/newlog/#{@user[:id]}/#{@period}/#{x + 1}",
-                           class: "btn btn-xs btn-custom2" %>
-        <% else %>
-          <%= link_to (@start  + x.day).strftime("%^a "), 
-                           "/editlog/#{@user[:id]}/#{@period}/#{x + 1}",
-                           class: "btn btn-xs btn-custom2" %>
-        <% end %>
+        <%= (@start  + x.day).strftime("%^a ") %>
+
         </div>
         <div id="log1"><%= (@start + x.day).strftime("%d/%m/%y") %></div>
         <div id="log3"><%=  if @logs[x].nil? 
