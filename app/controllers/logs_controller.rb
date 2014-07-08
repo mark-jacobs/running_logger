@@ -29,6 +29,7 @@ class LogsController < ApplicationController
     @user = User.find(params[:user_id])
     @date = LogsManager.startperiod(params[:period].to_i).beginning_of_day + (params[:day].to_i - 1).days
     @log = @user.logs.where("log_date >= ? AND log_date <= ?", @date.beginning_of_day , @date.end_of_day).first
+    @period = params[:period]
   end
 
   def destroy
@@ -36,7 +37,7 @@ class LogsController < ApplicationController
     @log = @user.logs.find(params[:id])
     @log.destroy
     #will need to redirect back to correct period.
-    redirect_to  "/users/#{current_user.id}/log/0"
+    redirect_to  "/users/#{current_user.id}/log/#{params[:period]}"
   end
 
   def update
@@ -52,7 +53,7 @@ class LogsController < ApplicationController
   private 
     def logs_params
       params.require(:log).permit(:log_date, :plan_workout, :plan_q, :plan_miles, :log_workout, :log_q, :log_miles, 
-                           :log_time, :log_calories, :notes)
+                           :log_time, :log_calories, :notes, :period)
     end
 
     def signed_in_user

@@ -44,8 +44,8 @@
   </div>
     <div id="container1">
       <%= f.submit "Submit", class: "btn btn-lg btn-custom" %>
-      <%= link_to "Delete", "/users/#{@user.id}/logs/#{@log.id}",
-      method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "Delete", "/users/#{@user.id}/logs/#{@log.id}/#{@period}",  
+      method: :delete, data: { confirm: "Are you sure?" }%>
     </div>
 
 <% end %>
