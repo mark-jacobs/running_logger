@@ -48,7 +48,7 @@ show upcoming races on training log.
 
 *Add proposed and actual weekly miles to the plan/log table view.
 
-*Work on races part so that default distances can be selected, but also new ones can be added.
+
 
 *Add to races so records for main distances are displayed.
 
@@ -100,6 +100,7 @@ show upcoming races on training log.
 
 *Redesign the races functionality so radio boxes are used for the race distances when entering.
 
+*Work on races part so that default distances can be selected, but also new ones can be added. - partially, radio buttons implemented, will need to consider whether to add other and text entry functionality.
 
 
 
