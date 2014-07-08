@@ -12,7 +12,6 @@ class LogsController < ApplicationController
   def create
     @logs = @user.logs.build(logs_params)
     if @logs.save
-      flash[:sucess] = "Log created"
       redirect_to "/users/#{params[:user_id]}/log/#{params[:period]}"
     else
       render 'new'
