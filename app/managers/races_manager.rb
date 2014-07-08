@@ -20,4 +20,8 @@ class RacesManager
     end
     @pb_races
   end
-end
+
+  def self.get_distance_races(a_user, dist)
+    @races = a_user.races.where(distance: dist).where.not(finish_time: Time.new("2000-01-01 00:00:00"))
+  end
+end 

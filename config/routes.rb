@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   match '/newlog/:user_id/:period/:day',  to:     'logs#new',           via: 'get'
   match '/editlog/:user_id/:period/:day', to:     'logs#edit',          via: 'get' 
   match '/pb/:user_id',                   to:     'races#pb',           via: 'get'
+  match '/distance/:user_id/:dist',       to:     'races#distance',     via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -51,6 +51,11 @@ class RacesController < ApplicationController
     @results = RacesManager.get_pb_races(current_user)
   end
 
+  def distance
+    @dist_races = RacesManager.get_distance_races(current_user, params[:dist])
+    @dist = params[:dist]
+  end
+
   private
   
     def race_params
@@ -73,5 +78,4 @@ class RacesController < ApplicationController
     def get_race  
       @race = @user.races.find(params[:id])
     end
-
 end

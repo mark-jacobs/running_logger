@@ -1,17 +1,16 @@
 <div id="container1">
 <div id="prof_head" style="margin-bottom: 1%;">
-  <h2>Personal Bests</h2>
+  <h2><%= @dist %></h2>
 </div>
 <% left = true %>
-<% @results.each do |result| %>
+<% @dist_races.each do |result| %>
 
-  <div id="container2" style="cursor: pointer;" onclick="window.location='<%= "/distance/#{current_user.id}/#{result.distance}/" %>';">
-    <div id="entry_head3_<%= "#{if left 
+  <div id="container2">
+    <div id="entry_head2_<%= "#{if left 
                                  'l' 
                                else 
                                  'r' 
                                end }"%>">
-      <h3><%= result.distance %></h3> 
       <h3><%= result.finish_time.strftime("%H:%M:%S") %></h3>
       <%= result.race_name %> 
       <%= result.race_date.strftime("%d/%m/%y") %>
@@ -20,6 +19,3 @@
   </div>
 <% end %>
 </div>
-
-
-
