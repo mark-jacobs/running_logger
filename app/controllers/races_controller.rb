@@ -47,6 +47,10 @@ class RacesController < ApplicationController
     end
   end
 
+  def pb
+    @test = 'some races'
+  end
+
   private
   
     def race_params

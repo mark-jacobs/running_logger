@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   match '/signout',                       to:     'sessions#destroy',   via: 'delete'
   match '/newlog/:user_id/:period/:day',  to:     'logs#new',           via: 'get'
   match '/editlog/:user_id/:period/:day', to:     'logs#edit',          via: 'get' 
-
+  match 'pb/:user_id',                    to:     'races#pb',           via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

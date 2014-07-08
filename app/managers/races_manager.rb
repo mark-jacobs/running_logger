@@ -8,4 +8,10 @@ class RacesManager
   def self.build_completed_race_index(a_user)
     @races = a_user.races.where("finish_time IS NOT NULL AND finish_time <> ?", Time.new("2000-01-01 00:00:00")).order(race_date: :desc)
   end
+
+  # Returns a hash of the users pb performances for common race distances.
+  def self.get_pb_races(a_user)
+    
+  end
+
 end
