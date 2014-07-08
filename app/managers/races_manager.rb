@@ -9,7 +9,7 @@ class RacesManager
     @races = a_user.races.where("finish_time IS NOT NULL AND finish_time <> ?", Time.new("2000-01-01 00:00:00")).order(race_date: :desc)
   end
 
-  # Returns a hash of the users pb performances for common race distances.
+  # Returns an array of the users pb performances for race distances where finish times exist.
   def self.get_pb_races(a_user)
     @pb_races = []
     @race_distances = a_user.races.select(:distance).where.not(finish_time: Time.new("2000-01-01 00:00:00")).distinct
