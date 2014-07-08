@@ -63,10 +63,12 @@
       <% @planned_miles = 0 %>
       <% @logged_miles = 0 %>
       <% @logged_calories = 0 %>
+      <% @logged_time = Time.new("2000-01-01 00:00:00") %>
       <% 7.times do |x| %>
         <% @planned_miles += @logs[x].plan_miles unless @logs[x].nil? || @logs[x].plan_miles.nil? %>
         <% @logged_miles += @logs[x].log_miles unless @logs[x].nil? || @logs[x].log_miles.nil? %>
         <% @logged_calories += @logs[x].log_calories unless @logs[x].nil? || @logs[x].log_calories.nil? %>
+        <% @logged_time += @logs[x].log_time.to_i unless @logs[x].nil? || @logs[x].log_time.nil? %>
       <% end %>
 
       <div id="plan_head">
@@ -75,7 +77,8 @@
       <div id="log_head">
         Logged miles: <%= @logged_miles.round(2) %>,
         logged calories: <%= @logged_calories %>
-      </div> 
+        logged time: <%= @logged_time.strftime("%H:%M:%S") %>
+      </div>
   </div>
 </div>
 
