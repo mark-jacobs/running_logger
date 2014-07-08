@@ -47,6 +47,9 @@
   <p><%= f.label :position %></p>
   <p><%= f.text_field :position %></p>
 
-  <p><%= f.submit "Submit", class: "btn btn-lg btn-custom" %></p>
+  <p><%= f.submit "Submit", class: "btn btn-lg btn-custom" %>
+     <%= link_to "Delete", "/users/#{@user.id}/races/#{@race.id}",  
+      method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-lg btn-custom" %>
+  </p>
 <% end %>
 </div>
