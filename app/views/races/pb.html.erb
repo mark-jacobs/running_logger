@@ -1,15 +1,25 @@
 <div id="container1">
 <div id="prof_head" style="margin-bottom: 1%;">
-    <h2>Personal Bests</h2>
-  </div>
+  <h2>Personal Bests</h2>
+</div>
+<% left = true %>
 <% @results.each do |result| %>
+
   <div id="container2">
-    <div id="entry_head_l"><h3><%= result.distance %></h3> <%= result.race_name %> <%= result.finish_time %> <%= result.race_date %></div>
-    <div id="entry_head_r"><h3><%= result.distance %></h3> <%= result.race_name %> <%= result.finish_time %> <%= result.race_date %></div>
+    <div id="entry_head_<%= "#{if left 
+                                 'l' 
+                               else 
+                                 'r' 
+                               end }"%>">
+      <h3><%= result.distance %></h3> 
+      <h3><%= result.finish_time.strftime("%H:%M:%S") %></h3>
+      <%= result.race_name %> 
+      <%= result.race_date.strftime("%d/%m/%y") %>
+      <% left = !left %>
+    </div> 
   </div>
 <% end %>
+</div>
 
-  
-</div>
-</div>
+
 
