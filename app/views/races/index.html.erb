@@ -9,11 +9,11 @@
 
   <h2>Upcoming races <%= @x %></h2>
     <% @upcoming_races.each do |x| %>
-      <%= render 'race_item', x: x %>
+      <%= render 'shared/race_item', x: x %>
     <% end %>
 
   <h2>Results</h2>
     <% @completed_races.each do |x| %>
-      <%= render 'race_item', x: x %>
+      <%= render 'shared/race_item', x: x %>
     <% end %>
 </div>

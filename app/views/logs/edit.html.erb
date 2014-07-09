@@ -1,6 +1,6 @@
 <div id="container1">
 <% if !@race.nil? %>
-  <%= render 'race_link', x: @race %>
+  <%= render 'shared/race_item', x: @race %>
 <% end %>
 
 <%= form_for [@user,@log] do |f| %>
