@@ -5,8 +5,8 @@ class LogsController < ApplicationController
   before_action :set_period, only: [:new, :log, :edit]
 
   def new
-    @logs = LogsManager.build_log(@user, params[:period], params[:day])
-    @race = LogsManager.get_race_for_log_day(@user, params[:period], params[:day])
+    @logs = manager.build_log(@user, params[:period], params[:day])
+    @race = manager.get_race_for_log_day(@user, params[:period], params[:day])
   end
 
   def create
@@ -19,15 +19,15 @@ class LogsController < ApplicationController
   end
   
   def log
-    @start = LogsManager.startperiod(@period)
-    @logs = LogsManager.create_logs_array(@user, @period)
-    @races = LogsManager.races_in_period(@user, @period)
+    @start = manager.startperiod(@period)
+    @logs = manager.create_logs_array(@user, @period)
+    @races = manager.races_in_period(@user, @period)
   end
 
   def edit
     @period = params[:period]
-    @log = LogsManager.get_log_for_edit(@user, params[:period], params[:day])
-    @race = LogsManager.get_race_for_log_day(@user, params[:period], params[:day])
+    @log = manager.get_log_for_edit(@user, params[:period], params[:day])
+    @race = manager.get_race_for_log_day(@user, params[:period], params[:day])
   end
 
   def destroy
@@ -66,5 +66,9 @@ class LogsController < ApplicationController
 
     def set_period
       @period = params[:period].to_i
+    end
+
+    def manager
+      @manager ||= LogsManager.new
     end
 end
