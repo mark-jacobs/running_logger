@@ -2,23 +2,22 @@ class LogsManager < CommonManager
 
   # Gets the data for the log view.
   def self.create_logs_array(user, period)
-    @logs_array = []
-    @logs = user.logs.where("log_date >= ? AND log_date <= ?", (startperiod(period) - 1.day), endperiod(period))
+    logs_array = []
+    logs = user.logs.where("log_date >= ? AND log_date <= ?", (startperiod(period) - 1.day), endperiod(period))
     7.times do |eachday|
-      @logs.each do |a_log|
+      logs.each do |a_log|
         if (startperiod(period) + eachday.day).mday == a_log.log_date.mday
-          @logs_array[eachday] = a_log
+          logs_array[eachday] = a_log
         end
       end
     end
-    @logs_array
+    logs_array
   end
 
   # Gets the log to be edited.
   def self.get_log_for_edit(user, period, day)
-    @user = user
-    @date = LogsManager.startperiod(period.to_i).beginning_of_day + (day.to_i - 1).days
-    @log = @user.logs.where("log_date >= ? AND log_date <= ?", @date.beginning_of_day , @date.end_of_day).first
+    date = LogsManager.startperiod(period.to_i).beginning_of_day + (day.to_i - 1).days
+    log = user.logs.where("log_date >= ? AND log_date <= ?", date.beginning_of_day , date.end_of_day).first
   end
 
   # Create new log.
@@ -28,23 +27,22 @@ class LogsManager < CommonManager
 
   # Get any races in the log period.
   def self.races_in_period(user, period)
-    @races_array = []
-    @races = user.races.where("race_date >= ? AND race_date <= ?", (startperiod(period) - 1.day), endperiod(period))
+    races_array = []
+    races = user.races.where("race_date >= ? AND race_date <= ?", (startperiod(period) - 1.day), endperiod(period))
     7.times do |eachday|
-      @races.each do |a_race|
+      races.each do |a_race|
         if (startperiod(period) + eachday.day).mday == a_race.race_date.mday
-          @races_array[eachday] = a_race
+          races_array[eachday] = a_race
         end
       end
     end
-    @races_array
+    races_array
   end 
 
   # Get a race that exists on the same day as a log.
   def self.get_race_for_log_day(user, period, day)
-    @user = user
-    @date = LogsManager.startperiod(period.to_i).beginning_of_day + (day.to_i - 1).days
-    @log = @user.races.where("race_date >= ? AND race_date <= ?", @date.beginning_of_day , @date.end_of_day).first
+    date = LogsManager.startperiod(period.to_i).beginning_of_day + (day.to_i - 1).days
+    log = user.races.where("race_date >= ? AND race_date <= ?", date.beginning_of_day , date.end_of_day).first
   end
 end
 

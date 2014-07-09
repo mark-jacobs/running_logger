@@ -1,26 +1,26 @@
 <% provide(:title, "Edit user") %>
 <div id="container1">
-<div id="prof_head">
-  <h2>Update your profile</h2>
-</div>
+  <div id="prof_head">
+    <h2>Update your profile</h2>
+  </div>
 
-<div id="container1">
-<%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages' %>
+  <div id="container1">
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
    
-  <p><%= f.label :name %></p>
-  <p><%= f.text_field :name %></p>
+    <p><%= f.label :name %></p>
+    <p><%= f.text_field :name %></p>
 
-  <p><%= f.label :email %></p>
-  <p><%= f.text_field :email %></p>
+    <p><%= f.label :email %></p>
+    <p><%= f.text_field :email %></p>
 
-  <p><%= f.label :password %></p>
-  <p><%= f.password_field :password %></p>
+    <p><%= f.label :password %></p>
+    <p><%= f.password_field :password %></p>
 
-  <p><%= f.label :password_confirmation, "Confirm Password" %></p>
-  <p><%= f.password_field :password_confirmation %></p>
+    <p><%= f.label :password_confirmation, "Confirm Password" %></p>
+    <p><%= f.password_field :password_confirmation %></p>
 
-  <p><%= f.submit "Save changes", class: "btn btn-lg btn-custom" %></p>
-<% end %>
-</div>
+    <p><%= f.submit "Save changes", class: "btn btn-lg btn-custom" %></p>
+  <% end %>
+  </div>
 </div>
