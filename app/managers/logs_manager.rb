@@ -25,5 +25,19 @@ class LogsManager < CommonManager
   def self.build_log(user, period, day)
     user.logs.build(log_time: "00:00:00", log_date: (LogsManager.startperiod(period.to_i)) + (day.to_i - 1).days)
   end
+
+  # Get any races in the log period.
+  def self.races_in_period(user, period)
+    @races_array = []
+    @races = user.races.where("race_date >= ? AND race_date <= ?", (startperiod(period) - 1.day), endperiod(period))
+    7.times do |eachday|
+      @races.each do |a_race|
+        if (startperiod(period) + eachday.day).mday == a_race.race_date.mday
+          @races_array[eachday] = a_race
+        end
+      end
+    end
+    @races_array
+  end 
 end
 

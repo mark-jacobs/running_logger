@@ -2,6 +2,8 @@
 $highlight-color: #CAE0D6;
 $prof-color: #282828;
 $box-color: #E9E9E2;
+$race-color: #EDD0AB;
+$highlight-color2: #B7CCA7;
 
 .btn-custom {
   background-color: hsl(0, 0%, 16%) !important;
@@ -246,6 +248,14 @@ $box-color: #E9E9E2;
   width: 15%;
   float: right; 
 }
+#race_log_row {
+  overflow: auto;
+  background-color: $race-color;
+  border-bottom-style: solid;
+  borderwidth: 2px;
+  border-color: #fff;
+  padding-bottom: 10px;
+}
 #log_row {
   overflow: auto;
   background-color: $box-color;
@@ -257,6 +267,9 @@ $box-color: #E9E9E2;
 
 #log_row:hover {
   background-color: $highlight-color;
+}
+#race_log_row:hover {
+  background-color: $highlight-color2;
 }
 
 #log_row2 {

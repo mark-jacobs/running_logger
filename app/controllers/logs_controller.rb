@@ -6,8 +6,6 @@ class LogsController < ApplicationController
 
   def new
     @logs = LogsManager.build_log(@user, params[:period], params[:day])
-    #@user.logs.build(log_time: "00:00:00", log_date: (LogsManager.startperiod(params[:period].to_i)) + (params[:day].to_i - 1).days)
-
   end
 
   def create
@@ -22,6 +20,7 @@ class LogsController < ApplicationController
   def log
     @start = LogsManager.startperiod(@period)
     @logs = LogsManager.create_logs_array(@user, @period)
+    @races = LogsManager.races_in_period(@user, @period)
   end
 
   def edit

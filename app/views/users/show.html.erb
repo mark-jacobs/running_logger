@@ -17,7 +17,7 @@
   </div>
   <div id="container2">
     <div id="entry_head2_l"><p>Miles last year: <%= @miles_for_last_year %></p></div>
-    <div id="entry_head2_r"><p>Miles for this year: <%= @miles_for_year %></p></div>
+    <div id="entry_head2_r"><p>Miles for this year: <%= @miles_for_year.round(2) %></p></div>
   </div>
   <div id ="container2">
     <div id="entry_head2_l"><p>Weekly average last year: <%= (@miles_for_last_year / 52).round(2) %></p></div>

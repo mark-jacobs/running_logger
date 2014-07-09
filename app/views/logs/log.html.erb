@@ -31,7 +31,11 @@
     </div>
 
     <% 7.times do |x| %>
-    <div id="log_row" style="cursor: pointer;" onclick="window.location='<%=  if @logs[x].nil?
+    <div  <%= if !@races[x].nil? 
+                "id=#{"race_log_row"}" 
+              else 
+                "id=#{"log_row"}" 
+              end%> style="cursor: pointer;" onclick="window.location='<%=  if @logs[x].nil?
                                                                                 "/newlog/#{@user[:id]}/#{@period}/#{x + 1}" 
                                                                               else 
                                                                                 "/editlog/#{@user[:id]}/#{@period}/#{x + 1}"
