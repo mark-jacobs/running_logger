@@ -19,30 +19,24 @@ class LogsController < ApplicationController
   end
   
   def log
-    @user = User.find(params[:user_id])
     @start = LogsManager.startperiod(@period)
     @logs = LogsManager.create_logs_array(@user, @period)
   end
 
   def edit
-    @user = User.find(params[:user_id])
-    @date = LogsManager.startperiod(params[:period].to_i).beginning_of_day + (params[:day].to_i - 1).days
-    @log = @user.logs.where("log_date >= ? AND log_date <= ?", @date.beginning_of_day , @date.end_of_day).first
+    @log = LogsManager.get_log_for_edit(@user, params[:period], params[:day])
     @period = params[:period]
   end
 
   def destroy
-    @user = User.find(params[:user_id])
     @log = @user.logs.find(params[:id])
     @log.destroy
-    #will need to redirect back to correct period.
     redirect_to  "/users/#{current_user.id}/log/#{params[:period]}"
   end
 
   def update
     @log = @user.logs.find(params[:id])
     if @log.update(logs_params)
-      flash[:success] = "Log updated"
       redirect_to "/users/#{params[:user_id]}/log/#{params[:period]}"
     else
       render 'edit'

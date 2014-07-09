@@ -1,6 +1,6 @@
 class LogsManager < CommonManager
 
-    # Gets the data for the log view.
+  # Gets the data for the log view.
   def self.create_logs_array(user, period)
     @logs_array = []
     @logs = user.logs.where("log_date >= ? AND log_date <= ?", (startperiod(period) - 1.day), endperiod(period))
@@ -12,6 +12,13 @@ class LogsManager < CommonManager
       end
     end
     @logs_array
+  end
+
+  # Gets the log to be editied.
+  def self.get_log_for_edit(user, period, day)
+    @user = user
+    @date = LogsManager.startperiod(period.to_i).beginning_of_day + (day.to_i - 1).days
+    @log = @user.logs.where("log_date >= ? AND log_date <= ?", @date.beginning_of_day , @date.end_of_day).first
   end
 end
 
