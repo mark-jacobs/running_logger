@@ -14,11 +14,16 @@ class LogsManager < CommonManager
     @logs_array
   end
 
-  # Gets the log to be editied.
+  # Gets the log to be edited.
   def self.get_log_for_edit(user, period, day)
     @user = user
     @date = LogsManager.startperiod(period.to_i).beginning_of_day + (day.to_i - 1).days
     @log = @user.logs.where("log_date >= ? AND log_date <= ?", @date.beginning_of_day , @date.end_of_day).first
+  end
+
+  # Create new log.
+  def self.build_log(user, period, day)
+    user.logs.build(log_time: "00:00:00", log_date: (LogsManager.startperiod(period.to_i)) + (day.to_i - 1).days)
   end
 end
 
