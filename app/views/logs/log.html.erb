@@ -31,8 +31,11 @@
     </div>
 
     <% 7.times do |x| %>
+
+    <div title="Race: <%= @races[x].race_name + ": " + @races[x].distance if !@races[x].nil? %>">
+
     <div  <%= if !@races[x].nil? 
-                "id=#{"race_log_row"}" 
+                "id=#{"race_log_row"}"
               else 
                 "id=#{"log_row"}" 
               end%> style="cursor: pointer;" onclick="window.location='<%=  if @logs[x].nil?
@@ -61,7 +64,8 @@
         <div id="notes"><%= @logs[x].notes unless @logs[x].nil? %>&nbsp</div>
     </div>
     <% end %>
-  </div>
+
+</div>
 
   <div id="log-row">
       <% @planned_miles = 0 %>
