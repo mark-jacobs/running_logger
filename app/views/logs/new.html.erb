@@ -1,12 +1,15 @@
 <div id="container1">
+<% if !@race.nil? %>
+  <%= render 'race_link', x: @race %>
+<% end %>
 
 <%= form_for [@user,@logs] do |f| %>
   <%= hidden_field_tag :period, @period %>
   <div id="date1">
-    <p><%= f.label "Date" %></p>
-    <p><%= f.date_field :log_date %></p>
-    <p><%= f.label "Notes" %></p>
-    <p><%= f.text_field :notes %></p>
+    <p><%= f.label "Date" %>
+    <%= f.date_field :log_date %>
+    <%= f.label "Notes" %>
+    <%= f.text_field :notes %></p>
   </div>
 
      <div id="entry_1">

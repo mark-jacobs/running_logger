@@ -6,6 +6,7 @@ class LogsController < ApplicationController
 
   def new
     @logs = LogsManager.build_log(@user, params[:period], params[:day])
+    @race = LogsManager.get_race_for_log_day(@user, params[:period], params[:day])
   end
 
   def create
@@ -24,8 +25,9 @@ class LogsController < ApplicationController
   end
 
   def edit
-    @log = LogsManager.get_log_for_edit(@user, params[:period], params[:day])
     @period = params[:period]
+    @log = LogsManager.get_log_for_edit(@user, params[:period], params[:day])
+    @race = LogsManager.get_race_for_log_day(@user, params[:period], params[:day])
   end
 
   def destroy
