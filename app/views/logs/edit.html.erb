@@ -1,6 +1,6 @@
 <div id="container1">
   <% if !@race.nil? %>
-    <%= render 'shared/race_item', x: @race %>
+    <%= render 'shared/race_item', race_item: @race %>
   <% end %>
 
   <%= render 'log_form' %>
