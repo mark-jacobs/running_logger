@@ -39,10 +39,10 @@
               else 
                 "id=#{"log_row"}" 
               end%> style="cursor: pointer;" onclick="window.location='<%=  if @logs[x].nil?
-                                                                                "/newlog/#{@user[:id]}/#{@period}/#{x + 1}" 
-                                                                              else 
-                                                                                "/editlog/#{@user[:id]}/#{@period}/#{x + 1}"
-                                                                              end %>';">
+                                                                              "/newlog/#{@user[:id]}/#{@period}/#{x + 1}" 
+                                                                            else 
+                                                                              "/editlog/#{@user[:id]}/#{@period}/#{x + 1}"
+                                                                            end %>';">
       <p>
         <div id="log">
         <%= (@start  + x.day).strftime("%^a ") %>
