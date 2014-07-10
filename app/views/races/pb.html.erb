@@ -7,9 +7,9 @@
 
   <div id="container2" style="cursor: pointer;" onclick="window.location='<%= "/distance/#{current_user.id}/#{result.distance}/" %>';">
     <div id="entry_head3_<%= "#{if left 
-                                 'l' 
+                                  'l' 
                                 else 
-                                 'r' 
+                                  'r' 
                                 end }"%>">
       <h3><%= result.distance %></h3> 
       <h3><%= result.finish_time.strftime("%H:%M:%S") %></h3>
