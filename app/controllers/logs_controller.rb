@@ -12,9 +12,15 @@ class LogsController < ApplicationController
   def create
     @logs = @user.logs.build(logs_params)
     if @logs.save
-      redirect_to "/users/#{params[:user_id]}/log/#{params[:period]}"
+        redirect_to "/users/#{params[:user_id]}/log/#{params[:period]}"
     else
-      render 'new'
+      if logs_params[:log_date] = ""
+        @logs.errors.add(:log_date, "Must have a log date!")
+        redirect_to "/users/#{params[:user_id]}/log/#{params[:period]}"
+        flash[:warning] = "To create a log a log must have a date!"
+      else
+        render 'new'
+      end
     end
   end
   

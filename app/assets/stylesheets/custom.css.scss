@@ -10,14 +10,11 @@ $highlight-color2: #B7CCA7;
 #error_explanation {
   @extend .alert;
   @extend .alert-danger;
-  width: inherit;
 }
 
 .field_with_errors {
   @extend .has-error;
-  display: inherit;
-  padding: inherit;
-  input, select, textfield{
+  input, select, randomname{
     border:2px solid red;
   }
   

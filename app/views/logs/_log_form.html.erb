@@ -2,10 +2,10 @@
 <%= render 'shared/error_messages', object: @log %>
   <%= hidden_field_tag :period, @period %>
   <div id="date1">
-    <p><%= f.label "Date" %>
+    <%= f.label "Date" %>
     <%= f.date_field :log_date %>
     <%= f.label "Notes" %>
-    <%= f.text_field :notes %></p>
+    <%= f.text_field :notes %>
   </div>
 
      <div id="entry_1">
@@ -19,23 +19,22 @@
       <p><%= f.check_box :plan_q %></p>
       <p><%= f.label "Plan miles" %></p>
       <p><%= f.text_field :plan_miles %></p>
-
     </div>
 
 
     <div id="right_panel">
-    <p><%= f.label "Workout log" %></p>
-    <p><%= f.text_field :log_workout %></p>
+      <p><%= f.label "Workout log" %></p>
+      <p><%= f.text_field :log_workout %></p>
     
-    <p><%= f.label "Quality session" %></p>
-    <p><%= f.check_box :log_q %></p>
-    <p><%= f.label "Log miles" %></p>
-    <p><%= f.text_field :log_miles %></p>
-    <p><%= f.label "Workout time" %></p>
-    <p><%= f.time_select :log_time, include_seconds: true %></p>
+      <p><%= f.label "Quality session" %></p>
+      <p><%= f.check_box :log_q %></p>
+      <p><%= f.label "Log miles" %></p>
+      <p><%= f.text_field :log_miles %></p>
+      <p><%= f.label "Workout time" %></p>
+      <p><%= f.time_select :log_time, include_seconds: true %></p>
 
-    <p><%= f.label "Calories" %></p>
-    <p><%= f.text_field :log_calories %></p>
+      <p><%= f.label "Calories" %></p>
+      <p><%= f.text_field :log_calories %></p>
   
     
 
