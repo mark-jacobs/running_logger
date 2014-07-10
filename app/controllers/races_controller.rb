@@ -8,6 +8,7 @@ class RacesController < ApplicationController
 
   def new
     @race = @user.races.build
+    @race.finish_time = "00:00:00"
   end
 
   def create
