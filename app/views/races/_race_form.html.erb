@@ -1,4 +1,5 @@
 <%= form_for [@user,@race] do |f| %>
+  <%= render 'shared/error_messages' %>
   <p><%= f.label :race_name %></p>
   <p><%= f.text_field :race_name %></p>
 
