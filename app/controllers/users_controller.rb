@@ -9,9 +9,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @logs_8_week = UsersManager.create_weekly_miles_array(@user)
-    @miles_for_year = UsersManager.yearly_miles(0, @user)
-    @miles_for_last_year = UsersManager.yearly_miles(1, @user)
+    @logs_8_week = manager.create_weekly_miles_array(@user)
+    @miles_for_year = manager.yearly_miles(0, @user)
+    @miles_for_last_year = manager.yearly_miles(1, @user)
   end
     
   def create
@@ -51,5 +51,9 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def manager
+      @manager ||= UsersManager.new
     end
 end
