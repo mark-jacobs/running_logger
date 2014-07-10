@@ -1,9 +1,27 @@
+@import "bootstrap";
+
 /* General */
 $highlight-color: #CAE0D6;
 $prof-color: #282828;
 $box-color: #E9E9E2;
 $race-color: #EDD0AB;
 $highlight-color2: #B7CCA7;
+
+#error_explanation {
+  @extend .alert;
+  @extend .alert-danger;
+  width: inherit;
+}
+
+.field_with_errors {
+  @extend .has-error;
+  display: inherit;
+  padding: inherit;
+  input, select, textfield{
+    border:2px solid red;
+  }
+  
+}
 
 .btn-custom {
   background-color: hsl(0, 0%, 16%) !important;
