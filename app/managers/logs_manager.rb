@@ -44,5 +44,23 @@ class LogsManager < CommonManager
     date = startperiod(period.to_i).beginning_of_day + (day.to_i - 1).days
     log = user.races.where("race_date >= ? AND race_date <= ?", date.beginning_of_day, date.end_of_day).first
   end
+
+  def generate_summary(logs)
+    summary = {}
+    planned_miles = 0
+    logged_miles = 0
+    logged_calories = 0
+    logged_time = 0
+    base_time = Time.new("2000-01-01 00:00:00")
+    7.times do |x|
+      planned_miles += logs[x].plan_miles unless logs[x].nil? || logs[x].plan_miles.nil?
+      logged_miles += logs[x].log_miles unless logs[x].nil? || logs[x].log_miles.nil?
+      logged_calories += logs[x].log_calories unless logs[x].nil? || logs[x].log_calories.nil?
+      logged_time += (logs[x].log_time.to_i - base_time.to_i) unless logs[x].nil? || logs[x].log_time.nil?
+    end
+    summary = {planned_miles: planned_miles.round(2), logged_miles: logged_miles.round(2), logged_calories: logged_calories, 
+            logged_time: logged_time}
+    return summary
+  end
 end
 

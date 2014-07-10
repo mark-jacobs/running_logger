@@ -66,27 +66,15 @@
     <% end %>
 
 </div>
-
   <div id="log-row">
-      <% planned_miles = 0 %>
-      <% logged_miles = 0 %>
-      <% logged_calories = 0 %>
-      <% logged_time = 0 %>
-      <% base_time = Time.new("2000-01-01 00:00:00") %>
-      <% 7.times do |x| %>
-        <% planned_miles += @logs[x].plan_miles unless @logs[x].nil? || @logs[x].plan_miles.nil? %>
-        <% logged_miles += @logs[x].log_miles unless @logs[x].nil? || @logs[x].log_miles.nil? %>
-        <% logged_calories += @logs[x].log_calories unless @logs[x].nil? || @logs[x].log_calories.nil? %>
-        <% logged_time += (@logs[x].log_time.to_i - base_time.to_i) unless @logs[x].nil? || @logs[x].log_time.nil? %>
-      <% end %>
-
       <div id="plan_head">
-        Planned miles: <%= planned_miles.round(2) %>
+        Planned miles: <%= @summary[:planned_miles] %>
       </div>
       <div id="log_head">
-        Logged miles: <%= logged_miles.round(2) %>,
-        logged calories: <%= logged_calories %>
-        logged time: <%= logged_time / 3600 %> hours, <%= (logged_time % 3600) / 60 %> minutes
+        Logged miles: <%=@summary[:logged_miles] %>,
+        logged calories: <%= @summary[:logged_calories] %>
+        logged time: <%= @summary[:logged_time] / 3600 %> hours, <%= (@summary[:logged_time] % 3600) / 60 %> minutes  
+      </div>  
   </div>
 </div>
 
