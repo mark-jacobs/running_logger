@@ -1,9 +1,10 @@
 <%= form_for [@user,@log] do |f| %>
 <%= render 'shared/error_messages', object: @log %>
   <%= hidden_field_tag :period, @period %>
+  <%= f.hidden_field :log_date, value: @log.log_date %>
   <div id="date1">
     <%= f.label "Date" %>
-    <%= f.date_field :log_date %>
+    <%= @log.log_date.strftime("%d/%m/%y") %>
     <%= f.label "Notes" %>
     <%= f.text_field :notes %>
   </div>
