@@ -5,7 +5,7 @@ class LogsController < ApplicationController
   before_action :set_period, only: [:new, :log, :edit]
 
   def new
-    @logs = manager.build_log(@user, params[:period], params[:day])
+    @log = manager.build_log(@user, params[:period], params[:day])
     @race = manager.get_race_for_log_day(@user, params[:period], params[:day])
   end
 
