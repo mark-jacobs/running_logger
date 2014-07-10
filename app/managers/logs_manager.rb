@@ -42,7 +42,7 @@ class LogsManager < CommonManager
   # Get a race that exists on the same day as a log.
   def get_race_for_log_day(user, period, day)
     date = startperiod(period.to_i).beginning_of_day + (day.to_i - 1).days
-    log = user.races.where("race_date >= ? AND race_date <= ?", date.beginning_of_day , date.end_of_day).first
+    log = user.races.where("race_date >= ? AND race_date <= ?", date.beginning_of_day, date.end_of_day).first
   end
 end
 

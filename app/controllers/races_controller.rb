@@ -20,8 +20,8 @@ class RacesController < ApplicationController
   end
 
   def index
-    @upcoming_races = RacesManager.build_upcoming_race_index(@user)
-    @completed_races = RacesManager.build_completed_race_index(@user)
+    @upcoming_races = manager.build_upcoming_race_index(@user)
+    @completed_races = manager.build_completed_race_index(@user)
   end
 
   def destroy
@@ -48,11 +48,11 @@ class RacesController < ApplicationController
   end
 
   def pb
-    @results = RacesManager.get_pb_races(current_user)
+    @results = manager.get_pb_races(current_user)
   end
 
   def distance
-    @dist_races = RacesManager.get_distance_races(current_user, params[:dist])
+    @dist_races = manager.get_distance_races(current_user, params[:dist])
     @dist = params[:dist]
   end
 
@@ -77,5 +77,9 @@ class RacesController < ApplicationController
 
     def get_race  
       @race = @user.races.find(params[:id])
+    end
+
+    def manager
+      @manager ||= RacesManager.new
     end
 end
