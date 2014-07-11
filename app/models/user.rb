@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :training_logs, dependent: :destroy
   has_many :notes, dependent: :destroy
   has_many :logs, dependent: :destroy
+  has_many :phases, dependent: :destroy
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
