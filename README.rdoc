@@ -64,6 +64,18 @@ show upcoming races on training log.
 
 *When time fixed add total time to weekly stats.
 
+***PHASES***
+Enter date or mark race date as the target date, enter training start date. Option to include phase I or skip...
+
+phase model...
+target_date
+start_date
+
+OR
+
+add as field to log...
+
+
 
 ******************************************************Completed**********
 *Edit and delete actions for training plans and training logs

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only:[:create, :new, :edit, :update, :show] do
     resources :races, only:[:create, :edit, :update, :new, :index, :destroy]
     resources :logs, only:[:create, :new, :edit, :update, :destroy]
+    resources :phases, only:[:create, :new, :edit, :update, :destroy, :index]
   end
 
   resources :sessions, only:[:new, :create, :destroy]
