@@ -9,11 +9,11 @@ class PhasesController < ApplicationController
   def create
     # Create a manager method for creating the phase, check to see if period is covered by another phase
     @phase = @user.phases.build(phases_params)
-    if manager.create_phase(@phase)
-      redirect_to root_url
-    else
-      redirect_to root_url
-    end
+    manager.create_phase(@phase)
+    redirect_to root_url
+  end
+
+  def index
   end
 
   private 
