@@ -1,6 +1,6 @@
 class PhasesManager
   def create_phase(phase)
-    if phase.save!
+    if phase.save
       return true
     else
       return false
