@@ -1,11 +1,23 @@
 class PhasesController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
+  
   def new
     @phase = @user.phases.build
   end
 
+  def create
+    # Create a manager method for creating the phase, check to see if period is covered by another phase
+    # if so generate an error.
+    if manager.create_phase(@phase)
+      redirect_to current_user
+    else
+      render 'new'
+    end
+  end
+
   private 
+
     def signed_in_user
       redirect_to root_url unless signed_in?
     end
@@ -17,5 +29,9 @@ class PhasesController < ApplicationController
 
     def phases_params
       params.require(:phase).permit(:start_date, :target_date, :include_phase_I)
+    end
+
+    def manager
+      @manager ||= PhaseManager.new
     end
 end
