@@ -14,4 +14,8 @@ class PhasesController < ApplicationController
       @user = User.find(params[:user_id])
       redirect_to root_url unless current_user?(@user)
     end 
+
+    def phases_params
+      params.require(:phase).permit(:start_date, :target_date, :include_phase_I)
+    end
 end
