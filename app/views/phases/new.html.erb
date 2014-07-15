@@ -1,7 +1,8 @@
 <div id="container1">
   <h1>Add new phased training period.</h1>
   <p>When choosing a period for a training phase, it will default to a start date of the next available Monday, and a
-     target date of the next available Sunday from the dates selected. Training periods cannot overlap. Phase II, III, IV have a limit of 6 week periods, anything over a 24 week period will be added to phase I.
+     target date of the next available Sunday from the dates selected. Training periods cannot overlap. Phase II, III, IV have a limit of 6 week periods, any weeks over a 24 week period will be added to phase I.
+  </p>
   </p>
   <%= render 'shared/error_messages', object: @phase %>
   <%= form_for [@user,@phase] do |f| %>

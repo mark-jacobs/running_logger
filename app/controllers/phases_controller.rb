@@ -16,9 +16,18 @@ class PhasesController < ApplicationController
   end
   
   def edit
+    @user = User.find(params[:user_id])
+    @phase = @user.phases.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:user_id])
+    @phase = Phase.find(params[:id])
+    if @phase.update(phases_params)
+      redirect_to user_phases_path
+    else
+      render 'edit'
+    end
   end
 
   def index
@@ -48,7 +57,7 @@ class PhasesController < ApplicationController
     end 
 
     def phases_params
-      params.require(:phase).permit(:start_date, :target_date, :include_phase_I)
+      params.require(:phase).permit(:start_date, :target_date)
     end
 
     def manager

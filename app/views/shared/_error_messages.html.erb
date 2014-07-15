@@ -1,5 +1,5 @@
 
-<% if object.errors.any? %>
+<% if !object.nil? && object.errors.any? %>
 <div id="error_explanation">
  <div class="alert alert-error">
 <p>
