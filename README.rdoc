@@ -1,40 +1,21 @@
 == README
-*****************************************************************************
-*****************************************************************************
-********************************* REFACTORING *******************************
-
-Race manager: Do this first as might be used by the other classes.
-
-Log manager:
-
-User manager:
-
-
-****************************************************************************
-****************************************************************************
-Running log app - Training log and race diary functionality will be added.
-
-Models
-
-User: name, email, passworddigestl
-TrainingPlan: plan_date:datetime, plan_miles:double, plan_workout:string, plan_q:boolean
-TrainingLog: log_date, log_miles, log_workout, log_calories, log_q:boolean, notes:text
-
-
-
-Race: date race_name distance, time, position, 
-
-
-view training log, view training plan, view stats, weekly, monthly, yearly. graphs?
-enter plan, enter log, enter race
-
-show upcoming races on training log.
 
 ******************************************************Next**************
 
+******
+PHASES
+******
+*Allow only one phase over a period, generate errors when more are attempted.
 
+*Calculate how many weeks in a period and display what the weeks at each phase are, taking into account the phaseI boolean.
 
+*Display current phase in log.
 
+*Sort out 
+
+******
+
+* Fix blank race tags on log.
 
 *Think about tests needed, write a few to complete here.
 
@@ -42,40 +23,14 @@ show upcoming races on training log.
 
 *get Rspec working correctly
 
-*indicate race days on the table.
-
-*design weekly stats section on the log, list miles, calories and time per week.
-
-*Add proposed and actual weekly miles to the plan/log table view.
-
-
-
-*Add to races so records for main distances are displayed.
 
 *Import from csv?
-
-*Need to think about set up periodisation phases so that can set phase I, II, III, IV etc. (May need to be able to change this for other periodisation methods/ philosophies)... Maybe set by race date, so can set goal race, then put starting period and then calculate phases from that.
 
 *might be good if you can enter the dates of the race, and it calculate the phases for you according to the method in the book for < 24 week training cycles. Will need to be able to include or skip phase I training as necessary.
 
 *Error messages when entering fields incorrectly.
 
 *Deal with timezones properly when entering times.
-
-*When time fixed add total time to weekly stats.
-
-***PHASES***
-Enter date or mark race date as the target date, enter training start date. Option to include phase I or skip...
-
-phase model...
-target_date
-start_date
-
-OR
-
-add as field to log...
-
-
 
 ******************************************************Completed**********
 *Edit and delete actions for training plans and training logs
