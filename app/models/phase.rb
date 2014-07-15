@@ -4,8 +4,8 @@ class Phase < ActiveRecord::Base
   validates :user_id, presence: true
   validates :start_date, presence: true 
   validates :target_date, presence: true
-  validate :range_cannot_be_covered_by_other_phase, { scope: :user_id }
-  validate :start_date_must_be_earlier_than_target_date, { scope: :user_id }
+  validate :range_cannot_be_covered_by_other_phase
+  validate :start_date_must_be_earlier_than_target_date
 
   def range_cannot_be_covered_by_other_phase
     phases = Phase.where("user_id = ?", user_id)
