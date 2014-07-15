@@ -1,4 +1,12 @@
 <div id="container1">
   <h1>Index placeholder </h1>
-  <%= render partial: 'shared/phase_item', collection: @phases %>
+  <%= link_to  "Add phase", new_user_phase_path, class: "btn btn-md btn-custom" %>
+  <% @phases.length.times do |x| %>
+    <p>
+    <%= @phases[x].start_date.strftime("%d/%m/%y") %>
+    <%= @phases[x].target_date.strftime("%d/%m/%y") %>
+    <%= @phase_weeks[x] %> Weeks
+    <%= link_to "Delete phase", user_phase_path(@phases[x].user_id, @phases[x].id), method: :delete, data: { confirm: "Are you sure?" },
+      class: "btn btn-xs btn-custom" %>
+  <% end %>   
 </div>

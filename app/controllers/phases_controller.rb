@@ -15,6 +15,17 @@ class PhasesController < ApplicationController
 
   def index
     @phases = @user.phases.all
+    @phase_weeks = manager.get_phase_weeks(@phases)
+
+  end
+
+  def destroy
+    @phase = @user.phases.find(params[:id])
+    if @phase.destroy
+      redirect_to user_phases_path
+    else
+      redirect_to root_url
+    end
   end
 
   private 
