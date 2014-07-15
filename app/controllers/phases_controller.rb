@@ -14,6 +14,7 @@ class PhasesController < ApplicationController
   end
 
   def index
+    @phases = @user.phases.all
   end
 
   private 

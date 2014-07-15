@@ -10,6 +10,7 @@
             <li><%= link_to "Log", "/users/#{current_user.id}/log/0" %></li>
             <li><%= link_to "Races", user_races_path(current_user) %></li>
             <li><%= link_to "PBs", "/pb/#{current_user.id}" %></li>
+            <li><%= link_to "Phases", "/users/#{current_user.id}/phases/" %></li>
             <li class="divider"><li>
         </ul>
         <ul class="nav navbar-nav pull-right">
