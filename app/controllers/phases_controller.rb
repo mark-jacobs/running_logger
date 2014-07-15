@@ -14,6 +14,12 @@ class PhasesController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+  end
+
+  def update
+  end
 
   def index
     @phases = @user.phases.all
