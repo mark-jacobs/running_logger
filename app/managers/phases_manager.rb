@@ -47,7 +47,7 @@ class PhasesManager
       when 23
         split = [6,6,6,5]
       else
-        split = [6,6,6,6]
+        split = [weeks[x] - 18,6,6,6]
       end
       splits << split
     end
