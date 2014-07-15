@@ -5,12 +5,12 @@
   <% @phases.length.times do |x| %>
   <div id="race_bar" style="cursor: pointer;" onclick="window.location='<%= "/users/#{current_user.id}/phases/#{@phases[x].id}/edit" %>';">
     <p>
-    <%= @phases[x].start_date.strftime("%d/%m/%y") %>
-    <%= @phases[x].target_date.strftime("%d/%m/%y") %>
-    <%= @phase_weeks[x] %> Weeks
+    <h2><%= @phases[x].start_date.strftime("%d/%m/%y") %> -
+    <%= @phases[x].target_date.strftime("%d/%m/%y") %>, 
+    <%= @phase_weeks[x] %> Weeks </h2>
 
-    <p>
-    <%= "I: #{@phase_splits[x][0]} II: #{@phase_splits[x][1]} III: #{@phase_splits[x][2]} IV: #{@phase_splits[x][3]}" %>
+    <h2>
+    <%= "I: #{@phase_splits[x][0]} II: #{@phase_splits[x][1]} III: #{@phase_splits[x][2]} IV: #{@phase_splits[x][3]}" %></h2>
   </div>
   <% end %>   
 </div>
