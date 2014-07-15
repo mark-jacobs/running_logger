@@ -5,8 +5,8 @@
 ******
 PHASES
 ******
-
-*Allow only one phase over a period, generate errors when more are attempted, or period is negative etc.
+*change so that if a start date is entered it switches to the next monday. If a target date is entered it will switch to the next sunday so that whole weeks are saved in the range.
+  *change logic of phases calculation to handle the above change.
 
 *work out logic for include phase I boolean..or remove?
 
