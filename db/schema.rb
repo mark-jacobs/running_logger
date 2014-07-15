@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711171956) do
+ActiveRecord::Schema.define(version: 20140715151504) do
 
   create_table "logs", force: true do |t|
     t.integer  "user_id"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20140711171956) do
     t.datetime "start_date"
     t.datetime "target_date"
     t.integer  "user_id"
-    t.boolean  "include_phase_I"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
