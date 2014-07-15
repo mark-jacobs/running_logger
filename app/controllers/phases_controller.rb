@@ -16,7 +16,7 @@ class PhasesController < ApplicationController
   def index
     @phases = @user.phases.all
     @phase_weeks = manager.get_phase_weeks(@phases)
-
+    @phase_splits = manager.get_phase_split(@phase_weeks)
   end
 
   def destroy

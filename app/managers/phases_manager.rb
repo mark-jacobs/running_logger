@@ -18,6 +18,42 @@ class PhasesManager
     return phase_weeks
   end
 
+  def get_phase_split(weeks)
+    splits = []
+    weeks.length.times do |x|
+      case weeks[x]
+      when 0
+        split = [0,0,0,0]
+      when 1..3
+        split = [weeks[x],0,0,0]
+      when 4..6
+        split = [3,0,0, weeks[x] - 3]
+      when 7..9
+        split = [3,weeks[x] - 6,0,3]
+      when 10..12
+        split = [3,3,weeks[x] - 9,3]
+      when 13
+        split = [4,3,3,3]
+      when 14..16
+        split = [4,3,weeks[x] - 10,3]
+      when 17
+        split = [4,3,6,4]
+      when 18..20
+        split = [4,weeks[x] - 14,6,4]
+      when 21 
+        split = [5,6,6,4]
+      when 22
+        split = [5,6,6,5]
+      when 23
+        split = [6,6,6,5]
+      else
+        split = [6,6,6,6]
+      end
+      splits << split
+    end
+    splits
+  end
+
   private
 
     def get_weeks(a_phase)

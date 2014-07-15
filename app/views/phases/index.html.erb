@@ -6,7 +6,11 @@
     <%= @phases[x].start_date.strftime("%d/%m/%y") %>
     <%= @phases[x].target_date.strftime("%d/%m/%y") %>
     <%= @phase_weeks[x] %> Weeks
+
+   
     <%= link_to "Delete phase", user_phase_path(@phases[x].user_id, @phases[x].id), method: :delete, data: { confirm: "Are you sure?" },
       class: "btn btn-xs btn-custom" %>
+    <p>
+    <%= "I: #{@phase_splits[x][0]} II: #{@phase_splits[x][1]} III: #{@phase_splits[x][2]} IV: #{@phase_splits[x][3]}" %>
   <% end %>   
 </div>
