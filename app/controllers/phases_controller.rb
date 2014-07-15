@@ -7,10 +7,12 @@ class PhasesController < ApplicationController
   end
 
   def create
-    # Create a manager method for creating the phase, check to see if period is covered by another phase
     @phase = @user.phases.build(phases_params)
-    manager.create_phase(@phase)
-    redirect_to root_url
+    if manager.create_phase(@phase)
+      redirect_to "/users/#{params[:user_id]}/phases"
+    else
+      render 'new'
+    end
   end
 
   def index

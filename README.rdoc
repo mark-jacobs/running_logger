@@ -6,13 +6,13 @@
 PHASES
 ******
 
-*Allow only one phase over a period, generate errors when more are attempted.
+*Allow only one phase over a period, generate errors when more are attempted, or period is negative etc.
 
-*Calculate how many weeks in a period and display what the weeks at each phase are, taking into account the phaseI boolean.
+*work out logic for include phase I boolean..or remove?
 
 *Display current phase in log.
 
-*Make the update and destroy actions.
+*Make the update action.
 
 ******
 
