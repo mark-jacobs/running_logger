@@ -32,42 +32,6 @@ PHASES
 
 *Deal with timezones properly when entering times.
 
-******************************************************Completed**********
-*Edit and delete actions for training plans and training logs
-
-*Make dates unique for training plans and logs
-
-*Seperate notes into a seperate model so that they can be independent of logs and plans and have notes on days with no log/plan session.
-
-*Fix unique indexes to handle multiple users.
-
-*Fix validations to handle multiple users.
-
-*Create actions for notes controller.
-
-*Remove notes stuff from training log as now in notes model.
-
-*Add workout time to log, add input and display fields.
-
-*Get bootstrap going.
-
-*Install FactoryGirl
-
-*Make indexes or a view to show both plan and log together.
-
-*Redesign models so that the plan log an notes are part of a single model, with a date as part of that.
-  *redesign controllers and views to use the new model, remove the old code after the refactoring and get the new view to work.
-*Create a proper header.
-
-*Set days to be links to entry form.
-
-*redesign the view so more obvious which part is the plan and which the log.
-
-*Find a graphing gem for displaying stats. - Chartkick seems nice and easy to use.x
-
-*Redesign the races functionality so radio boxes are used for the race distances when entering.
-
-*Work on races part so that default distances can be selected, but also new ones can be added. - partially, radio buttons implemented, will need to consider whether to add other and text entry functionality.
 
 
 
