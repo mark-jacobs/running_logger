@@ -1,5 +1,7 @@
 class PhasesManager
   def create_phase(phase)
+    phase.start_date = phase.start_date - phase.start_date.wday.days + 1.day + 1.week unless phase.start_date.wday == 1
+    phase.target_date = phase.target_date - phase.target_date.wday.days + 1.week unless phase.target_date.wday == 7
     if phase.save
       return true
     else
