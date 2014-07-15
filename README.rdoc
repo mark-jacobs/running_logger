@@ -5,13 +5,14 @@
 ******
 PHASES
 ******
+
 *Allow only one phase over a period, generate errors when more are attempted.
 
 *Calculate how many weeks in a period and display what the weeks at each phase are, taking into account the phaseI boolean.
 
 *Display current phase in log.
 
-*Sort out 
+*Make the update and destroy actions.
 
 ******
 
@@ -31,10 +32,4 @@ PHASES
 *Error messages when entering fields incorrectly.
 
 *Deal with timezones properly when entering times.
-
-
-
-
-
-
 
