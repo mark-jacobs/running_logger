@@ -8,7 +8,7 @@ class PhasesController < ApplicationController
 
   def create
     @phase = @user.phases.build(phases_params)
-    if manager.create_phase(@phase)
+    if @phase.save
       redirect_to "/users/#{params[:user_id]}/phases"
     else
       render 'new'

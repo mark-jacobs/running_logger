@@ -1,6 +1,6 @@
 class PhasesManager < CommonManager
   def create_phase(phase)
-    adjust_dates_to_whole_weeks(phase)
+    phase = adjust_dates_to_whole_weeks(phase)
     if phase.save
       return true
     else
@@ -8,9 +8,10 @@ class PhasesManager < CommonManager
     end
   end
 
-  def update_phase(phase)
-    adjust_dates_to_whole_weeks(phase)
-    if phase.save
+  def update_phase(phase, phase_params)
+    
+    #phase = adjust_dates_to_whole_weeks(phase)
+    if phase.update(phase_params)
       return true
     else
       return false
@@ -108,9 +109,9 @@ class PhasesManager < CommonManager
     end
     
     # Ensure that only whole weeks are used in the phases.
-    def adjust_dates_to_whole_weeks(phase)
-      phase.start_date = phase.start_date - phase.start_date.wday.days + 1.day + 1.week unless phase.start_date.wday == 1
-      phase.target_date = phase.target_date - phase.target_date.wday.days + 1.week unless phase.target_date.wday == 7
-      return phase
-    end
+    #def adjust_dates_to_whole_weeks(phase)
+    #  phase.start_date = phase.start_date - phase.start_date.wday.days + 1.day + 1.week unless phase.start_date.wday == 1
+    #  phase.target_date = phase.target_date - phase.target_date.wday.days + 1.week unless phase.target_date.wday == 7
+    #  return phase
+    #end
 end
