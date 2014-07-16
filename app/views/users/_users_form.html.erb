@@ -10,11 +10,11 @@
   <p><%= f.label :password %></p>
   <p><%= f.password_field :password %></p>
 
-  <p><%= f.label :password_confirmation, "Confirm Password" %></p>
+  <p><%= f.label :password_confirmation %></p>
   <p><%= f.password_field :password_confirmation %></p>
   <% if !@user.id.nil? %>
-    <p><%= f.submit "Save changes", class: "btn btn-lg btn-custom" %></p>
+    <p><%= f.submit t(:submitter), class: "btn btn-lg btn-custom" %></p>
   <% else %>
-    <p><%= f.submit "Create account", class: "btn btn-lg btn-custom" %></p>
+    <p><%= f.submit t(:submitter), class: "btn btn-lg btn-custom" %></p>
   <% end %>
 <% end %>

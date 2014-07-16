@@ -55,6 +55,9 @@ en:
         distance_Marathon: "Marathon"
         distance_other: "Other"
 
+      user:
+        password_confirmation: "Confirm password"
+
   activerecord:
 
     models:
