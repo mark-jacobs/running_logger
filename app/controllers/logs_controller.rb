@@ -29,6 +29,7 @@ class LogsController < ApplicationController
     @logs = manager.create_logs_array(@user, @period)
     @races = manager.races_in_period(@user, @period)
     @summary = manager.generate_summary(@logs)
+    @phase = manager.get_current_phase(@user, @period)
   end
 
   def edit

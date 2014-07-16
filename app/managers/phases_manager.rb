@@ -1,4 +1,4 @@
-class PhasesManager
+class PhasesManager < CommonManager
   def create_phase(phase)
     adjust_dates_to_whole_weeks(phase)
     if phase.save
@@ -62,6 +62,28 @@ class PhasesManager
       splits << split
     end
     splits
+  end
+
+  def get_current_phase(user, period)
+    phase_weeks = []
+    training_phase = "No Phase"
+    log_start_date = startperiod(period)
+    current_phase = user.phases.where("start_date <= ? and target_date >= ?", log_start_date, log_start_date).take
+    if !current_phase.nil?
+      phase_weeks << get_weeks(current_phase)
+      phase_splits = get_phase_split(phase_weeks)
+      week_in_phase = ((log_start_date - current_phase.start_date) / 1.week).to_i + 1
+      if phase_splits[0][0] >= week_in_phase
+        training_phase = "Phase I"
+      elsif phase_splits[0][0] + phase_splits[0][1] >= week_in_phase
+        training_phase = "Phase II"
+      elsif phase_splits[0][0] + phase_splits[0][1] + phase_splits[0][2] >= week_in_phase
+        training_phase = "Phase III"
+      else
+        training_phase = "Phase IV"
+      end
+    end  
+    training_phase  
   end
 
   private

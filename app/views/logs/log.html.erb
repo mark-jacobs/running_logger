@@ -1,7 +1,7 @@
 
 <div id="container1">
   <div id="prof_head">
-    <h2>Weekly log</h2>
+    <h2><%= @phase %></h2>
   </div>
   <div id="nav_icons" style="width:100%; text-align:center; padding-top: 7%; padding-bottom: 2%;">
     <%= link_to "<<", "/users/#{@user[:id]}/log/#{@period - 1}", class: "btn btn-large btn-custom"%>

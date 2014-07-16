@@ -62,5 +62,14 @@ class LogsManager < CommonManager
             logged_time: logged_time}
     return summary
   end
+
+  def get_current_phase(user, period)
+    #find the phase if any that is active over the log period.
+    #query the phases manager (need to write the method, should probably just utilise the current logic to buil the array
+    #then return an answer based on the period supplied and today's date.
+    phase_manager ||= PhasesManager.new
+    return phase_manager.get_current_phase(user, period)
+    
+  end
 end
 

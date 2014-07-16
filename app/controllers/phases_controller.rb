@@ -31,7 +31,7 @@ class PhasesController < ApplicationController
   end
 
   def index
-    @phases = @user.phases.all
+    @phases = @user.phases.order(start_date: :desc).all
     @phase_weeks = manager.get_phase_weeks(@phases)
     @phase_splits = manager.get_phase_split(@phase_weeks)
   end
