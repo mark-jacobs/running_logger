@@ -2,20 +2,6 @@
 
 ******************************************************Next**************
 
-******
-PHASES
-******
-*change so that if a start date is entered it switches to the next monday. If a target date is entered it will switch to the next sunday so that whole weeks are saved in the range.
-  *change logic of phases calculation to handle the above change.
-
-*work out logic for include phase I boolean..or remove?
-
-*Display current phase in log.
-
-*Make the update action.
-
-******
-
 * Fix blank race tags on log.
 
 *Think about tests needed, write a few to complete here.
@@ -24,7 +10,6 @@ PHASES
 
 *get Rspec working correctly
 
-
 *Import from csv?
 
 *might be good if you can enter the dates of the race, and it calculate the phases for you according to the method in the book for < 24 week training cycles. Will need to be able to include or skip phase I training as necessary.
@@ -32,4 +17,3 @@ PHASES
 *Error messages when entering fields incorrectly.
 
 *Deal with timezones properly when entering times.
-
