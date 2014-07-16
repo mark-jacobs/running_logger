@@ -1,5 +1,6 @@
-<%= form_for [@user,@log] do |f| %>
 <%= render 'shared/error_messages', object: @log %>
+
+<%= form_for [@user,@log] do |f| %>
   <%= hidden_field_tag :period, @period %>
   <%= f.hidden_field :log_date, value: @log.log_date %>
   <div id="date1">
@@ -13,35 +14,35 @@
       <div id="entry_head_l">PLAN</div><div id="entry_head_r">LOG</div>
       <div id="left_panel">
      
-      <p><%= f.label "Workout plan" %></p>
+      <p><%= f.label :plan_workout %></p>
       <p><%= f.text_field :plan_workout %></p>
       
-      <p><%= f.label "Quality session" %></p>
+      <p><%= f.label :plan_q %></p>
       <p><%= f.check_box :plan_q %></p>
-      <p><%= f.label "Plan miles" %></p>
+      <p><%= f.label :plan_miles %></p>
       <p><%= f.text_field :plan_miles %></p>
     </div>
 
     <div id="right_panel">
-      <p><%= f.label "Workout log" %></p>
+      <p><%= f.label :log_workout %></p>
       <p><%= f.text_field :log_workout %></p>
     
-      <p><%= f.label "Quality session" %></p>
+      <p><%= f.label :log_q %></p>
       <p><%= f.check_box :log_q %></p>
-      <p><%= f.label "Log miles" %></p>
+      <p><%= f.label :log_miles %></p>
       <p><%= f.text_field :log_miles %></p>
-      <p><%= f.label "Workout time" %></p>
+      <p><%= f.label :log_time %></p>
       <p><%= f.time_select :log_time, include_seconds: true %></p>
 
-      <p><%= f.label "Calories" %></p>
+      <p><%= f.label :log_calories %></p>
       <p><%= f.text_field :log_calories %></p>
   
     </div>
   </div>
     <div id="container1">
-      <%= f.submit "Submit", class: "btn btn-lg btn-custom" %>
-      <% if !@log.id.nil? %>
-        <%= link_to "Delete", "/users/#{@user.id}/logs/#{@log.id}/#{@period}",  
+      <%= f.submit t(:submitter), class: "btn btn-lg btn-custom" %>
+      <% unless @log.id.nil? %>
+        <%= link_to t(:deleter), "/users/#{@user.id}/logs/#{@log.id}/#{@period}",  
           method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-lg btn-custom" %>
       <% end %>
     </div>

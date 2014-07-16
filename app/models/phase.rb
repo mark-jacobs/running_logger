@@ -25,7 +25,7 @@ class Phase < ActiveRecord::Base
         end
         if start_date <= each_phase.start_date && target_date >= each_phase.target_date
           errors.add(:start_date, "overlaps another training period.")
-          errors.add(:target_date, "overlaps another training period")
+          errors.add(:target_date, "overlaps another training period.")
         end
       end
     end

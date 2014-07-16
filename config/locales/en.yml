@@ -21,3 +21,56 @@
 
 en:
   hello: "Hello world"
+  logday: DAY
+  logdate: DATE 
+  workout: WORKOUT
+  q: Q
+  miles: MILES
+  logtime: TIME
+  calories: CALORIES
+  notes: NOTES
+  plan: PLAN 
+  log: LOG 
+  pbs: PBs
+  signin: Sign in
+  signup: Sign up
+  signout: Sign out
+  submitter: Submit
+  deleter: Delete
+
+
+  helpers:
+    label:
+      race:
+        distance_400m: "400m"
+        distance_800m: "800m"
+        distance_1km: "1000m"
+        distance_1500m: "1500m"
+        distance_3000m: "3000m"
+        distance_5km: "5km"
+        distance_5M: "5M"
+        distance_10km: "10km"
+        distance_10M: "10M"
+        distance_1_2Marathon: "Half Marathon"
+        distance_Marathon: "Marathon"
+        distance_other: "Other"
+
+  activerecord:
+
+    models:
+
+    attributes:
+      log:
+        plan_workout: Workout plan
+        plan_q: Quality session
+        log_workout: Workout log
+        log_q: Quality session
+        log_miles: Log miles
+        log_time: Workout time
+        log_calories: Calories
+
+
+
+
+
+

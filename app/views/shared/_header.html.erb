@@ -6,22 +6,22 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if signed_in? %>
         <ul class= "nav navbar-nav">
-            <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li><%= link_to "Log", "/users/#{current_user.id}/log/0" %></li>
-            <li><%= link_to "Races", user_races_path(current_user) %></li>
-            <li><%= link_to "PBs", "/pb/#{current_user.id}" %></li>
-            <li><%= link_to "Phases", "/users/#{current_user.id}/phases/" %></li>
+            <li><%= link_to t(:profile), user_path(current_user) %></li>
+            <li><%= link_to t(:logs), "/users/#{current_user.id}/log/0" %></li>
+            <li><%= link_to t(:races), user_races_path(current_user) %></li>
+            <li><%= link_to t(:pbs), "/pb/#{current_user.id}" %></li>
+            <li><%= link_to t(:phases), "/users/#{current_user.id}/phases/" %></li>
             <li class="divider"><li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <li><%= link_to t(:signout), signout_path, method: "delete" %></li>
         </ul>
       <% end %>
 
       <% if !signed_in? %>
         <ul class= "nav navbar-nav pull-right">
-          <li><%= link_to "Sign in", signin_path %></li>
-          <li><%= link_to "Sign up", signup_path %></li>
+          <li><%= link_to t(:signin), signin_path %></li>
+          <li><%= link_to t(:signup), signup_path %></li>
         </ul>
       <% end %>
     </div>  
