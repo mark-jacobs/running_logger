@@ -25,6 +25,7 @@ en:
   logdate: DATE 
   workout: WORKOUT
   q: Q
+  off_day: Off day
   miles: MILES
   logtime: TIME
   calories: CALORIES
@@ -37,6 +38,7 @@ en:
   signout: Sign out
   submitter: Submit
   deleter: Delete
+  off: Farfgargargat
 
 
   helpers:

@@ -11,7 +11,7 @@
   <div id = "log_box">
     <div id="log_row2">
       <div id="plan_head"><%= t :plan %></div>
-      <div id="log_head"><%= t :logs %></div>
+      <div id="log_head"><%= t :log %></div>
     </div>
     <div id="log_row2">
       <p>
@@ -50,14 +50,14 @@
         </div>
         <div id="log1"><%= (@start + x.day).strftime("%d/%m/%y") %></div>
         <div id="log3"><%=  if @logs[x].nil? 
-                              "Off"  
+                              t(:off_day)
                             else  
                               @logs[x].plan_workout
                             end %>&nbsp</div>
-        <div id="log5"><%= "Q"  unless @logs[x].nil? || !@logs[x].plan_q  %>&nbsp</div>
+        <div id="log5"><%= t :q unless @logs[x].nil? || !@logs[x].plan_q  %>&nbsp</div>
         <div id="log4"><%= @logs[x].plan_miles unless @logs[x].nil? %>&nbsp</div>
         <div id="log3"><%= @logs[x].log_workout unless @logs[x].nil? %>&nbsp</div>
-        <div id="log5"><%= "Q"  unless @logs[x].nil? || !@logs[x].log_q %>&nbsp</div>
+        <div id="log5"><%= t :q  unless @logs[x].nil? || !@logs[x].log_q %>&nbsp</div>
         <div id="log4"><%= @logs[x].log_miles unless @logs[x].nil? %>&nbsp</div>
         <div id="log6"><%= @logs[x].log_time.strftime("%H:%M:%S") unless @logs[x].nil? %>&nbsp</div>
         <div id="log7"><%= @logs[x].log_calories unless @logs[x].nil? %>&nbsp</div>
