@@ -16,7 +16,8 @@ class PhasesManager < CommonManager
       return false
     end
   end
-
+  
+  #For each Phase, add the count of its weeks to an array.
   def get_phase_weeks(phases)
     phase_weeks = []
     count = 0
@@ -28,6 +29,7 @@ class PhasesManager < CommonManager
     return phase_weeks
   end
 
+  #Create an array for each of the phases, showing the split between the different phase types and add to array.
   def get_phase_split(weeks)
     splits = []
     weeks.length.times do |x|
@@ -63,7 +65,8 @@ class PhasesManager < CommonManager
     end
     splits
   end
-
+ 
+  #Used to return the current training cycle  phase to the log.
   def get_current_phase(user, period)
     phase_weeks = []
     training_phase = "No Phase"
@@ -103,7 +106,8 @@ class PhasesManager < CommonManager
       weeks = 0 unless weeks > 0
       return weeks
     end
-
+    
+    # Ensure that only whole weeks are used in the phases.
     def adjust_dates_to_whole_weeks(phase)
       phase.start_date = phase.start_date - phase.start_date.wday.days + 1.day + 1.week unless phase.start_date.wday == 1
       phase.target_date = phase.target_date - phase.target_date.wday.days + 1.week unless phase.target_date.wday == 7
