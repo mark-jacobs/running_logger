@@ -1,5 +1,7 @@
 <div id="container1">
-
+  <div id="prof_head" style="margin-bottom: 1%;">
+    <h2><%= t(:phase).pluralize.capitalize %></h2>
+  </div>
   <%= link_to  "Add phase", new_user_phase_path, class: "btn btn-md btn-custom" %>
 
   <% @phases.length.times do |x| %>

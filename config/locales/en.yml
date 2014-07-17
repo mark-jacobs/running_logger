@@ -87,6 +87,7 @@ en:
   week_avg_L_Y: "Weekly average last year:"
   week_avg_YTD: "Weekly average this year TD:"
   next_race: "Next race: "
+  phase: phase
 
 
   helpers:
