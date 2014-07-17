@@ -92,6 +92,7 @@ en:
   new_user_success: "Welcome to RunLogger!"
   update_profile_success: Profile updated
   pls_sign_in_msg: "Please sign in"
+  log_error: "Must have a log date!"
 
 
   helpers:

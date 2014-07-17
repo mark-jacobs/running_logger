@@ -15,7 +15,7 @@ class LogsController < ApplicationController
         redirect_to "/users/#{params[:user_id]}/log/#{params[:period]}"
     else
       if logs_params[:log_date] = ""
-        @logs.errors.add(:log_date, "Must have a log date!")
+        @logs.errors.add(:log_date, I18n.t(:log_error))
         redirect_to "/users/#{params[:user_id]}/log/#{params[:period]}"
         flash[:warning] = I18n.t(:log_must_have_date)
       else
@@ -60,7 +60,7 @@ class LogsController < ApplicationController
     end
 
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in" unless signed_in?
+      redirect_to signin_url, notice: I18n.t(pls_sign_in_msg) unless signed_in?
     end
 
     def correct_user
