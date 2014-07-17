@@ -16,7 +16,7 @@
 
     <%= f.submit t(:submitter), class: "btn btn-lg btn-custom" %> 
   
-    <%= link_to t(:deleter), user_phase_path(@user.id, @phase.id), method: :delete, data: { confirm: "Are you sure?" },
+    <%= link_to t(:deleter), user_phase_path(@user.id, @phase.id), method: :delete, data: { confirm: t(:confirm_text) },
       class: "btn btn-lg btn-custom" %>
   <% end %>
 </div>

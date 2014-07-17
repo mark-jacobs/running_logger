@@ -4,9 +4,9 @@
   <%= hidden_field_tag :period, @period %>
   <%= f.hidden_field :log_date, value: @log.log_date %>
   <div id="date1">
-    <%= f.label "Date" %>
+    <%= f.label :log_date %>
     <%= @log.log_date.strftime("%d/%m/%y") %>
-    <%= f.label "Notes" %>
+    <%= f.label :notes %>
     <%= f.text_field :notes %>
   </div>
 
@@ -43,7 +43,7 @@
       <%= f.submit t(:submitter), class: "btn btn-lg btn-custom" %>
       <% unless @log.id.nil? %>
         <%= link_to t(:deleter), "/users/#{@user.id}/logs/#{@log.id}/#{@period}",  
-          method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-lg btn-custom" %>
+          method: :delete, data: { confirm: t(:confirm_text) }, class: "btn btn-lg btn-custom" %>
       <% end %>
     </div>
 <% end %>

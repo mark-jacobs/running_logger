@@ -5,15 +5,13 @@
   <div id="container2">
     <h2>Weekly miles</h2>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-    <%= column_chart({"7 weeks ago" => @logs_8_week[7],
-                      "6 weeks ago" => @logs_8_week[6],
-                      "5 weeks ago" => @logs_8_week[5],
-                      "4 weeks ago" => @logs_8_week[4],
-                      "3 weeks ago" => @logs_8_week[3],
-                      "2 weeks ago" => @logs_8_week[2],
-                      "Last week" => @logs_8_week[1],
-                      "This week" => @logs_8_week[0],
-                      }) %>
+    <% chart_hash = {}
+      7.downto(0) do |x| 
+        chart_hash[t(:weeks_ago, count: x)] = @logs_8_week[x] 
+      end 
+    %>
+
+    <div><%= column_chart(chart_hash) %></div>
   </div>
   <div id="container2">
     <div id="entry_head2_l"><p>Miles last year: <%= @miles_for_last_year %></p></div>
@@ -28,7 +26,7 @@
     <div id="prof_head2">
       <% race =  @user.races.where("race_date >= ?", Time.now.beginning_of_day).first %>
       <% unless race.nil? %>
-        <h2>Next race: <%= race.race_name%>, <%= race.race_date.strftime("%d/%m/%y") %></h1>
+        <h2>Next race: <%= race.race_name %>, <%= I18n.l(race.race_date, format: :brief ) %></h1>
       <% end %>
     </div>
 </div>

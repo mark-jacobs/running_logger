@@ -49,7 +49,7 @@
   <% if !@race.id.nil? %>
     <p><%= f.submit t(:submitter), class: "btn btn-lg btn-custom" %>
        <%= link_to t(:deleter), "/users/#{@user.id}/races/#{@race.id}",  
-        method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-lg btn-custom" %>
+        method: :delete, data: { confirm: t(:confirm_text) }, class: "btn btn-lg btn-custom" %>
     </p>
   <% else %>
     <p><%= f.submit t(:submitter), class: "btn btn-lg btn-custom" %></p>
