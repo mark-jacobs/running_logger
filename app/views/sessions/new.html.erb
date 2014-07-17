@@ -1,4 +1,4 @@
-<% provide(:title, "Sign in") %>
+<% provide(:title, t(:signin))%>
 <div id="container1">
 <h1>Sign in</h1>
 
@@ -9,9 +9,9 @@
   <p><%= f.label :password %>
   <p><%= f.password_field :password %>
 
-  <%= f.submit "Sign in" %>
+  <%= f.submit t(:signin) %>
 <% end %>
 
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+<p><%= t(:new_user) %> <%= link_to t(:signup_now), signup_path %></p>
 </div>
 

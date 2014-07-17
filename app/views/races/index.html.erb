@@ -1,16 +1,16 @@
 <div id="container1">
   <div id="prof_head" style="margin-bottom: 1%;">
-    <h2>Races</h2>
+    <h2><%= t(:race).pluralize.capitalize %></h2>
   </div>
 
   <div id="nav_icons" style="width:100%; text-align:center; margin-top: 1%;">
-    <%= link_to "Add race", new_user_race_path, class: "btn btn-large btn-custom" %>
+    <%= link_to t(:add_race), new_user_race_path, class: "btn btn-large btn-custom" %>
   </div>
 
-  <h2>Upcoming races <%= @x %></h2>
+  <h2><%= t(:upcoming_races).capitalize %> <%= @x %></h2>
   <%= render partial: 'shared/race_item', collection: @upcoming_races  %>
 
-  <h2>Results</h2>
+  <h2><%= t(:result).pluralize.capitalize %></h2>
   <%= render partial: 'shared/race_item', collection: @completed_races %>
   
 </div>

@@ -45,10 +45,10 @@
                                                                             end %>';">
       <p>
         <div id="log">
-        <%= (@start  + x.day).strftime("%^a ") %>
+        <%= I18n.l(@start  + x.day, format: :just_day_short) %>
 
         </div>
-        <div id="log1"><%= (@start + x.day).strftime("%d/%m/%y") %></div>
+        <div id="log1"><%= I18n.l(@start + x.day, format: :date) %></div>
         <div id="log3"><%=  if @logs[x].nil? 
                               t(:off_day)
                             else  
@@ -69,12 +69,12 @@
 </div>
   <div id="log-row">
       <div id="plan_head">
-        Planned miles: <%= @summary[:planned_miles] %>
+        <%= t :planned_miles %><%= @summary[:planned_miles] %>
       </div>
       <div id="log_head">
-        Logged miles: <%=@summary[:logged_miles] %>,
-        logged calories: <%= @summary[:logged_calories] %>
-        logged time: <%= @summary[:logged_time] / 3600 %> hours, <%= (@summary[:logged_time] % 3600) / 60 %> minutes  
+        <%= I18n.t(:logged_miles) %> <%=@summary[:logged_miles] %>,
+        <%= I18n.t(:logged_cals) %> <%= @summary[:logged_calories] %>
+        <%= I18n.t(:logged_time) %> <%= @summary[:logged_time] / 3600 %>  <%= t :hours %>, <%= (@summary[:logged_time] % 3600) / 60 %> <%= t :minutes %>  
       </div>  
   </div>
 </div>

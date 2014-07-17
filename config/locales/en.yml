@@ -28,10 +28,13 @@ en:
     formats:
       date: "%d/%m/%Y"
       brief: "%a, %e %b"
+      just_day_short: "%^a"
 
   time:
     formats:
       time: "%H:%M:%S"
+      date: "%d/%m/%Y"
+      just_day_short: "%^a"
 
   hello: "Hello world"
   logday: DAY
@@ -59,6 +62,31 @@ en:
   miles_last_year: "Miles last year:"
   miles_this_year: "Miles for this year:"
   welcome: "Welcome! Press stuff to continue."
+  weeks: weeks
+  logged_miles: "Logged miles:"
+  logged_cals: "logged calories:"
+  logged_time: "logged time:"
+  hours: "hours"
+  minutes: "minutes"
+  planned_miles: "Planned miles:" 
+  edit_phase_head: Edit phased training period
+  add_phase_head: Add new phased training period
+  phase_info: When choosing a period for a training phase, it will default to a start date of the next available Monday, and a
+     target date of the next available Sunday from the dates selected. Training periods cannot overlap. Phase II, III, IV have a limit of 6 week periods, any weeks over a 24 week period will be added to phase I.
+  race: race
+  result: result
+  upcoming_races: upcoming races
+  add_race: Add race
+  personal_bests: Personal Bests
+  signup_now: "Sign up now!"
+  new_user: New user?
+  prof_update: Update your profile
+  edit_user: Edit user
+  new_user_signup: New user signup
+  edit_prof: "Edit profile"
+  week_avg_L_Y: "Weekly average last year:"
+  week_avg_YTD: "Weekly average this year TD:"
+  next_race: "Next race: "
 
 
   helpers:

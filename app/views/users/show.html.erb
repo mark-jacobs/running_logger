@@ -1,6 +1,6 @@
 <div id="container1">
   <div id="prof_head" style = "margin-bottom: 1%;"><h2><%= @user.name %></h2></div>
-    <%= link_to "Edit profile", edit_user_path, class: "btn btn-md btn-custom" %>
+    <%= link_to t(:edit_prof), edit_user_path, class: "btn btn-md btn-custom" %>
    
   <div id="container2">
     <h2>Weekly miles</h2>
@@ -18,15 +18,15 @@
     <div id="entry_head2_r"><p><%= t(:miles_this_year) %><%= @miles_for_year.round(2) %></p></div>
   </div>
   <div id ="container2">
-    <div id="entry_head2_l"><p>Weekly average last year: <%= (@miles_for_last_year / 52).round(2) %></p></div>
-    <div id="entry_head2_r"><p>Weekly average this year TD: <%= (@miles_for_year / Time.now.strftime("%W").to_f).round(2) %></p></div>
+    <div id="entry_head2_l"><p><%= t(:week_avg_L_Y)%> <%= (@miles_for_last_year / 52).round(2) %></p></div>
+    <div id="entry_head2_r"><p><%= t(:week_avg_YTD)%> <%= (@miles_for_year / Time.now.strftime("%W").to_f).round(2) %></p></div>
   </div>
   <clear>
   <div id="container2">
     <div id="prof_head2">
       <% race =  @user.races.where("race_date >= ?", Time.now.beginning_of_day).first %>
       <% unless race.nil? %>
-        <h2>Next race: <%= race.race_name %>, <%= I18n.l(race.race_date, format: :brief ) %></h1>
+        <h2><%= t(:next_race) %><%= race.race_name %>, <%= I18n.l(race.race_date, format: :brief ) %></h1>
       <% end %>
     </div>
 </div>

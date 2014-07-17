@@ -11,9 +11,9 @@
                                 else 
                                   'r' 
                                 end }"%>">
-      <h3><%= result.finish_time.strftime("%H:%M:%S") %></h3>
+      <h3><%= I18n.l(result.finish_time, format: :time) %></h3>
       <%= result.race_name %> 
-      <%= result.race_date.strftime("%d/%m/%y") %>
+      <%= I18n.l(result.race_date, format: :date) %>
       <% left = !left %>
     </div> 
   </div>

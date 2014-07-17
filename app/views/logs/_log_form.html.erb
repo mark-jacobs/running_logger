@@ -5,7 +5,7 @@
   <%= f.hidden_field :log_date, value: @log.log_date %>
   <div id="date1">
     <%= f.label :log_date %>
-    <%= @log.log_date.strftime("%d/%m/%y") %>
+    <%= I18n.l(@log.log_date, format: :date) %>
     <%= f.label :notes %>
     <%= f.text_field :notes %>
   </div>
