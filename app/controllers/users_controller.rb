@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to RunLogger!"
+      flash[:success] = I18n.t(:new_user_success)
       redirect_to @user
     else 
       render 'new'
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = I18n.t(:update_profile_success)
       redirect_to @user
     else
       render 'edit'
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     end
 
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in" unless signed_in?
+      redirect_to signin_url, flash[:notice] = I18n.t(:pls_sign_in_msg) unless signed_in?
     end
 
     def correct_user

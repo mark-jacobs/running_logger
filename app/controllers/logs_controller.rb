@@ -17,7 +17,7 @@ class LogsController < ApplicationController
       if logs_params[:log_date] = ""
         @logs.errors.add(:log_date, "Must have a log date!")
         redirect_to "/users/#{params[:user_id]}/log/#{params[:period]}"
-        flash[:warning] = "To create a log a log must have a date!"
+        flash[:warning] = I18n.t(:log_must_have_date)
       else
         render 'new'
       end

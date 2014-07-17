@@ -88,6 +88,10 @@ en:
   week_avg_YTD: "Weekly average this year TD:"
   next_race: "Next race: "
   phase: phase
+  log_must_have_date: "To create a log a log must have a date!"
+  new_user_success: "Welcome to RunLogger!"
+  update_profile_success: Profile updated
+  pls_sign_in_msg: "Please sign in"
 
 
   helpers:
