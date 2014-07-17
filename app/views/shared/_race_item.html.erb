@@ -5,10 +5,10 @@
       <h3><%= race_item.race_name %></h3>
 
       <p><%= race_item.distance %> </p>
-      <%= race_item.race_date.strftime("%d/%m/%y") %>
+      <%= I18n.l(race_item.race_date, format: :date) %>
       <%= race_item.position %>
       <% unless race_item.finish_time.nil? || race_item.finish_time.strftime("%H:%M:%S") == "00:00:00" %>
-        <%= race_item.finish_time.strftime("%H:%M:%S") %>
+        <%= I18n.l(race_item.finish_time, format: :time) %>
       <% end %>  
     </div> 
   </div>

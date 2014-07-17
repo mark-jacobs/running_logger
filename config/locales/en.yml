@@ -29,6 +29,10 @@ en:
       date: "%d/%m/%Y"
       brief: "%a, %e %b"
 
+  time:
+    formats:
+      time: "%H:%M:%S"
+
   hello: "Hello world"
   logday: DAY
   logdate: DATE 
@@ -52,16 +56,9 @@ en:
     zero: "This week"
     one: "Last week"
     other: "%{count} weeks ago"
-  # = I18n.t('discussionmgt.participants', :count => resource.participants.size)
-
-  #weeks_ago_7: 7 weeks ago
-  #weeks_ago_6: 6 weeks ago
-  #weeks_ago_5: 5 weeks ago
-  #weeks_ago_4: 4 weeks ago
-  #weeks_ago_3: 3 weeks ago
-  #weeks_ago_2: 2 weeks ago
-  #weeks_ago_1: Last week
-  #this_week:   This week
+  miles_last_year: "Miles last year:"
+  miles_this_year: "Miles for this year:"
+  welcome: "Welcome! Press stuff to continue."
 
 
   helpers:
