@@ -72,7 +72,7 @@ en:
   edit_phase_head: Edit phased training period
   add_phase_head: Add new phased training period
   phase_info: When choosing a period for a training phase, it will default to a start date of the next available Monday, and a
-     target date of the next available Sunday from the dates selected. Training periods cannot overlap. Phase II, III, IV have a limit of 6 week periods, any weeks over a 24 week period will be added to phase I.
+     target date of the next available Sunday from the dates selected. Training periods cannot overlap. Phase II, III, IV have a limit of 6 week periods, any weeks over a 24 week period will be added to phase I. Follows the Jack Daniels Running Formula method.
   race: race
   result: result
   upcoming_races: upcoming races
