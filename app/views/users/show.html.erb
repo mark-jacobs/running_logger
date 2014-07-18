@@ -14,7 +14,7 @@
     <div><%= column_chart(chart_hash) %></div>
   </div>
   <div id="container2">
-    <div id="entry_head2_l"><p><%= t(:miles_last_year) %><%= @miles_for_last_year %></p></div>
+    <div id="entry_head2_l"><p><%= t(:miles_last_year) %><%= @miles_for_last_year.round(2) %></p></div>
     <div id="entry_head2_r"><p><%= t(:miles_this_year) %><%= @miles_for_year.round(2) %></p></div>
   </div>
   <div id ="container2">

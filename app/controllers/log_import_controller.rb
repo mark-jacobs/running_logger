@@ -10,8 +10,9 @@ class LogImportController < ApplicationController
       render 'new'
     else
       msg = log_import_manager.import_csv(params[:file], current_user)
+      redirect_to "/users/#{current_user.id}/log/0", notice: "#{msg}"
     end
-    redirect_to "/users/#{current_user.id}/log/0", notice: "#{msg}"
+    
   end
 
   private

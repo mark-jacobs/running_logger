@@ -31,5 +31,5 @@ class LogImportManager
       msg = e.message + " at row #{count}"
     end
     msg
-    end
   end
+end
