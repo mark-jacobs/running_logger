@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :log do |f|
-    f.log_date Time.now + 1.day
+    f.log_date Time.now + 365.days
   end
 end
