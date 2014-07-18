@@ -96,6 +96,7 @@ en:
   choose_valid_import_csv: Choose valid import CSV
   import: Import
   csv: CSV
+  atrow: at row
 
 
   helpers:
