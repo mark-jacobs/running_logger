@@ -11,9 +11,18 @@
 *get Rspec working correctly
 
 *Import from csv?
+  1. Create a controller and route to do a new and create (GET and POST respectively)
+
+  2. Create a form with a 'file' input type, give this input an ID and name
+
+  3. On the create method in your controller use the Ruby CSV methods to parse your imported data - csv = CSV.parse(csv_text, headers: true)
+
+  4. Walk the collection and insert into your model - csv.each do |row|   ... model.attribute = row['column name']
+
+  NB: You may need to parse the row column values into the appropriate type (e.g. Date.Parse(..))
+
+  CB
 
 *might be good if you can enter the dates of the race, and it calculate the phases for you according to the method in the book for < 24 week training cycles. Will need to be able to include or skip phase I training as necessary.
-
-*Error messages when entering fields incorrectly.
 
 *Deal with timezones properly when entering times.

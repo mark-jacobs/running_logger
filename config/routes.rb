@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   resources :sessions, only:[:new, :create, :destroy]
 
-  
   get 'users/new'
   get 'welcome/index'
   root 'welcome#index'
@@ -22,6 +21,9 @@ Rails.application.routes.draw do
   match '/editlog/:user_id/:period/:day', to:     'logs#edit',          via: 'get' 
   match '/pb/:user_id',                   to:     'races#pb',           via: 'get'
   match '/distance/:user_id/:dist',       to:     'races#distance',     via: 'get'
+  match '/log_import/',                   to:     'log_import#new',     via: 'get'
+  match '/log_import/',                   to:     'log_import#create',  via: 'post'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,6 +11,7 @@
             <li><%= link_to t(:races), user_races_path(current_user) %></li>
             <li><%= link_to t(:pbs), "/pb/#{current_user.id}" %></li>
             <li><%= link_to t(:phases), "/users/#{current_user.id}/phases/" %></li>
+            <li><%= link_to t(:csv), "/log_import/" %></li>
             <li class="divider"><li>
         </ul>
         <ul class="nav navbar-nav pull-right">

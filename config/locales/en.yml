@@ -68,7 +68,7 @@ en:
   logged_time: "logged time:"
   hours: "hours"
   minutes: "minutes"
-  planned_miles: "Planned miles:" 
+  planned_miles: "Planned miles: " 
   edit_phase_head: Edit phased training period
   add_phase_head: Add new phased training period
   phase_info: When choosing a period for a training phase, it will default to a start date of the next available Monday, and a
@@ -93,6 +93,9 @@ en:
   update_profile_success: Profile updated
   pls_sign_in_msg: "Please sign in"
   log_error: "Must have a log date!"
+  choose_valid_import_csv: Choose valid import CSV
+  import: Import
+  csv: CSV
 
 
   helpers:

@@ -59,7 +59,7 @@
         <div id="log3"><%= @logs[x].log_workout unless @logs[x].nil? %>&nbsp</div>
         <div id="log5"><%= t :q  unless @logs[x].nil? || !@logs[x].log_q %>&nbsp</div>
         <div id="log4"><%= @logs[x].log_miles unless @logs[x].nil? %>&nbsp</div>
-        <div id="log6"><%= I18n.l(@logs[x].log_time, format: :time) unless @logs[x].nil? %>&nbsp</div>
+        <div id="log6"><%= I18n.l(@logs[x].log_time, format: :time) unless @logs[x].nil? || @logs[x].log_time.nil?%>&nbsp</div>
         <div id="log7"><%= @logs[x].log_calories unless @logs[x].nil? %>&nbsp</div>
         <div id="notes"><%= @logs[x].notes unless @logs[x].nil? %>&nbsp</div>
 

@@ -1,0 +1,9 @@
+<div id="container1">
+  <h3>Log import placeholder</h3>
+  <%= form_tag(multipart: true) do |f| %>
+    <%= t(:choose_valid_import_csv) %>
+    <%= file_field_tag :file %>
+  <%= submit_tag t(:import) %>
+  <% end %>
+</div>
+
