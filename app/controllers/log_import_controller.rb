@@ -5,16 +5,17 @@ class LogImportController < ApplicationController
   end
   ###########################Don't forget to create transactions for import.
   def create
-    csv = params[:file]
-    if false
-      #render 'new'
+    csv_path = params[:file].path unless params[:file].nil?
+    if csv_path.nil?
+      render 'new'
     else
 
       #csv = CSV.parse(csv_text, headers: true, col_sep: ',')
       user = current_user
       log_params = {}
-
-      CSV.foreach('/users/markjacobs/documents/csvimportsheet.csv', headers: true) do |row|
+      
+      #CSV.foreach('/users/markjacobs/documents/csvimportsheet.csv', headers: true) do |row|
+      CSV.foreach(csv_path, headers: true) do |row|
         log_params[:log_date] = row[0]
         log_params[:plan_miles] = row[1]
         log_params[:plan_workout] = row[2]
@@ -30,8 +31,8 @@ class LogImportController < ApplicationController
         new_log = user.logs.build(log_params)
         new_log.save
       end
+      redirect_to root_url, notice: "Yayy!"  
     end  
-    redirect_to root_url, notice: "Yayy!"
-  
+    
   end
 end
