@@ -21,7 +21,8 @@ class RacesManager
     pb_races
   end
 
+  # Returns all results for user, distance)
   def get_distance_races(a_user, dist)
-    races = a_user.races.where(distance: dist).where.not(finish_time: Time.new("2000-01-01 00:00:00"))
+    races = a_user.races.where(distance: dist).where.not(finish_time: Time.new("2001-01 00:00:00"))
   end
 end 
