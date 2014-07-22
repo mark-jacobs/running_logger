@@ -14,7 +14,7 @@ FactoryGirl.define do
     f.sequence(:race_date)    { |n| Time.now + n.days }
     f.sequence(:race_name)    { |n| "Mega Race#{n}" }
     f.distance                "10km"
-    f.finish_time             Time.parse("2000-01-01 00:00:00")
+    f.finish_time             Time.new("2000-01-01 00:00:00")
     f.position                nil
     f.user_id                 1
   end

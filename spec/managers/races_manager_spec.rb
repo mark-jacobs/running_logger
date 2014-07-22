@@ -3,12 +3,12 @@ require 'rails_helper'
 describe RacesManager do
   
   let(:manager) { RacesManager.new }
-  let(:race) { FactoryGirl.create :race }
+  let(:race) { FactoryGirl.create(:race) }
   let(:race2) { FactoryGirl.create(:race, user_id: 2) }
-  let(:race3) { FactoryGirl.create :race }
+  let(:race3) { FactoryGirl.create(:race) }
   let(:race4) { FactoryGirl.create(:race, user_id: 2) }
-  let(:race5) { FactoryGirl.create :race }
-  let(:race6) { FactoryGirl.create :race }
+  let(:race5) { FactoryGirl.create(:race) }
+  let(:race6) { FactoryGirl.create(:race) }
   let(:user) { FactoryGirl.create :user, id: 1 }
   let(:user2) { FactoryGirl.create :user, id: 2 }
 
@@ -137,5 +137,26 @@ describe RacesManager do
       end
     end
   end
+  
+  describe 'build_upcoming_race_index(a_user) method' do
+    before(:each) do
+      race.finish_time = "2000-01-01 01:33:45"
+      race.save
+      race2.save
+      race3.save
+      race5.save
+    end
 
+    it 'should return the correct amount of races' do
+      the_race_array = manager.build_upcoming_race_index(user)
+      the_race_array.size.should be == 2
+    end
+
+    it 'should only return races for the correct user' do
+      the_race_array = manager.build_upcoming_race_index(user)
+      the_race_array.each do |each_race|
+        each_race.user_id.should eq(user.id)
+      end
+    end
+  end
 end
