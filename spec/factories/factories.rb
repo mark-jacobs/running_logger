@@ -1,10 +1,10 @@
 FactoryGirl.define do
   
   factory :log do |f|
-    f.sequence(:log_date)     { |n| Time.now + n.days }
-    f.sequence(:plan_date)    { |n| "Workout #{n}" }
-    f.plan_miles              10
-    f.log_miles               10
+    f.sequence(:log_date)     { |n| (Time.now + n.days).beginning_of_day }
+    f.sequence(:plan_workout)    { |n| "Workout #{n}" }
+    f.plan_miles              10.0
+    f.log_miles               10.0
     f.user_id                 1
   end
 
@@ -28,6 +28,7 @@ FactoryGirl.define do
     f.sequence(:email)        { |n| "test#{n}@email.com" }
     f.password                "froggle"
     f.password_confirmation   "froggle"
+    f.id                      1
   end
 
 end

@@ -28,8 +28,8 @@ class UsersManager < CommonManager
   end
 
 
-  def yearly_miles(year, user)
-    logs = logs_for_year(year, user)
+  def yearly_miles(a_year, a_user)
+    logs = logs_for_year(a_year, a_user)
     years_miles = 0
     logs.each do |x|
       years_miles += x.log_miles unless x.log_miles.nil?
@@ -38,10 +38,10 @@ class UsersManager < CommonManager
   end
   
   private 
-  
-    def logs_for_year(year, user)
-      logs = user.logs.where("log_date >= ? AND log_date <= ?", "#{Time.now.year - year}-01-01 00:00:00" , 
-        "#{Time.now.year - year}-12-31 23:59:59")
+
+    def logs_for_year(a_year, a_user)
+      logs = a_user.logs.where("log_date >= ? AND log_date <= ?", Time.new("#{Time.now.year - a_year}-01-01 00:00:00"), 
+        Time.new("#{Time.now.year - a_year}-12-31 23:59:59"))
       return logs
     end
 end
