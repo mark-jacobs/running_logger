@@ -28,7 +28,7 @@ class LogImportManager
         end
       end
     rescue Exception => e
-      msg = e.message + " at row #{count}"
+      msg = e.message + "#{t(:atrow)} #{count}"
     end
     msg
   end
