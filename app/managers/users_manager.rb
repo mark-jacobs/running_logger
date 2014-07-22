@@ -1,4 +1,5 @@
 class UsersManager < CommonManager
+  
   def create_logs_array(logs, period)
     logs_array = []
     7.times do |eachday|
@@ -26,11 +27,6 @@ class UsersManager < CommonManager
     miles_array
   end
 
-  def logs_for_year(year, user)
-    logs = user.logs.where("log_date >= ? AND log_date <= ?", "#{Time.now.year - year}-01-01 00:00:00" , 
-      "#{Time.now.year - year}-12-31 23:59:59")
-    return logs
-  end
 
   def yearly_miles(year, user)
     logs = logs_for_year(year, user)
@@ -40,4 +36,12 @@ class UsersManager < CommonManager
     end
     years_miles
   end
+  
+  private 
+  
+    def logs_for_year(year, user)
+      logs = user.logs.where("log_date >= ? AND log_date <= ?", "#{Time.now.year - year}-01-01 00:00:00" , 
+        "#{Time.now.year - year}-12-31 23:59:59")
+      return logs
+    end
 end

@@ -1,7 +1,11 @@
 FactoryGirl.define do
   
   factory :log do |f|
-    f.log_date                Time.now + 365.days
+    f.sequence(:log_date)     { |n| Time.now + n.days }
+    f.sequence(:plan_date)    { |n| "Workout #{n}" }
+    f.plan_miles              10
+    f.log_miles               10
+    f.user_id                 1
   end
 
   factory :phase do |f|
