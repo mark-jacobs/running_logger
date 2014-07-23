@@ -1,17 +1,22 @@
 FactoryGirl.define do
   
   factory :log do |f|
-    f.sequence(:log_date)       { |n| (Time.new("#{Time.now.year}-07-01 00:00:00") + n.days) }
+    f.sequence(:log_date)       { |n| (Time.parse("#{Time.now.year}-07-01 00:00:00") + n.days) }
     f.sequence(:plan_workout)   { |n| "Workout #{n}" }
     f.plan_miles                10.0
     f.log_miles                 10.0
 
     factory :last_years_log do |f|
-      f.sequence(:log_date)     { |n| (Time.new("#{Time.now.year}-07-01 00:00:00") + n.days - 1.year) }
+      f.sequence(:log_date)     { |n| (Time.parse("#{Time.now.year}-07-01 00:00:00") + n.days - 1.year) }
     end
 
     factory :incrementing_logs do |f|
       f.sequence(:log_date)     { |n| (Time.now.beginning_of_day - n.days  + 8.weeks) }
+    end
+
+    factory :current_log do |f|  
+      f.log_date              Time.now - 1.day
+      f.log_miles             12
     end
   end
   
@@ -52,6 +57,12 @@ FactoryGirl.define do
     trait :with_logs do
       after(:create) do |instance|
         create_list :log, 2, user: instance
+      end
+    end
+
+    trait :with_current_log do
+      after(:create) do |instance|
+        create_list :current_log, 1, user: instance
       end
     end
 
