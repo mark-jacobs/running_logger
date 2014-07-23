@@ -104,9 +104,13 @@ describe PhasesManager do
 
     it 'should return the correct phase when there is a current phase' do
       manager.get_current_phase(user_curr_phase, 0).should eq("Phase III")
+      manager.get_current_phase(user_curr_phase, 5).should eq("Phase III")
       manager.get_current_phase(user_curr_phase, -1).should eq("Phase II")
+      manager.get_current_phase(user_curr_phase, -3).should eq("Phase II")
       manager.get_current_phase(user_curr_phase, -4).should eq("Phase I")
+      manager.get_current_phase(user_curr_phase, -7).should eq("Phase I")
       manager.get_current_phase(user_curr_phase, 6).should eq("Phase IV")
+      manager.get_current_phase(user_curr_phase, 8).should eq("Phase IV")
 
 
     end
