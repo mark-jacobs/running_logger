@@ -41,7 +41,12 @@ class Phase < ActiveRecord::Base
   private
 
     def adjust_dates_to_whole_weeks
-      self.start_date = self.start_date - self.start_date.wday.days + 1.day + 1.week unless self.start_date.wday == 1
-      self.target_date = self.target_date - self.target_date.wday.days + 1.week unless self.target_date.wday == 7
+      if self.start_date.wday == 0
+        start_adjust_day = 7
+      else 
+        start_adjust_day = self.start_date.wday
+      end
+      self.start_date = self.start_date - start_adjust_day.days + 1.day + 1.week unless self.start_date.wday == 1
+      self.target_date = self.target_date - self.target_date.wday.days + 1.week unless self.target_date.wday == 0
     end
 end
