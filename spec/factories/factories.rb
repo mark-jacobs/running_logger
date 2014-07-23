@@ -14,7 +14,7 @@ FactoryGirl.define do
       f.sequence(:log_date)     { |n| (Time.now.beginning_of_day - n.days  + 8.weeks) }
     end
   end
-
+  
   factory :phase do |f|
     f.start_date              "2014-04-01 18:19:56"
     f.target_date             "2014-08-11 18:19:56"
@@ -27,6 +27,11 @@ FactoryGirl.define do
     factory :second_phase do |f|
       f.start_date             "2013-05-01 18:19:56"
       f.target_date            "2013-08-11 18:19:56"
+    end
+
+    factory :current_phase do |f|
+      f.start_date             Time.now - 8.weeks
+      f.target_date            Time.now + 8.weeks
     end
   end
 
@@ -78,6 +83,12 @@ FactoryGirl.define do
     trait :with_invalid_phase do
       after(:create) do |instance|
         build_list :phase_invalid, 1, user: instance
+      end
+    end
+
+    trait :with_current_phase do
+      after(:create) do |instance|
+        create_list :current_phase, 1, user: instance
       end
     end
   end

@@ -2,12 +2,13 @@ require 'rails_helper'
 
 describe PhasesManager do 
   
-  let (:manager)      { PhasesManager.new }
-  let (:user)         { FactoryGirl.create(:user, :with_phase) }
-  let (:second_user)  { FactoryGirl.create(:user, :with_phase, :with_second_phase) }
-  let (:phase_inv)    { FactoryGirl.build(:phase_invalid) }
-  let (:phase)        { FactoryGirl.build(:phase) }
-  let (:user_build)   { FactoryGirl.create(:user, :with_invalid_phase) }
+  let (:manager)         { PhasesManager.new }
+  let (:user)            { FactoryGirl.create(:user, :with_phase) }
+  let (:second_user)     { FactoryGirl.create(:user, :with_phase, :with_second_phase) }
+  let (:phase_inv)       { FactoryGirl.build(:phase_invalid) }
+  let (:phase)           { FactoryGirl.build(:phase) }
+  let (:user_build)      { FactoryGirl.create(:user, :with_invalid_phase) }
+  let (:user_curr_phase) { FactoryGirl.create(:user, :with_current_phase) }
 
   describe 'create_phase(phase) method' do
 
@@ -64,7 +65,8 @@ describe PhasesManager do
 
       it 'should return false' do
         phase_params = { start_date: "2015-03-01 18:19:56" }
-        manager.update_phase(phase, phase_params).should eq(false)
+        result = manager.update_phase(phase, phase_params)
+        result.should be_falsey
       end
     end
   end
@@ -84,12 +86,29 @@ describe PhasesManager do
   end
 
   describe 'get_phase_split(weeks) method' do
+    
     it 'should return an array of arrays with the correct splits for the number of weeks added' do 
       splits = manager.get_phase_split([1,10,13,30])
       splits[0].should eq([1,0,0,0])
       splits[1].should eq([3,3,1,3])
       splits[2].should eq([4,3,3,3])
       splits[3].should eq([12,6,6,6])
+    end
+  end
+
+  describe 'get_current_phase(user,period) method' do
+    
+    it "should return \"No Phase\" when there is no current phase" do
+      manager.get_current_phase(user_build, 0).should eq("No Phase")
+    end
+
+    it 'should return the correct phase when there is a current phase' do
+      manager.get_current_phase(user_curr_phase, 0).should eq("Phase III")
+      manager.get_current_phase(user_curr_phase, -1).should eq("Phase II")
+      manager.get_current_phase(user_curr_phase, -4).should eq("Phase I")
+      manager.get_current_phase(user_curr_phase, 6).should eq("Phase IV")
+
+
     end
   end
 end
