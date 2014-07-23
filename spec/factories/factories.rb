@@ -25,6 +25,11 @@ FactoryGirl.define do
     factory :phase_invalid do |f|
       f.start_date            "2014-08-12 18:19:56"
     end
+
+    factory :second_phase do |f|
+      f.start_date             "2013-05-01 18:19:56"
+      f.target_date            "2013-08-11 18:19:56"
+    end
   end
 
   factory :race do |f|
@@ -66,11 +71,16 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_second_phase do
+      after(:create) do |instance|
+        create_list :second_phase, 1, user:instance
+      end
+    end
+
     trait :with_invalid_phase do
       after(:create) do |instance|
         build_list :phase_invalid, 1, user: instance
       end
     end
   end
-
 end
