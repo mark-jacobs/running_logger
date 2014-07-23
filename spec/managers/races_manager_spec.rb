@@ -3,14 +3,14 @@ require 'rails_helper'
 describe RacesManager do
   
   let(:manager) { RacesManager.new }
-  let(:race) { FactoryGirl.create(:race) }
+  let(:race)  { FactoryGirl.create(:race, user_id: 1) }
   let(:race2) { FactoryGirl.create(:race, user_id: 2) }
-  let(:race3) { FactoryGirl.create(:race) }
+  let(:race3) { FactoryGirl.create(:race, user_id: 1) }
   let(:race4) { FactoryGirl.create(:race, user_id: 2) }
-  let(:race5) { FactoryGirl.create(:race) }
-  let(:race6) { FactoryGirl.create(:race) }
-  let(:user) { FactoryGirl.create :user, id: 1 }
-  let(:user2) { FactoryGirl.create :user, id: 2 }
+  let(:race5) { FactoryGirl.create(:race, user_id: 1) }
+  let(:race6) { FactoryGirl.create(:race, user_id: 1) }
+  let(:user)  { FactoryGirl.create(:user, id: 1) }
+  let(:user2) { FactoryGirl.create(:user, id: 2) }
 
 
 
