@@ -82,4 +82,14 @@ describe PhasesManager do
       test_array[1].should eq(14)
     end
   end
+
+  describe 'get_phase_split(weeks) method' do
+    it 'should return an array of arrays with the correct splits for the number of weeks added' do 
+      splits = manager.get_phase_split([1,10,13,30])
+      splits[0].should eq([1,0,0,0])
+      splits[1].should eq([3,3,1,3])
+      splits[2].should eq([4,3,3,3])
+      splits[3].should eq([12,6,6,6])
+    end
+  end
 end

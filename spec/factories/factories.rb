@@ -15,8 +15,6 @@ FactoryGirl.define do
     end
   end
 
- 
-
   factory :phase do |f|
     f.start_date              "2014-04-01 18:19:56"
     f.target_date             "2014-08-11 18:19:56"
