@@ -22,10 +22,6 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
-  def race_count
-    @race_count = self.races.where(finish_time: nil).count
-  end
-
   private
 
     def create_remember_token
