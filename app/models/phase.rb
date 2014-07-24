@@ -15,7 +15,8 @@ class Phase < ActiveRecord::Base
     else
       phases = Phase.where("user_id = ? AND id <> ?", user_id, id)
     end
-    unless phases.nil?
+
+    unless phases.nil? || start_date.nil? || target_date.nil?
       phases.each do |each_phase|
         if start_date >= each_phase.start_date && start_date <= each_phase.target_date
           errors.add(:start_date, "overlaps another training period.")
@@ -41,12 +42,14 @@ class Phase < ActiveRecord::Base
   private
 
     def adjust_dates_to_whole_weeks
-      if self.start_date.wday == 0
-        start_adjust_day = 7
-      else 
-        start_adjust_day = self.start_date.wday
+      unless start_date.nil? || target_date.nil?
+        if self.start_date.wday == 0
+          start_adjust_day = 7
+        else 
+          start_adjust_day = self.start_date.wday
+        end
+        self.start_date = self.start_date - start_adjust_day.days + 1.day + 1.week unless self.start_date.wday == 1
+        self.target_date = self.target_date - self.target_date.wday.days + 1.week unless self.target_date.wday == 0
       end
-      self.start_date = self.start_date - start_adjust_day.days + 1.day + 1.week unless self.start_date.wday == 1
-      self.target_date = self.target_date - self.target_date.wday.days + 1.week unless self.target_date.wday == 0
     end
 end
