@@ -12,21 +12,6 @@ describe RacesManager do
   let(:user)  { FactoryGirl.create(:user, id: 1) }
   let(:user2) { FactoryGirl.create(:user, id: 2) }
 
-
-
-  # Probably shouldn't be doing this here, but helping check my tests are right.
-  it 'should have valid factories.' do
-    race.should be_valid
-    race.race_name.should eq("Mega Race1")
-    race.user_id.should eq(1)
-    race2.should be_valid
-    race2.race_name.should eq("Mega Race2")
-    race2.user_id.should eq(2)
-    race4.user_id.should eq(2)
-    user.id.should eq(1)
-    user2.id.should eq(2)
-  end
-
   describe 'get_pb_races(a_user) method' do
     # test before adding race times that no PBs are returned.
     context 'where no race times exist' do

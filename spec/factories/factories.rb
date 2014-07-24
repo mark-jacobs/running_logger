@@ -3,8 +3,11 @@ FactoryGirl.define do
   factory :log do |f|
     f.sequence(:log_date)       { |n| (Time.parse("#{Time.now.year}-07-01 00:00:00") + n.days) }
     f.sequence(:plan_workout)   { |n| "Workout #{n}" }
-    f.plan_miles                10.0
+    f.plan_miles                15.0
     f.log_miles                 10.0
+    f.log_calories              1000
+    f.log_time                  "00:21:00"
+
 
     factory :last_years_log do |f|
       f.sequence(:log_date)     { |n| (Time.parse("#{Time.now.year}-07-01 00:00:00") + n.days - 1.year) }
@@ -15,7 +18,7 @@ FactoryGirl.define do
     end
 
     factory :current_log do |f|  
-      f.log_date              Time.now - 1.day
+      f.log_date              Time.now
       f.log_miles             12
     end
   end
@@ -46,6 +49,10 @@ FactoryGirl.define do
     f.distance                "10km"
     f.finish_time             Time.new("2000-01-01 00:00:00")
     f.position                nil
+
+    factory :race_today do |f|
+      f.race_date             Time.now
+    end
   end
 
   factory :user do |f|
@@ -94,6 +101,18 @@ FactoryGirl.define do
     trait :with_invalid_phase do
       after(:create) do |instance|
         build_list :phase_invalid, 1, user: instance
+      end
+    end
+
+    trait :with_race do
+      after(:create) do |instance|
+        create_list :race, 1, user: instance
+      end
+    end
+
+    trait :with_today_race do
+      after(:create) do |instance|
+        create_list :race_today, 1, user: instance
       end
     end
 

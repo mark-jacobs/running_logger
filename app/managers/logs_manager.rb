@@ -69,7 +69,6 @@ class LogsManager < CommonManager
     #then return an answer based on the period supplied and today's date.
     phase_manager ||= PhasesManager.new
     return phase_manager.get_current_phase(user, period)
-    
   end
 end
 
