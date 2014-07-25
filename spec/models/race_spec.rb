@@ -27,5 +27,5 @@ describe Race do
       the_race.race_name = ''
       the_race.should_not be_valid
     end
-  end 
+  end
 end

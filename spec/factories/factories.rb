@@ -73,6 +73,12 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_built_log do 
+      after(:create) do |instance|
+        build_list :current_log, 1, user: instance
+      end
+    end
+
     trait :with_old_logs do
       after(:create) do |instance|
         create_list :log, 2, user: instance
