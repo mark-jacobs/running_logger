@@ -53,7 +53,7 @@ class RacesController < ApplicationController
   end
 
   def distance
-    @dist_races = manager.get_distance_races(current_user, params[:dist])
+    @dist_races = manager.get_distance_races(@user, params[:dist])
     @dist = params[:dist]
   end
 
@@ -73,7 +73,7 @@ class RacesController < ApplicationController
     end
 
     def set_user
-      @user = current_user
+      @user = User.find(params[:user_id])
     end
 
     def get_race  

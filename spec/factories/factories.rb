@@ -49,6 +49,7 @@ FactoryGirl.define do
     f.distance                "10km"
     f.finish_time             Time.new("2000-01-01 00:00:00")
     f.position                nil
+    f.user_id                 1
 
     factory :race_today do |f|
       f.race_date             Time.now
@@ -58,8 +59,13 @@ FactoryGirl.define do
   factory :user do |f|
     f.sequence(:name)         { |n| "Test Name#{n}" }
     f.sequence(:email)        { |n| "test#{n}@email.com" }
+    f.id                      { |n| n }
     f.password                "froggle"
     f.password_confirmation   "froggle"
+
+    factory :second_user do |f|
+      f.id                     2
+    end
 
     trait :with_logs do
       after(:create) do |instance|
@@ -82,6 +88,12 @@ FactoryGirl.define do
     trait :with_old_logs do
       after(:create) do |instance|
         create_list :log, 2, user: instance
+        create_list :last_years_log, 3, user: instance
+      end
+    end
+
+    trait :with_old_logs2 do
+      after(:create) do |instance|
         create_list :last_years_log, 3, user: instance
       end
     end

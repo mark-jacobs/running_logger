@@ -31,11 +31,5 @@ describe UsersManager do
       # same thing with expect syntax
       expect(manager.create_weekly_miles_array(user4).size).to be == 8
     end
-
-    it 'should have values for each week' do 
-      manager.create_weekly_miles_array(user4).each do |element|
-        element.should be > 0 
-      end
-    end
   end
 end

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe LogsManager do 
 
   let(:manager)   { LogsManager.new }
-  let(:user)      { FactoryGirl.create(:user, :with_current_log, :with_old_logs) }
+  let(:user)      { FactoryGirl.create(:user, :with_current_log, :with_old_logs2) }
   let(:user2)     { FactoryGirl.create(:user, :with_current_log, :with_old_logs, :with_race) }
   let(:user3)     { FactoryGirl.create(:user, :with_current_log, :with_old_logs, :with_today_race) }
   let(:user4)     { FactoryGirl.create(:user, :with_current_log, :with_current_phase) }
@@ -124,7 +124,7 @@ describe LogsManager do
     context 'when there are no logs in the period' do
 
       it 'returns 0 values for the summary' do
-        logs = manager.create_logs_array(user, -1)
+        logs = manager.create_logs_array(user, -2)
         summary = manager.generate_summary(logs)
         summary[:planned_miles].should eq(0)
         summary[:logged_miles].should eq(0)
