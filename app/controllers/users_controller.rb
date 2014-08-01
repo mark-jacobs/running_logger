@@ -1,17 +1,21 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:show, :edit, :update, :log]
   before_action :correct_user, only: [:show, :edit, :update, :log]
+  before_action :not_signed_in, only: [:new, :create]
 
   include UsersHelper
+
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   def new
     @user = User.new
   end
 
   def show
-    @user = User.find(params[:id])
-    @logs_8_week = manager.create_weekly_miles_array(@user)
-    @miles_for_year = manager.yearly_miles(0, @user)
-    @miles_for_last_year = manager.yearly_miles(1, @user)
+      @user = User.find(params[:id])
+      @logs_8_week = manager.create_weekly_miles_array(@user)
+      @miles_for_year = manager.yearly_miles(0, @user)
+      @miles_for_last_year = manager.yearly_miles(1, @user)
   end
     
   def create
@@ -55,5 +59,14 @@ class UsersController < ApplicationController
 
     def manager
       @manager ||= UsersManager.new
+    end
+
+    def not_signed_in
+      redirect_to(root_url) if signed_in?
+    end
+
+    def record_not_found
+      flash[:warning] = "Record not found!"
+      redirect_to root_url
     end
 end

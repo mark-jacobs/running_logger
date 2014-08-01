@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  before_action :not_signed_in, only: [:new, :create]
   def new
   end
 
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to user
     else
-      flash.now[:error] = 'Invalid email/password combination'
+      flash.now[:error] = I18n.t(:invalid_combination)
       render 'new'
     end
   end
@@ -18,4 +18,13 @@ class SessionsController < ApplicationController
     sign_out
     redirect_to root_url
   end
+
+  private
+
+    def not_signed_in
+      if signed_in?
+        flash[:warning] = I18n.t(:already_signed_in)
+        redirect_to root_url
+      end
+    end
 end

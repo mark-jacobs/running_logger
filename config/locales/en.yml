@@ -97,6 +97,9 @@ en:
   import: Import
   csv: CSV
   atrow: at row
+  record_not_found: "Record not found!"
+  already_signed_in: User is already signed in
+  invalid_combination: Invalid email/password combination
 
 
   helpers:

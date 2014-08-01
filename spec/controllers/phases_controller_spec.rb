@@ -141,15 +141,53 @@ RSpec.describe PhasesController, :type => :controller do
     end
 
     describe 'update action' do
+      
+      context 'with correct parameters' do
 
-      context 'with correct parameters'
-       
-        it 'updates the phase'
+        before { patch :update, user_id: user.id, id: user.phases.first.id, phase: { start_date: "2012-01-02 00:00:00.000", 
+                  target_date: "2012-03-01 00:00:00.000"  } }
 
-      context 'with incorrect parameters' 
+        it 'updates the phase' do
+          expect(user.phases.first.start_date).to eq("2012-01-02 00:00:00.000")
+        end
+      end
 
-        it 'renders the phases/edit template'
+      context 'with incorrect parameters' do
+        let!(:orig_start_date)  { user.phases.first.start_date }
 
+        before(:each) do
+          patch :update, user_id: user.id, id: user.phases.first.id, phase: { start_date: "2014-01-02 00:00:00.000", 
+                  target_date: "2012-03-01 00:00:00.000"  } 
+        end
+
+        it 'renders the phases/edit template' do
+          expect(response).to render_template('phases/edit')
+        end
+          
+        it 'does not alter the phase' do
+          expect(user.phases.first.start_date).to eq(orig_start_date)
+        end
+      end
+    end
+
+    describe 'destroy action' do
+      let!(:phases_count) { user.phases.count }
+      let!(:all_phase_count) { Phase.count }
+
+      context 'when phase exists' do
+        
+        it 'deletes the phase' do
+          delete :destroy, user_id: user.id, id: user.phases.first.id
+          expect(user.phases.count).to eq(phases_count - 1)
+        end
+      end
+
+      context 'when phase does not exist' do
+
+        it 'does not change the phases count' do
+          expect(phases_count).to eq(Phase.count)
+        end
+      end
     end
   end
 
